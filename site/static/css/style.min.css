@@ -59,6 +59,7 @@
         
     }
     .header-logo img {
+        height: 32px;
         width: 90px !important;
         margin-left: -70px;
         
