@@ -1,0 +1,1 @@
+var SubDomain = 'alkhait'; var SiteID = '44680B13-EEE2-407F-9369-ADEED214A634'; var host = 'https://api.eratest.site';
