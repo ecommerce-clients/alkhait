@@ -38,42 +38,40 @@ var pagenames = "Home";
 <!-- /banner -->
 
 
-    <!-- Ec Shop page -->
-    <section class="ec-page-content section-space-p">
-      <div class="container">
-          <div class="row">
-            <div class="ec-shop-rightside col-lg-9 col-md-12 order-lg-last order-md-first  order-md-2 order-2 margin-b-30">
-                  <!-- Shop Top Start -->
-                  <div class="ec-pro-list-top d-flex">
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-12 ec-grid-list">
-                        <div class="ec-gl-btn">
-                            <form class="ec-btn-group-form" action="#">
-                                <input class="form-control myInput-hide myInput form-control" id="myInput" placeholder="Enter Your Product Name..." type="text" style="display: none;">
-                               
-                            </form>
-                        </div>
+ <!-- Product tab Area Start -->
+ <section class="section ec-product-tab section-space-p">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="section-title">
+                    <h2 class="ec-bg-title">Our Top Collection</h2>
+                    <h2 class="ec-title">Our Top Collection</h2>
+                    <p class="sub-title">Browse The Collection of Top Products</p>
+                </div>
+            </div>
 
-                      </div>
-                      <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-12 ec-sort-select mobile-view-grid-hide">
-                      
-                        <div class="ec-gl-btn">
-                            
-                            <button class="btn btn-grid-50 grid active"><img src="https://v1.eralive.net/assets/images/icons/grid.svg"
-                                    class="svg_img gl_svg" id="grid" alt="grid" /></button>
-                            <button class="btn btn-list-50 "><img src="https://v1.eralive.net/assets/images/icons/list.svg"
-                                    class="svg_img gl_svg" id="list" alt="list" /></button>
-                        </div>
-                         
-                      </div> -->
-                  </div>
-                  <!-- Shop Top End -->
-                  {{ if site.Data.homepage.products.enable }}
-                  <!-- Shop content Start -->
-                  <div class="shop-pro-content">
-                      <div class="shop-pro-inner">
-                          <div class="row" id="search">
-                            {{ range (where site.RegularPages "Type" "products") }}
-                            <div class="col-lg-3 col-md-3 col-sm-3 pricesrangeclass" data-category="{{ .Params.Category }}" data-price="{{ .Params.Price }}">
+            <!-- Tab Start -->
+            <div class="col-md-12 text-center">
+                <ul class="ec-pro-tab-nav nav justify-content-center">
+                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tab-pro-for-men">For
+                            Men</a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-pro-for-kids">For
+                            Kids</a></li>
+  
+                </ul>
+            </div>
+            <!-- Tab End -->
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="tab-content">
+                    <!-- 1st Product tab start -->
+                    <div class="tab-pane fade show active" id="tab-pro-for-men">
+                        <div class="row">
+                            {{ range first 4 (where site.RegularPages "Description" "Men") }}
+               
+                            <!-- Product Content -->
+                            <div class="col-lg-3 col-md-6 col-sm-6 pricesrangeclass" data-category="{{ .Params.Category }}" data-price="{{ .Params.Price }}">
                                 <!-- START single card -->
                                 <div class="ec-product-lsc">
                                     <div class="ec-product-image">
@@ -118,97 +116,644 @@ var pagenames = "Home";
                                 </div>
                                 <!-- START single card -->
                             </div>
-                              
-                              {{ end }}
-                          
-                          </div>
-                      </div>
-                      <!-- Ec Pagination Start -->
-                      <div class="ec-pro-pagination">
-                          <!-- <span>Showing 1-12 of 21 item(s)</span> -->
-                          <ul class="ec-pro-pagination-inner" id="pagin">
+                            
+                            {{ end }}
 
-                             <!-- <li><a class="next" href="#">Next <i class="ecicon eci-angle-right"></i></a></li> -->
-                           </ul>
-                      </div>
-                      <!-- Ec Pagination End -->
-                  </div>
-                  <!--Shop content End -->
-              </div>
-               <!-- Sidebar Area Start -->
-               <div class="ec-shop-leftside col-lg-3 col-md-12 order-lg-first order-md-last order-md-1 order-1">
-                <div id="">
-                    <div class="ec-sidebar-heading">
-                        <h1>Filter Products By</h1>
-                    </div>
-                    <div class="ec-sidebar-wrap">
-                        <!-- Sidebar Price Block -->
-                        
-                        <div class="ec-sidebar-block">
-                            <div class="ec-sb-title">
-                                <h3 class="ec-sidebar-title">Sort by</h3>
-                            </div>
-                            <div class="ec-sb-block-content es-price-slider">
-                                <div class="ec-price-filter">
-                                  
-                                        <select name="ec-select" class="form-control" style="padding-right:0px" id="pricerageallow" onchange="sort()">
-                                          <option disabled selected>Select price range</option>
-                                          <option value="byPrice">Select low to high</option>
-                                          <option value="byDistance">Select high to low</option>
-                                        </select>
-                                   
-                                </div>
-                            </div>
+                            <div class="col-sm-12 shop-all-btn"><a href="/products">Shop All Collection</a></div>
                         </div>
-                        <br>
-                        <div class="ec-sidebar-block">
-                            <div class="ec-sb-title">
-                                <h3 class="ec-sidebar-title">Price</h3>
-                            </div>
-                            <div class="ec-sb-block-content es-price-slider">
-                                <div class="ec-price-filter">
-                                    <div id="ec-sliderPrice" class="filter__slider-price" data-min="0"
-                                         data-step="10" onclick="checkbox()" data-max="1" onmouseleave="checkbox()"></div>
-                                        
-                                        <div class="ec-price-input">
-                                        <label class="filter__label"><input type="text"
-                                                class="filter__input" id="sprice" onchange="checkbox()"></label>
-                                        <span class="ec-price-divider"></span>
-                                        <label class="filter__label"><input type="text"
-                                                class="filter__input" id="hprice" onchange="checkbox()"></label>
+                    </div>
+                    <!-- ec 1st Product tab end -->
+                    <!-- ec 2nd Product tab start -->
+                    <div class="tab-pane fade" id="tab-pro-for-kids">
+                        <div class="row">
+                            <!-- Product Content -->
+                            {{ range first 4 (where site.RegularPages "Description" "Kids") }}
+                              <!-- Product Content -->
+                              <div class="col-lg-3 col-md-6 col-sm-6 pricesrangeclass" data-category="{{ .Params.Category }}" data-price="{{ .Params.Price }}">
+                                <!-- START single card -->
+                                <div class="ec-product-lsc">
+                                    <div class="ec-product-image">
+                                        <a href="{{ .Permalink }}">
+                                            {{ range first 1 .Params.Images }}
+                                            <img  src="{{ .image | absURL }}" id="he-123" class="img-center img-fluid mx-auto" alt="">
+                                            {{ end }}
+                                        </a>
+                                        <script>
+                                            var date = new Date({{ .Params.date }})
+                                            if(moment().diff(date,'days') < 4){
+                                                document.write('<span class="ec-product-ribbon">new</span>')
+                                            }
+                                        </script>
+                                    </div>
+                                    <div class="ec-product-body">
+                                        <p class="ec-description">Category <span><script>document.write(decodeURIComponent('{{ .Params.Category }}').replaceAll('+',' '))</script></span></p>
+                                        <h3 class="ec-title"><a href="{{ .Permalink }}"><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></a></h3>
+                                        <div class="ec-el-price">
+                                            <p class="ec-o-price">PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></p>
+                                            {{ if .Params.PriceBefore }}
+                                            <p class="ec-d-price" id="oldpricehide"><span style="visibility: hidden;">&nbsp;&nbsp;&nbsp;&nbsp;</span>PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script> </p>
+                                            {{ end }}
+                                            <p style="text-decoration:line-through" id="oldpriceipad">
+                                                {{ if .Params.PriceBefore }}
+                                                PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script>
+                                                {{ end }}
+                                            </p>
+                                        </div>
+                                        <span class="rangeprice" hidden>{{ .Params.Price }}</span>
+                                        <div class="ec-link-btn">
+                                            <a class=" ec-add-to-cart" href="#a" title="Add To Cart" onclick="Check({{ .Params.ProductID }},{{ .Title }},{{ .Params.Description }},{{ .Params.Price }}
+                                            ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1)" title="PKR {{ .Params.Price }} "><i class="fa fa-cart-plus" aria-hidden="true"></i> <span id="cartipda">cart</span></a>
+                                            <div class="ec-link-icon">
+                                                <a href="{{ .Permalink }}"><img src="https://v1.eralive.net/assets/images/icons/quickview.svg"
+                                                    class="svg_img header_svg pro_svg" alt="wishlist" /></a>
+                                                <a id="whatsapp{{ .Params.ProductID }}" title="Whatsapp" onclick="whatsapp('{{ .Params.ProductID }}','{{ .Title }}')" target="_blank" data-tip="Compare"><i class="fa fa-whatsapp" aria-hidden="true" style="font-size: 20px;"></i></a>
+                                                
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- START single card -->
                             </div>
+                            
+                            {{ end }}
+                            <div class="col-sm-12 shop-all-btn"><a href="/products">Shop All Collection</a></div>
                         </div>
-                        <br>
-                        <!-- Sidebar Category Block -->
-                        <div class="ec-sidebar-block">
-                            <div class="ec-sb-title">
-                                <h3 class="ec-sidebar-title">Category</h3>
-                            </div>
-                            <div class="ec-sb-block-content es-price-slider">
-                                <div class="ec-price-filter">
-                                <ul id="catulli">
-                                   
-                                  
-                                    
+                    </div>
+                    <!-- ec 2nd Product tab end -->
+                    <!-- ec 3rd Product tab start -->
+                 
+                    <!-- ec 4th Product tab end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ec Product tab Area End -->
 
-                                </ul>
+    <!-- ec Banner Section Start -->
+    <section class="ec-banner section section-space-p">
+        <h2 class="d-none">Banner</h2>
+        <div class="container">
+            <!-- ec Banners Start -->
+            <div class="ec-banner-inner">
+                <!--ec Banner Start -->
+                <div class="ec-banner-block ec-banner-block-2">
+                    <div class="row">
+                        <div class="banner-block col-lg-6 col-md-12 margin-b-30" data-animation="slideInRight">
+                            <div class="bnr-overlay">
+                                <img src="https://blog.daraz.pk/wp-content/uploads/2020/07/KURTAS-BANNER.jpg" alt="" />
+                                <!-- <div class="banner-text">
+                                    <span class="ec-banner-stitle">New Arrivals</span>
+                                    <span class="ec-banner-title">mens<br> Sport shoes</span>
+                                    <span class="ec-banner-discount">30% Discount</span>
+                                </div> -->
+                                <div class="banner-content">
+                                    <span class="ec-banner-btn"><a href="#" class="btn btn-third">Order Now</a></span>
                                 </div>
                             </div>
                         </div>
-                     
-                       
-                        
+                        <div class="banner-block col-lg-6 col-md-12" data-animation="slideInLeft">
+                            <div class="bnr-overlay">
+                                <img src="https://styleworld.com.au/wp-content/uploads/2021/09/kurta-banners.jpg" alt="" />
+                                <!-- <div class="banner-text">
+                                    <span class="ec-banner-stitle">New Trending</span>
+                                    <span class="ec-banner-title">Smart<br> watches</span>
+                                    <span class="ec-banner-discount">Buy any 3 Items & get <br>20% Discount</span>
+                                </div> -->
+                                <div class="banner-content">
+                                    <span class="ec-banner-btn"><a href="#" class="btn btn-third">Order Now</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ec Banner End -->
+                </div>
+                <!-- ec Banners End -->
+            </div>
+        </div>
+    </section>
+    <!-- ec Banner Section End -->
+ <!--  Category Section Start -->
+ <section class="section ec-category-section section-space-p">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="section-title">
+                    <h2 class="ec-bg-title">Our Top Collection</h2>
+                    <h2 class="ec-title">Choose Categories</h2>
+                    <p class="sub-title">Browse The Collection of Top Categories</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!--Category Nav Start -->
+            <div class="col-lg-3">
+                <ul class="ec-cat-tab-nav nav">
+                    <li class="cat-item"><a class="cat-link active" data-bs-toggle="tab" href="#tab-cat-1">
+                            <div class="cat-icons"><img class="cat-icon" src="https://v1.eralive.net/assets/images/icons/cat_1.png"
+                                    alt="cat-icon"><img class="cat-icon-hover" src="https://v1.eralive.net/assets/images/icons/cat_1_1.png"
+                                    alt="cat-icon"></div>
+                            <div class="cat-desc"><span>Men</span><span>44 Products</span></div>
+                        </a></li>
+                    <li class="cat-item"><a class="cat-link" data-bs-toggle="tab" href="#tab-cat-2">
+                            <div class="cat-icons"><img class="cat-icon" src="https://v1.eralive.net/assets/images/icons/cat_2.png"
+                                    alt="cat-icon"><img class="cat-icon-hover" src="https://v1.eralive.net/assets/images/icons/cat_2_1.png"
+                                    alt="cat-icon"></div>
+                            <div class="cat-desc"><span>Kids</span><span>20 Products</span></div>
+                        </a></li>
+                    <li class="cat-item" style="visibility: hidden;"><a class="cat-link" data-bs-toggle="tab" href="#tab-cat-3">
+                            <div class="cat-icons"><img class="cat-icon" src="https://v1.eralive.net/assets/images/icons/cat_3.png"
+                                    alt="cat-icon"><img class="cat-icon-hover" src="https://v1.eralive.net/assets/images/icons/cat_3_1.png"
+                                    alt="cat-icon"></div>
+                            <div class="cat-desc"><span>Bags</span><span>620 Products</span></div>
+                        </a></li>
+                    <li class="cat-item" style="visibility: hidden;"><a class="cat-link" data-bs-toggle="tab" href="#tab-cat-4">
+                            <div class="cat-icons"><img class="cat-icon" src="https://v1.eralive.net/assets/images/icons/cat_4.png"
+                                    alt="cat-icon"><img class="cat-icon-hover" src="https://v1.eralive.net/assets/images/icons/cat_4_1.png"
+                                    alt="cat-icon"></div>
+                            <div class="cat-desc"><span>Shoes</span><span>320 Products</span></div>
+                        </a></li>
+                </ul>
+
+            </div>
+            <!-- Category Nav End -->
+            <!--Category Tab Start -->
+            <div class="col-lg-9">
+                <div class="tab-content">
+                    <!-- 1st Category tab end -->
+                    <div class="tab-pane fade show active" id="tab-cat-1">
+                        <div class="row">
+                            <img src="http://hamsafarkurta.com/wp-content/uploads/2015/03/banner1.jpg" style="height: 400px;" alt="" />
+                        </div>
+                        <span class="panel-overlay">
+                            <a href="/products" class="btn btn-primary">View All</a>
+                        </span>
+                    </div>
+                    <!-- 1st Category tab end -->
+                    <div class="tab-pane fade" id="tab-cat-2">
+                        <div class="row">
+                            <img src="https://i.pinimg.com/originals/41/96/53/419653a89703ffe3d19a205859ba91b5.jpg" style="height: 400px;" alt="" />
+                        </div>
+                        <span class="panel-overlay">
+                            <a href="/products" class="btn btn-primary">View All</a>
+                        </span>
+                    </div>
+                    <!-- 2nd Category tab end -->
+                   
+                </div>
+                <!-- Category Tab End -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Category Section End -->
+
+
+
+   <!--  Feature & Special Section Start -->
+   <section class="section ec-fre-spe-section section-space-p">
+    <div class="container">
+        <div class="row">
+            <!--  Feature Section Start -->
+            <div class="ec-fre-section col-lg-6 col-md-6 col-sm-6 margin-b-30" data-animation="slideInRight">
+                <div class="col-md-12 text-left">
+                    <div class="section-title">
+                        <h2 class="ec-bg-title">Feature Items</h2>
+                        <h2 class="ec-title">Feature Items</h2>
+                    </div>
+                </div>
+
+                <div class="ec-fre-products">
+                    <div class="ec-fs-product">
+                        <div class="ec-fs-pro-inner">
+                            <div class="ec-fs-pro-image-outer col-lg-6 col-md-6 col-sm-6">
+                                <div class="ec-fs-pro-image">
+                                    <a href="/products" class="image"><img class="main-image"
+                                            src="https://www.arysahulatbazar.pk/content/images/thumbs/0051363_maroon-kurta-shalwar-for-infants-kids-teens-fr2-6m-to-3yrs_450.jpeg" alt="Product" /></a>
+                                    <a href="#" class="quickview" data-link-action="quickview" title="Quick view"
+                                        data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><img
+                                            src="https://v1.eralive.net/assets/images/icons/quickview.svg" class="svg_img pro_svg"
+                                            alt="" /></a>
+                                </div>
+                            </div>
+                            <div class="ec-fs-pro-content col-lg-6 col-md-6 col-sm-6">
+                                <h5 class="ec-fs-pro-title"><a href="/products">Baby Toy Teddybear</a>
+                                </h5>
+                                <div class="ec-fs-pro-rating">
+                                    <span class="ec-fs-rating-icon">
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star"></i>
+                                    </span>
+                                    <span class="ec-fs-rating-text">4 Review</span>
+                                </div>
+                                <div class="ec-fs-price">
+                                    <span class="old-price">PKR 549.00</span>
+                                    <span class="new-price">PKR 480.00</span>
+                                </div>
+
+                                <div class="countdowntimer"><span id="ec-fs-count-1"></span></div>
+                                <div class="ec-fs-pro-desc">Lorem Ipsum is simply dummy text the printing and
+                                    typesetting.
+                                </div>
+                                <div class="ec-fs-pro-book">Total Booking: <span>25</span></div>
+                                <div class="ec-fs-pro-btn">
+                                    <a href="#" class="btn btn-lg btn-secondary">Remind Me</a>
+                                    <a href="#" class="btn btn-lg btn-primary">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-fs-product">
+                        <div class="ec-fs-pro-inner">
+                            <div class="ec-fs-pro-image-outer col-lg-6 col-md-6 col-sm-6">
+                                <div class="ec-fs-pro-image">
+                                    <a href="/products" class="image"><img class="main-image"
+                                            src="https://kaprabazar.com/wp-content/uploads/2020/05/97535469_907073276380968_3282039627636015104_n-1.jpg" alt="Product" /></a>
+                                    <a href="#" class="quickview" data-link-action="quickview" title="Quick view"
+                                        data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><img
+                                            src="https://v1.eralive.net/assets/images/icons/quickview.svg" class="svg_img pro_svg"
+                                            alt="" /></a>
+                                </div>
+                            </div>
+                            <div class="ec-fs-pro-content col-lg-6 col-md-6 col-sm-6">
+                                <h5 class="ec-fs-pro-title"><a href="/products">Leather Purse For Women</a>
+                                </h5>
+                                <div class="ec-fs-pro-rating">
+                                    <span class="ec-fs-rating-icon">
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                    </span>
+                                    <span class="ec-fs-rating-text">4 Review</span>
+                                </div>
+                                <div class="ec-fs-price">
+                                    <span class="old-price">PKR 300.00</span>
+                                    <span class="new-price">PKR 250.00</span>
+                                </div>
+
+                                <div class="countdowntimer"><span id="ec-fs-count-2"></span></div>
+                                <div class="ec-fs-pro-desc">Lorem Ipsum is simply dummy text the printing and
+                                    typesetting.
+                                </div>
+                                <div class="ec-fs-pro-book">Total Booking: <span>25</span></div>
+                                <div class="ec-fs-pro-btn">
+                                    <a href="#" class="btn btn-lg btn-secondary">Remind Me</a>
+                                    <a href="#" class="btn btn-lg btn-primary">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-          </div>
-      </div>
-  </section>
-  <!-- End Shop page -->
+            <!--  Feature Section End -->
+            <!--  Special Section Start -->
+            <div class="ec-spe-section col-lg-6 col-md-6 col-sm-6" data-animation="slideInLeft">
+                <div class="col-md-12 text-left">
+                    <div class="section-title">
+                        <h2 class="ec-bg-title">Limited Time Offer</h2>
+                        <h2 class="ec-title">Limited Time Offer</h2>
+                    </div>
+                </div>
+
+                <div class="ec-spe-products">
+                    <div class="ec-fs-product">
+                        <div class="ec-fs-pro-inner">
+                            <div class="ec-fs-pro-image-outer col-lg-6 col-md-6 col-sm-6">
+                                <div class="ec-fs-pro-image">
+                                    <a href="/products" class="image"><img class="main-image"
+                                            src="https://i.pinimg.com/736x/b3/df/1f/b3df1f87b2103c3a4647bdc4294b8311--kurta-designs-pakistani-designers.jpg" alt="Product" /></a>
+                                    <a href="#" class="quickview" data-link-action="quickview" title="Quick view"
+                                        data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><img
+                                            src="https://v1.eralive.net/assets/images/icons/quickview.svg" class="svg_img pro_svg"
+                                            alt="" /></a>
+                                </div>
+                            </div>
+                            <div class="ec-fs-pro-content col-lg-6 col-md-6 col-sm-6">
+                                <h5 class="ec-fs-pro-title"><a href="/products">Smart watch Firebolt</a>
+                                </h5>
+                                <div class="ec-fs-pro-rating">
+                                    <span class="ec-fs-rating-icon">
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star"></i>
+                                    </span>
+                                    <span class="ec-fs-rating-text">4 Review</span>
+                                </div>
+                                <div class="ec-fs-price">
+                                    <span class="old-price">PKR 200.00</span>
+                                    <span class="new-price">PKR 180.00</span>
+                                </div>
+                                <div class="countdowntimer"><span id="ec-fs-count-3"></span></div>
+                                <div class="ec-fs-pro-desc">Lorem Ipsum is simply dummy text the printing and
+                                    typesetting.
+                                </div>
+                                <div class="ec-fs-pro-book">Total Booking: <span>25</span></div>
+                                <div class="ec-fs-pro-btn">
+                                    <a href="#" class="btn btn-lg btn-secondary">Remind Me</a>
+                                    <a href="#" class="btn btn-lg btn-primary">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-fs-product">
+                        <div class="ec-fs-pro-inner">
+                            <div class="ec-fs-pro-image-outer col-lg-6 col-md-6 col-sm-6">
+                                <div class="ec-fs-pro-image">
+                                    <a href="/products" class="image"><img class="main-image"
+                                            src="https://www.arysahulatbazar.pk/content/images/thumbs/0034515_special-diamond-deal-trendy-white-mens-kurta-shalwar-suit_450.jpeg" alt="Product" /></a>
+                                    <a href="#" class="quickview" data-link-action="quickview" title="Quick view"
+                                        data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><img
+                                            src="https://v1.eralive.net/assets/images/icons/quickview.svg" class="svg_img pro_svg"
+                                            alt="" /></a>
+                                </div>
+                            </div>
+                            <div class="ec-fs-pro-content col-lg-6 col-md-6 col-sm-6">
+                                <h5 class="ec-fs-pro-title"><a href="/products">Casual Shoes Men</a>
+                                </h5>
+                                <div class="ec-fs-pro-rating">
+                                    <span class="ec-fs-rating-icon">
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                    </span>
+                                    <span class="ec-fs-rating-text">4 Review</span>
+                                </div>
+                                <div class="ec-fs-price">
+                                    <span class="old-price">PKR 120.00</span>
+                                    <span class="new-price">PKR 95.00</span>
+                                </div>
+
+                                <div class="countdowntimer"><span id="ec-fs-count-4"></span></div>
+                                <div class="ec-fs-pro-desc">Lorem Ipsum is simply dummy text the printing and
+                                    typesetting.
+                                </div>
+                                <div class="ec-fs-pro-book">Total Booking: <span>25</span></div>
+                                <div class="ec-fs-pro-btn">
+                                    <a href="#" class="btn btn-lg btn-secondary">Remind Me</a>
+                                    <a href="#" class="btn btn-lg btn-primary">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  Special Section End -->
+        </div>
+    </div>
+</section>
+<!-- Feature & Special Section End -->
 
 
+   <!--  services Section Start -->
+   <section class="section ec-services-section section-space-p">
+    <h2 class="d-none">Services</h2>
+    <div class="container">
+        <div class="row">
+            <div class="ec_ser_content ec_ser_content_1 col-sm-12 col-md-6 col-lg-3" data-animation="zoomIn">
+                <div class="ec_ser_inner">
+                    <div class="ec-service-image">
+                        <img src="https://v1.eralive.net/assets/images/icons/service_1.svg" class="svg_img" alt="" />
+                    </div>
+                    <div class="ec-service-desc">
+                        <h2>Free Shipping</h2>
+                        <p>Free shipping on all US order or order above PKR 200</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ec_ser_content ec_ser_content_2 col-sm-12 col-md-6 col-lg-3" data-animation="zoomIn">
+                <div class="ec_ser_inner">
+                    <div class="ec-service-image">
+                        <img src="https://v1.eralive.net/assets/images/icons/service_2.svg" class="svg_img" alt="" />
+                    </div>
+                    <div class="ec-service-desc">
+                        <h2>24X7 Support</h2>
+                        <p>Contact us 24 hours a day, 7 days a week</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ec_ser_content ec_ser_content_3 col-sm-12 col-md-6 col-lg-3" data-animation="zoomIn">
+                <div class="ec_ser_inner">
+                    <div class="ec-service-image">
+                        <img src="https://v1.eralive.net/assets/images/icons/service_3.svg" class="svg_img" alt="" />
+                    </div>
+                    <div class="ec-service-desc">
+                        <h2>30 Days Return</h2>
+                        <p>Simply return it within 30 days for an exchange</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ec_ser_content ec_ser_content_4 col-sm-12 col-md-6 col-lg-3" data-animation="zoomIn">
+                <div class="ec_ser_inner">
+                    <div class="ec-service-image">
+                        <img src="https://v1.eralive.net/assets/images/icons/service_4.svg" class="svg_img" alt="" />
+                    </div>
+                    <div class="ec-service-desc">
+                        <h2>Payment Secure</h2>
+                        <p>Contact us 24 hours a day, 7 days a week</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--services Section End -->
+
+ <!--  offer Section Start -->
+ <section class="section ec-offer-section section-space-p section-space-m">
+    <!-- <h2 class="d-none">Offer</h2> -->
+    <!-- <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-xl-6 col-lg-7 col-md-7 col-sm-7 align-self-center ec-offer-content">
+                <h2 class="ec-offer-title">Sunglasses</h2>
+                <h3 class="ec-offer-stitle" data-animation="slideInDown">Super Offer</h3>
+                <span class="ec-offer-img" data-animation="zoomIn"><img src="https://v1.eralive.net/assets/images/offer-image/1.png" alt="offer image" /></span>
+                <span class="ec-offer-desc">Acetate Frame Sunglasses</span>
+                <span class="ec-offer-price">$40.00 Only</span>
+                <a class="btn btn-primary" href="shop-left-sidebar-col-3.html" data-animation="zoomIn">Shop Now</a>
+            </div>
+        </div>
+    </div> -->
+</section>
+<!-- offer Section End -->
+
+
+
+    <!-- New Product Start -->
+    <section class="section ec-new-product section-space-p">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="section-title">
+                        <h2 class="ec-bg-title">New Arrivals</h2>
+                        <h2 class="ec-title">New Arrivals</h2>
+                        <p class="sub-title">Browse The Collection of Top Products</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- New Product Content -->
+                {{ range first 4 (where site.RegularPages "Type" "products") }}
+                <div class="col-lg-3 col-md-3 col-sm-3 pricesrangeclass" data-category="{{ .Params.Category }}" data-price="{{ .Params.Price }}">
+                    <!-- START single card -->
+                    <div class="ec-product-lsc">
+                        <div class="ec-product-image">
+                            <a href="{{ .Permalink }}">
+                                {{ range first 1 .Params.Images }}
+                                <img  src="{{ .image | absURL }}" id="he-123" class="img-center img-fluid mx-auto" alt="">
+                                {{ end }}
+                            </a>
+                            <script>
+                                var date = new Date({{ .Params.date }})
+                                if(moment().diff(date,'days') < 4){
+                                    document.write('<span class="ec-product-ribbon">new</span>')
+                                }
+                            </script>
+                        </div>
+                        <div class="ec-product-body">
+                            <p class="ec-description">Category <span><script>document.write(decodeURIComponent('{{ .Params.Category }}').replaceAll('+',' '))</script></span></p>
+                            <h3 class="ec-title"><a href="{{ .Permalink }}"><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></a></h3>
+                            <div class="ec-el-price">
+                                <p class="ec-o-price">PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></p>
+                                {{ if .Params.PriceBefore }}
+                                <p class="ec-d-price" id="oldpricehide"><span style="visibility: hidden;">&nbsp;&nbsp;&nbsp;&nbsp;</span>PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script> </p>
+                                {{ end }}
+                                <p style="text-decoration:line-through" id="oldpriceipad">
+                                    {{ if .Params.PriceBefore }}
+                                    PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script>
+                                    {{ end }}
+                                </p>
+                            </div>
+                            <span class="rangeprice" hidden>{{ .Params.Price }}</span>
+                            <div class="ec-link-btn">
+                                <a class=" ec-add-to-cart" href="#a" title="Add To Cart" onclick="Check({{ .Params.ProductID }},{{ .Title }},{{ .Params.Description }},{{ .Params.Price }}
+                                ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1)" title="PKR {{ .Params.Price }} "><i class="fa fa-cart-plus" aria-hidden="true"></i> <span id="cartipda">cart</span></a>
+                                <div class="ec-link-icon">
+                                    <a href="{{ .Permalink }}"><img src="https://v1.eralive.net/assets/images/icons/quickview.svg"
+                                        class="svg_img header_svg pro_svg" alt="wishlist" /></a>
+                                    <a id="whatsapp{{ .Params.ProductID }}" title="Whatsapp" onclick="whatsapp('{{ .Params.ProductID }}','{{ .Title }}')" target="_blank" data-tip="Compare"><i class="fa fa-whatsapp" aria-hidden="true" style="font-size: 20px;"></i></a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- START single card -->
+                </div>
+                  
+                  {{ end }}
+                  
+                <div class="col-sm-12 shop-all-btn"><a href="/products">Shop All Collection</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- New Product end -->
+
+      <!-- ec testmonial Start -->
+      <section class="section ec-test-section section-space-ptb-100 section-space-m">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="section-title mb-0">
+                        <h2 class="ec-bg-title">Testimonial</h2>
+                        <h2 class="ec-title">Client Review</h2>
+                        <p class="sub-title mb-3">What say client about us</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="ec-test-outer">
+                    <ul id="ec-testimonial-slider">
+                        <li class="ec-test-item">
+                            <img src="https://v1.eralive.net/assets/images/testimonial/top-quotes.svg" class="svg_img test_svg top" alt="" />
+                            <div class="ec-test-inner">
+                                <div class="ec-test-img"><img alt="testimonial" title="testimonial"
+                                        src="https://v1.eralive.net/assets/images/testimonial/1.jpg" /></div>
+                                <div class="ec-test-content">
+                                    <div class="ec-test-desc">Lorem Ipsum is simply dummy text of the printing and
+                                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+                                        ever since the 1500s, when an unknown printer took a galley of type and
+                                        scrambled it to make a type specimen</div>
+                                    <div class="ec-test-name">John Doe</div>
+                                    <div class="ec-test-designation">General Manager</div>
+                                    <div class="ec-test-rating">
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="https://v1.eralive.net/assets/images/testimonial/bottom-quotes.svg" class="svg_img test_svg bottom"
+                                alt="" />
+                        </li>
+                        <li class="ec-test-item ">
+                            <img src="https://v1.eralive.net/assets/images/testimonial/top-quotes.svg" class="svg_img test_svg top" alt="" />
+                            <div class="ec-test-inner">
+                                <div class="ec-test-img"><img alt="testimonial" title="testimonial"
+                                        src="https://v1.eralive.net/assets/images/testimonial/2.jpg" /></div>
+                                <div class="ec-test-content">
+                                    <div class="ec-test-desc">Lorem Ipsum is simply dummy text of the printing and
+                                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+                                        ever since the 1500s, when an unknown printer took a galley of type and
+                                        scrambled it to make a type specimen</div>
+                                    <div class="ec-test-name">John Doe</div>
+                                    <div class="ec-test-designation">General Manager</div>
+                                    <div class="ec-test-rating">
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="https://v1.eralive.net/assets/images/testimonial/bottom-quotes.svg" class="svg_img test_svg bottom"
+                                alt="" />
+                        </li>
+                        <li class="ec-test-item">
+                            <img src="https://v1.eralive.net/assets/images/testimonial/top-quotes.svg" class="svg_img test_svg top" alt="" />
+                            <div class="ec-test-inner">
+                                <div class="ec-test-img"><img alt="testimonial" title="testimonial"
+                                        src="https://v1.eralive.net/assets/images/testimonial/3.jpg" /></div>
+                                <div class="ec-test-content">
+                                    <div class="ec-test-desc">Lorem Ipsum is simply dummy text of the printing and
+                                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+                                        ever since the 1500s, when an unknown printer took a galley of type and
+                                        scrambled it to make a type specimen</div>
+                                    <div class="ec-test-name">John Doe</div>
+                                    <div class="ec-test-designation">General Manager</div>
+                                    <div class="ec-test-rating">
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="https://v1.eralive.net/assets/images/testimonial/bottom-quotes.svg" class="svg_img test_svg bottom"
+                                alt="" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ec testmonial end -->
+
+
+ 
 
 
 
@@ -217,54 +762,175 @@ var pagenames = "Home";
 
 
 
-{{ end }}
 <!-- /products -->
 <style>
-  .ahrefview{
-    opacity:1;
-    background-color: transparent;
-    border: 1px solid var(--font);
-    
-    padding: 12px 35px;
-    font-size: 15px;
-    z-index: 3;
-   
-  }
-  .overlay {
-    position: absolute;
-    background-color: var(--background);
-    top: 0;
-    left: 0;
-  right: 0;
-    opacity: 0;
-    height: 0;
-    visibility: visible;
-    overflow: hidden;
-   
-    
-    transition: 0.5s ease;
-   
-   
+  .ec-banner-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.showhidefile:hover .overlay {
-    opacity: 0.85;
-    height: 230px;
-    /* filter: alpha(opacity=100); */
+.banner-block {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
 }
-
-.text {
-  color: white;
-  font-size: 20px;
+.banner-block .bnr-overlay {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.banner-block img {
+  width: 100%;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.banner-block .banner-text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 30px;
+}
+.banner-block .banner-text .ec-banner-title {
+  font-size: 28px;
+  color: #555;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+  font-family: "Montserrat";
+  font-weight: 800;
+  position: relative;
+  padding-top: 0;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.banner-block .banner-text .ec-banner-discount {
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.7px;
+  line-height: 1;
+}
+.banner-block .banner-text .ec-banner-stitle {
+  font-size: 20px;
+  font-weight: 400;
+  color: #555;
+  text-transform: capitalize;
+  letter-spacing: 0.7px;
+  line-height: 1;
+  position: relative;
+  padding-left: 2px;
+  padding-top: 10px;
+}
+.banner-block .banner-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  opacity: 0;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  background-color: rgba(31, 28, 28, 0.5);
+}
+.banner-block .banner-content .ec-banner-btn a {
+  height: 40px;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 0 18px;
+  letter-spacing: 0.02rem;
+  /* background-color: #3474d4;
+  color: #ffffff; */
+  line-height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 600;
+}
+.banner-block .banner-content .ec-banner-btn a:hover {
+  /* background-color: #555; */
+}
+.banner-block:hover .banner-content {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1;
 }
 
+.ec-banner-block-1 .banner-block .banner-text {
+  padding-top: 46px;
+}
+.ec-banner-block-1 .banner-block .banner-text .ec-banner-discount {
+  font-family: "Fjalla One";
+}
+
+.ec-banner-block-2 .banner-block .banner-text .ec-banner-title {
+  font-size: 28px;
+  margin: 15px 0;
+}
+.ec-banner-block-2 .banner-block .banner-text .ec-banner-discount {
+  font-size: 16px;
+  color: #777;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.ec-banner-block.ec-banner-block-2 {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
 
 
 </style>

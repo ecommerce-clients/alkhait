@@ -1,193 +1,197 @@
 {{ define "main" }}
-
-{{ partial "page-title.html" . }}
 <script>
- $(document).ready(function () {
-    window.location.href = window.location.origin;
-
- })
+var pagenames = "Home";
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://v1.eralive.net/assets/css/demo1.css" />
+<link rel="stylesheet" href="https://v1.eralive.net/assets/css/plugins/nouislider.css" />
+<link href="/css/style.min.css" rel="stylesheet" />
 
-<!-- <br> -->
-<section class="section pt-0">
-  <div class="container">
-    <!-- <style>
-      .hide{
-        display:none;
-      }
-      .show{
-        display:block;
-      }
-      </style> -->
-    <style>
-      #myInput[type=text] {
-        width: 130px;
-        box-sizing: border-box;
 
-        border-radius: 4px;
-        font-size: 16px;
 
-        background-image: url('/images/searchicon.png');
-        background-position: 10px 10px;
-        background-repeat: no-repeat;
-        padding: 12px 20px 12px 40px;
-        -webkit-transition: width 0.4s ease-in-out;
-        transition: width 0.4s ease-in-out;
-      }
+    <!-- Ec Shop page -->
+    <section class="ec-page-content section-space-p">
+      <div class="container">
+          <div class="row">
+            <div class="ec-shop-rightside col-lg-9 col-md-12 order-lg-last order-md-first  order-md-2 order-2 margin-b-30">
+                  <!-- Shop Top Start -->
+                  <div class="ec-pro-list-top d-flex">
+                      <div class="col-12 col-lg-6 col-md-6 col-sm-12 ec-grid-list">
+                        <div class="ec-gl-btn">
+                            <form class="ec-btn-group-form" action="#">
+                                <input class="form-control myInput-hide myInput form-control" id="myInput" placeholder="Enter Your Product Name..." type="text" style="display: none;">
+                               
+                            </form>
+                        </div>
 
-      #myInput[type=text]:focus {
-        width: 100%;
-      }
-    </style>
-    <!-- <a class="text-color">
-    <i class="fa fa-search  text-primary mr-2" aria-hidden="true" onclick="onButtonClick()" id="hide" style="width: 20px;height: 20px;font-size: 30px;"></i>
-  </a> -->
-    <!-- <br> -->
-    <input id="myInput" type="text" name="search" placeholder="Product search" class="hide form-control">
+                      </div>
+                      <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-12 ec-sort-select mobile-view-grid-hide">
+                      
+                        <div class="ec-gl-btn">
+                            
+                            <button class="btn btn-grid-50 grid active"><img src="https://v1.eralive.net/assets/images/icons/grid.svg"
+                                    class="svg_img gl_svg" id="grid" alt="grid" /></button>
+                            <button class="btn btn-list-50 "><img src="https://v1.eralive.net/assets/images/icons/list.svg"
+                                    class="svg_img gl_svg" id="list" alt="list" /></button>
+                        </div>
+                         
+                      </div> -->
+                  </div>
+                  <!-- Shop Top End -->
+                  {{ if site.Data.homepage.products.enable }}
+                  <!-- Shop content Start -->
+                  <div class="shop-pro-content">
+                      <div class="shop-pro-inner">
+                          <div class="row" id="search">
+                            {{ range (where site.RegularPages "Type" "products") }}
+                            <div class="col-lg-3 col-md-3 col-sm-3 pricesrangeclass" data-category="{{ .Params.Category }}" data-price="{{ .Params.Price }}">
+                                <!-- START single card -->
+                                <div class="ec-product-lsc">
+                                    <div class="ec-product-image">
+                                        <a href="{{ .Permalink }}">
+                                            {{ range first 1 .Params.Images }}
+                                            <img  src="{{ .image | absURL }}" id="he-123" class="img-center img-fluid mx-auto" alt="">
+                                            {{ end }}
+                                        </a>
+                                        <script>
+                                            var date = new Date({{ .Params.date }})
+                                            if(moment().diff(date,'days') < 4){
+                                                document.write('<span class="ec-product-ribbon">new</span>')
+                                            }
+                                        </script>
+                                    </div>
+                                    <div class="ec-product-body">
+                                        <p class="ec-description">Category <span><script>document.write(decodeURIComponent('{{ .Params.Category }}').replaceAll('+',' '))</script></span></p>
+                                        <h3 class="ec-title"><a href="{{ .Permalink }}"><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></a></h3>
+                                        <div class="ec-el-price">
+                                            <p class="ec-o-price">PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></p>
+                                            {{ if .Params.PriceBefore }}
+                                            <p class="ec-d-price" id="oldpricehide"><span style="visibility: hidden;">&nbsp;&nbsp;&nbsp;&nbsp;</span>PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script> </p>
+                                            {{ end }}
+                                            <p style="text-decoration:line-through" id="oldpriceipad">
+                                                {{ if .Params.PriceBefore }}
+                                                PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script>
+                                                {{ end }}
+                                            </p>
+                                        </div>
+                                        <span class="rangeprice" hidden>{{ .Params.Price }}</span>
+                                        <div class="ec-link-btn">
+                                            <a class=" ec-add-to-cart" href="#a" title="Add To Cart" onclick="Check({{ .Params.ProductID }},{{ .Title }},{{ .Params.Description }},{{ .Params.Price }}
+                                            ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1)" title="PKR {{ .Params.Price }} "><i class="fa fa-cart-plus" aria-hidden="true"></i> <span id="cartipda">cart</span></a>
+                                            <div class="ec-link-icon">
+                                                <a href="{{ .Permalink }}"><img src="https://v1.eralive.net/assets/images/icons/quickview.svg"
+                                                    class="svg_img header_svg pro_svg" alt="wishlist" /></a>
+                                                <a id="whatsapp{{ .Params.ProductID }}" title="Whatsapp" onclick="whatsapp('{{ .Params.ProductID }}','{{ .Title }}')" target="_blank" data-tip="Compare"><i class="fa fa-whatsapp" aria-hidden="true" style="font-size: 20px;"></i></a>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- START single card -->
+                            </div>
+                              
+                              {{ end }}
+                          
+                          </div>
+                      </div>
+                      <!-- Ec Pagination Start -->
+                      <div class="ec-pro-pagination">
+                          <!-- <span>Showing 1-12 of 21 item(s)</span> -->
+                          <ul class="ec-pro-pagination-inner" id="pagin">
 
-    <br>
-    <br>
-    <div class="row" id="search">
-      {{ range .Data.Pages }}
-      <div class="col-lg-4 col-sm-6 mb-4">
-        <div class="card border-0 text-center">
-          <a href="{{ .Permalink }}">
-            {{ range first 1 .Params.Images }}
-            <script>document.write('<img src="{{ .image | absURL }}" alt="{{ .Title }}" class="card-img-top">')</script>
-            
-            {{ end }}
-          </a>
-          <div class="card-body">
-            <a href="{{ .Permalink }}" class="h4">{{ .Title }}</a>
-            <p>{{ .Params.Description }}</p>
-            <p class="mb-4">
-              {{ if .Params.PriceBefore }}
-              <s>PKR {{ .Params.PriceBefore }}</s>
-              {{ end }}
-              <span class="lead text-primary">PKR {{ .Params.Price }}</span>
-            </p>
-        
-                <button class="btn btn-sm btn-outline-primary" id="modalActivate"  data-toggle="modal" data-target="#exampleModalPreview" data-item-id="{{ .Params.ProductID }}"
-                data-item-name="{{ .Title }}" {{ range first 1 .Params.Images }} data-item-image="{{ .image | absURL }}"
-                {{ end }} data-item-price="{{ .Params.Price }}" id="add_to_cart" data-item-url="{{ .Permalink }}"
-                data-item-description="{{ .Description }}"
-                onclick="Check({{ .Params.ProductID }},{{ .Title }},{{ .Params.Description }},{{ .Params.Price }}
-                ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1)" title=" {{ site.Params.currencySymbol }}{{ .Params.Price }} ">
-                Add to cart
-              </button>
-              <button class="btn btn-sm btn-outline-primary">
-                <i class="fa fa-whatsapp" aria-hidden="true" style="font-size: 20px;"></i>
-            </button>
-              
-            
+                             <!-- <li><a class="next" href="#">Next <i class="ecicon eci-angle-right"></i></a></li> -->
+                           </ul>
+                      </div>
+                      <!-- Ec Pagination End -->
+                  </div>
+                  <!--Shop content End -->
+              </div>
+               <!-- Sidebar Area Start -->
+               <div class="ec-shop-leftside col-lg-3 col-md-12 order-lg-first order-md-last order-md-1 order-1">
+                <div id="">
+                    <div class="ec-sidebar-heading">
+                        <h1>Filter Products By</h1>
+                    </div>
+                    <div class="ec-sidebar-wrap">
+                        <!-- Sidebar Price Block -->
+                        
+                        <div class="ec-sidebar-block">
+                            <div class="ec-sb-title">
+                                <h3 class="ec-sidebar-title">Sort by</h3>
+                            </div>
+                            <div class="ec-sb-block-content es-price-slider">
+                                <div class="ec-price-filter">
+                                  
+                                        <select name="ec-select" class="form-control" style="padding-right:0px" id="pricerageallow" onchange="sort()">
+                                          <option disabled selected>Select price range</option>
+                                          <option value="byPrice">Select low to high</option>
+                                          <option value="byDistance">Select high to low</option>
+                                        </select>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="ec-sidebar-block">
+                            <div class="ec-sb-title">
+                                <h3 class="ec-sidebar-title">Price</h3>
+                            </div>
+                            <div class="ec-sb-block-content es-price-slider">
+                                <div class="ec-price-filter">
+                                    <div id="ec-sliderPrice" class="filter__slider-price" data-min="0"
+                                         data-step="10" onclick="checkbox()" data-max="1" onmouseleave="checkbox()"></div>
+                                        
+                                        <div class="ec-price-input">
+                                        <label class="filter__label"><input type="text"
+                                                class="filter__input" id="sprice" onchange="checkbox()"></label>
+                                        <span class="ec-price-divider"></span>
+                                        <label class="filter__label"><input type="text"
+                                                class="filter__input" id="hprice" onchange="checkbox()"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <!-- Sidebar Category Block -->
+                        <div class="ec-sidebar-block">
+                            <div class="ec-sb-title">
+                                <h3 class="ec-sidebar-title">Category</h3>
+                            </div>
+                            <div class="ec-sb-block-content es-price-slider">
+                                <div class="ec-price-filter">
+                                <ul id="catulli">
+                                   
+                                  
+                                    
+
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                     
+                       
+                        
+                    </div>
+                </div>
+            </div>
           </div>
-        </div>
       </div>
-      <div>
-
-      </div>
-      {{ end }}
-
-    </div>
-  </div>
-</section>
-<script>
-  var toprice=0;
-  function Check(id, title, dec, price,img,qty) {
-
-  
-const oldItems = JSON.parse(localStorage.getItem('itemsArray')) || [];
-const idToUse = id;
-const existingItem = oldItems.find(({ id }) => id === idToUse);
-if (existingItem) {
-  Object.assign(existingItem, {
-    'name': title,
-    'quantity': existingItem.quantity + qty,
-    'price': price,
-    'dec': dec,
-    'img': img,
-  })
-} else {
-  const newItem = {
-    'id' : idToUse,
-    'name': title,
-    'quantity': qty,
-    'price': price,
-    'dec': dec,
-    'img': img,
-  };
-  oldItems.push(newItem);
-}
-
-localStorage.setItem('itemsArray', JSON.stringify(oldItems));
-items = localStorage.getItem("itemsArray");
-    json = JSON.parse(items);
-    var count =0;
-    toprice =0;
-    var student = '';
-    for (i = 0; i < json.length; i++) {
-      // console.log(json[i]);
-      count++;
-      student += '<tr>';
-                            student += '<td> <img src="'+json[i].img+'" style="width:50px;height:50px;" />' + '</td>';
-  
-                            student += '<td>' + 
-                              json[i].name + '</td>';
-  
-                            student += '<td>' + 
-                              json[i].dec + '</td>';
-  
-                              student += '<td>' + 
-                              '<input type="number" class="form-control text-center" value="'+json[i].quantity+'"></td>';
-                              
-
-                            student += '<td>' + 
-                              json[i].price * json[i].quantity+ '</td>';
-
-                              var price = parseInt(json[i].price * json[i].quantity)
-                              toprice = parseInt(toprice+price);
-
-
-
-                             student += '<td>' + 
-                              '<button class="btn btn-danger btn-sm" onclick="add_delete('+
-                              "'"+json[i].id+"'"
-                              +',this)"><i class="fa fa-trash-o"></i></button></td>';
-                              
-                              $("#data_cart_footer tr").remove(); 
-                              $('#data_cart_footer').append(student);
-
-    };
-    fottor = '<tfoot><tr class="visible-xs"><td class="text-center"><strong>Total '+toprice+'</strong></td></tr><tr><td><a href="#" class="btn btn-warning"  class="close " data-dismiss="modal" aria-label="Close"><i class="fa fa-angle-left"></i> Continue Shopping</a></td><td colspan="2" class="hidden-xs"></td><td class="hidden-xs text-center"><strong>Total '+toprice+'</strong></td><td><a href="#" class="btn btn-success btn-block" onClick="checkoutbtc();">Checkout <i class="fa fa-angle-right"></i></a></td></tr></tfoot>';
-
-    $('#data_cart_footer').append(fottor);
-    $("#p_count").text(count);
-  }
-</script>
+  </section>
+  <!-- End Shop page -->
 
 
 
 
 
-<script>
+<!-- products -->
 
 
-  $(document).ready(function () {
-    $("#myInput").on("keyup", function () {
-      var value = $(this).val().toLowerCase();
-      $("#search div").filter(function () {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      });
-    });
-  });
 
-</script>
-<script>
-  function onButtonClick() {
-    document.getElementById('myInput').className = "show form-control";
-    document.getElementById('hide').className = "hide";
-  }
-</script>
-{{ partial "cta.html" . }}
 
+{{ end }}
+<!-- /products -->
+
+
+<script src="https://v1.eralive.net/assets/js/plugins/nouislider.js"></script>
+<br>
 {{ end }}
