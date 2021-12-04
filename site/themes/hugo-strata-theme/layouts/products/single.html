@@ -1,0 +1,199 @@
+{{ define "main" }}
+
+<!-- <br> -->
+<script>
+  var pagesnames = 'product';
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://controllers.eralive.net/v1/Controllers/productController.js"></script>
+
+    <!-- Sart Single product -->
+    <section class="ec-page-content section-space-p">
+      <div class="container">
+          <div class="row">
+              <div class="ec-pro-rightside ec-common-rightside col-lg-12 col-md-12">
+
+                  <!-- Single product content Start -->
+                  <div class="single-pro-block">
+                      <div class="single-pro-inner">
+                          <div class="row">
+                              <div class="single-pro-img single-pro-img-no-sidebar">
+                                  <div class="single-product-scroll">
+                                    <span class="ec-360-lbl" data-link-action="quickview" id="newproductid" style="display: none; height:20px;color: var(--font)!important;opacity: unset!important;cursor: unset;border-radius: 0 15px 15px 0;background-color: var(--background)!important;font-weight: 700;"><script>
+                                            var date = new Date({{ .Params.date }})
+                                            if(moment().diff(date,'days') < 4){
+                                                $('#newproductid').show();
+                                                document.write('new')
+                                            }
+                                            </script></span>
+                                      <div class="single-product-cover">
+                                        {{ range .Params.Images }}
+                                          <div class="single-slide zoom-image-hover" style="height: 300px;">
+                                              <img class="img-responsive img-fluid mx-auto" src="{{ .image | absURL }}" alt="{{ .Title }}">
+                                          </div>
+                                          {{ end }}
+                                        
+                                      </div>
+                                      <div class="single-nav-thumb">
+                                        {{ range .Params.Images }}
+                                          <div class="single-slide">
+                                              <img class="img-responsive" src="{{ .image | absURL }}" alt="{{ .Title }}">
+                                          </div>
+                                          {{ end }}
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="single-pro-desc single-pro-desc-no-sidebar">
+                                  <div class="single-pro-content">
+                                      <h5 class="ec-single-title"><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h5>
+                                      <p>Category: <script>document.write(decodeURIComponent('{{ .Params.Category }}').replaceAll('+',' '))</script></p>
+                                      <div class="ec-single-desc"><script>document.write(decodeURIComponent('{{ .Params.ShortDescription | markdownify }}').replaceAll('+',' '))</script></div>
+
+                                      <div class="ec-single-price-stoke">
+                                          <div class="ec-single-price">
+                                            {{ if .Params.PriceBefore }}
+                                            <span class="old-price">PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></span>
+                                            {{ end }}
+                                              <span class="new-price">PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
+                                          </div>
+                                          
+                                      </div>
+   
+                                      <div class="ec-single-qty">
+                                          <!-- <div class="qty-plus-minus">
+                                              <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
+                                          </div> -->
+                                          <div class="ec-single-cart ">
+                                              <button class="btn btn-secondary" onclick="Check({{ .Params.ProductID }},{{ .Title }},{{ .Params.Description }},{{ .Params.Price }}
+                                              ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1)">Add To Cart</button>
+                                          </div>
+                                        
+                                          <div class="ec-single-quickview">
+                                              <a href="#" class="ec-btn-group btn btn-secondary" id="whatsapp{{ .Params.ProductID }}" onclick="whatsapp('{{ .Params.ProductID }}','{{ .Title }}')" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true" style="font-size: 20px;"></i></a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!--Single product content End -->
+                  <div class="ec-single-pro-tab">
+                    <div class="ec-single-pro-tab-wrapper">
+                    
+                        <div class="tab-content  ec-single-pro-tab-content">
+                            <div id="ec-spt-nav-details" class="tab-pane fade show active">
+                                <div class="ec-single-pro-tab-desc">
+                                    <h2>Description</h2><br>
+                                    <script>document.write(decodeURIComponent('{{ .Params.longdescription }}').replaceAll('+',' '))</script>
+                                </div>
+                            </div>
+                        
+
+                         
+                        </div>
+                    </div>
+                </div>
+              </div>
+              {{$p_id :=.Params.ProductID }}
+          </div>
+      </div>
+  </section>
+  <!-- End Single product -->
+    <!-- Related Product Start -->
+    <section class="section ec-releted-product section-space-p">
+        <div class="container">
+            <div class="row" id="relatedp" style="display: none;">
+                <div class="col-md-12 text-center">
+                    <div class="section-title">
+                        <h2 class="ec-bg-title">Related products</h2>
+                        <h2 class="ec-title">Related products</h2>
+                        <!-- <p class="sub-title">Browse The Collection of Top Products</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-minus-b-30">
+                {{ range first 4 (where site.RegularPages "Description" .Params.Category) }}
+                {{if eq $p_id .Params.ProductID}}
+
+                {{else}}
+                <script>
+                    $('#relatedp').show();
+                </script>
+                <!-- Related Product Content -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content pricesrangeclass" data-price="{{ .Params.Price }}">
+                        <div class="ec-product-inner">
+                            <div class="ec-pro-image-outer">
+                                <div class="ec-pro-image">
+                                    <div onclick="window.location.href = '{{ .Permalink }}';" style="cursor: pointer;">
+                                    <a href="{{ .Permalink }}" class="image">
+                                      {{ range first 1 .Params.Images }}
+                                        <img class="main-image"
+                                            src="{{ .image | absURL }}" alt="Product" style="height: 300px;"/>
+                                            
+                                            {{ end }}
+                                            
+                                            <!-- <img class="hover-image"
+                                            src="" alt="Product" /> -->
+                                          
+                                    </a>
+                                  
+                                  <span class="percentage" style="background-color: var(--background)!important;color: var(--font)!important;opacity: unset!important;cursor: unset;"><script>
+                                      var date = new Date({{ .Params.date }})
+                                      if(moment().diff(date,'days') < 4){
+                                          document.write('new')
+                                      }
+                                  </script>   </span>
+                              </div>
+
+
+                              
+                              <a href="{{ .Permalink }}" class="quickview" title="View"><img
+                                src="https://v1.eralive.net/assets/images/icons/quickview.svg" class="svg_img pro_svg"
+                                alt="" /></a>
+                        <div class="ec-pro-actions">
+                           
+                            <a class="ec-btn-group wishlist" href="#a" title="Add To Cart" onclick="Check({{ .Params.ProductID }},{{ .Title }},{{ .Params.Description }},{{ .Params.Price }}
+                            ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1)" title="PKR {{ .Params.Price }} "><img
+                                    src="https://v1.eralive.net/assets/images/icons/cart.svg" class="svg_img pro_svg"
+                                    alt="" /></a>
+                                    <a class="ec-btn-group compare" href="#" id="whatsapp{{ .Params.ProductID }}" title="Whatsapp" onclick="whatsapp('{{ .Params.ProductID }}','{{ .Title }}')" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true" style="font-size: 20px;"></i></a>
+                          
+                        </div>
+                                </div>
+                            </div>
+                            <div class="ec-pro-content" onclick="window.location.href = '{{ .Permalink }}';" style="cursor: pointer;">
+                                <h5 class="ec-pro-title"><a href="{{ .Permalink }}"><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></a></h5>
+                                <p><script>document.write(decodeURIComponent('{{ .Params.Category }}').replaceAll('+',' '))</script>
+                                <div class="ec-pro-list-desc" style="margin:unset;"><script>document.write(decodeURIComponent('{{ .Params.shortDescription }}').replaceAll('+',' '))</script></div></p>
+                                <span class="ec-price">
+                                  {{ if .Params.PriceBefore }}
+                                    <span class="old-price">PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></span>
+                                  {{ end }}
+                                  <span class="rangeprice" hidden>{{ .Params.Price }}</span>
+                                    <span class="new-price">PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
+                                </span>
+                             
+                            </div>
+                        </div>
+                    </div>
+               
+                {{ end }}
+                {{ end }}
+            </div>
+        </div>
+    </section>
+    <!-- Related Product end -->
+
+
+
+
+<style>
+  .img-fluid{
+    height: 100%;
+  }
+
+</style>
+
+
+{{ end }}
