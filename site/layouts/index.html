@@ -53,10 +53,10 @@ var pagenames = "Home";
             <!-- Tab Start -->
             <div class="col-md-12 text-center">
                 <ul class="ec-pro-tab-nav nav justify-content-center">
-                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tab-pro-for-men">For
-                            Men</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-pro-for-kids">For
+                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tab-pro-for-kids">For
                             Kids</a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-pro-for-men">For
+                            Men</a></li>
   
                 </ul>
             </div>
@@ -66,7 +66,7 @@ var pagenames = "Home";
             <div class="col">
                 <div class="tab-content">
                     <!-- 1st Product tab start -->
-                    <div class="tab-pane fade show active" id="tab-pro-for-men">
+                    <div class="tab-pane fade" id="tab-pro-for-men">
                         <div class="row">
                             {{ range first 4 (where site.RegularPages "Description" "Men") }}
                
@@ -124,7 +124,7 @@ var pagenames = "Home";
                     </div>
                     <!-- ec 1st Product tab end -->
                     <!-- ec 2nd Product tab start -->
-                    <div class="tab-pane fade" id="tab-pro-for-kids">
+                    <div class="tab-pane fade show active" id="tab-pro-for-kids">
                         <div class="row">
                             <!-- Product Content -->
                             {{ range first 4 (where site.RegularPages "Description" "Boys") }}
