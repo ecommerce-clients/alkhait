@@ -895,3 +895,8 @@ width: 100%;
   .ec-category-section .ec-cat-tab-nav .cat-link:hover{
     background-color: var(--background);
   }
+
+.ec-product-lsc
+{
+  border: 6px solid;
+}
