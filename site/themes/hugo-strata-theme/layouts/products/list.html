@@ -2,7 +2,12 @@
 <script>
 var pagenames = "Home";
 $( document ).ready(function() {
+    if (window.matchMedia("(max-width: 500px)")) { // If media query matches
     $('.ec-sb-block-content').css("display", "none");
+  } else {
+   $('.ec-sb-block-content').css("display", "block");
+  }
+    
 });
     
     
