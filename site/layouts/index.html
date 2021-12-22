@@ -127,7 +127,7 @@ var pagenames = "Home";
                     <div class="tab-pane fade" id="tab-pro-for-kids">
                         <div class="row">
                             <!-- Product Content -->
-                            {{ range first 4 (where site.RegularPages "Description" "Kids") }}
+                            {{ range first 4 (where site.RegularPages "Description" "Boys") }}
                               <!-- Product Content -->
                               <div class="col-lg-3 col-md-6 col-sm-6 pricesrangeclass" data-category="{{ .Params.Category }}" data-price="{{ .Params.Price }}">
                                 <!-- START single card -->
