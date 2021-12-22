@@ -1,16 +1,18 @@
 {{ define "main" }}
 <script>
 var pagenames = "Home";
-$( document ).ready(function() {
-    if (window.matchMedia("(max-width: 500px)")) { // If media query matches
+  
+    function myFunctionmedia(xmedia) {
+  if (xmedia.matches) { // If media query matches
     $('.ec-sb-block-content').css("display", "none");
   } else {
    $('.ec-sb-block-content').css("display", "block");
   }
+}
     
-});
-    
-    
+    var xmedia = window.matchMedia("(max-width: 500px)")
+myFunctionmedia(xmedia)
+    xmedia.addListener(myFunctionmedia)
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://v1.eralive.net/assets/css/demo1.css" />
