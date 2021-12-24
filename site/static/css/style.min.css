@@ -907,6 +907,7 @@ width: 100%;
 }
 
 .ec-product-lsc .ec-product-body .ec-el-price .ec-d-price{
+   margin-bottom: -3px !important;
    position: unset !important;
    left: 0px !important;
    top: 0px !important;
