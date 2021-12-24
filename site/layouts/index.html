@@ -94,11 +94,12 @@ var pagenames = "Home";
                                         <div class="ec-el-price">
                                             <p class="ec-o-price">PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></p>
                                             {{ if .Params.PriceBefore }}
-                                            <p class="ec-d-price" id="oldpricehide"><span style="visibility: hidden;">&nbsp;&nbsp;&nbsp;&nbsp;</span>PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script> </p>
+                                            <p class="ec-d-price" id="oldpricehide"><span style="visibility: hidden;"></span>PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script> </p>
                                             {{ end }}
                                             <p style="text-decoration:line-through" id="oldpriceipad">
                                                 {{ if .Params.PriceBefore }}
                                                 PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script>
+                                                
                                                 {{ end }}
                                             </p>
                                         </div>
@@ -153,7 +154,7 @@ var pagenames = "Home";
                                         <div class="ec-el-price">
                                             <p class="ec-o-price">PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></p>
                                             {{ if .Params.PriceBefore }}
-                                            <p class="ec-d-price" id="oldpricehide"><span style="visibility: hidden;">&nbsp;&nbsp;&nbsp;&nbsp;</span>PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script> </p>
+                                            <p class="ec-d-price" id="oldpricehide"><span style="visibility: hidden;"></span>PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script> </p>
                                             {{ end }}
                                             <p style="text-decoration:line-through" id="oldpriceipad">
                                                 {{ if .Params.PriceBefore }}
