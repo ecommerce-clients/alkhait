@@ -150,11 +150,18 @@ var pagenames = "Home";
                                     <div class="ec-product-body">
                                         <p class="ec-description">Category <span><script>document.write(decodeURIComponent('{{ .Params.Category }}').replaceAll('+',' '))</script></span></p>
                                         <h3 class="ec-title"><a href="{{ .Permalink }}"><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></a></h3>
-                                        <p class="ec-description"><p class="ec-o-price">PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></p>
-                                        
-                                        <span>{{ if .Params.PriceBefore }}
+                                        <div class="ec-el-price">
+                                            <p class="ec-o-price">PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></p>
+                                            {{ if .Params.PriceBefore }}
+                                            <p class="ec-d-price" id="oldpricehide"><span style="visibility: hidden;">&nbsp;&nbsp;&nbsp;&nbsp;</span>PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script> </p>
+                                            {{ end }}
+                                            <p style="text-decoration:line-through" id="oldpriceipad">
+                                                {{ if .Params.PriceBefore }}
+                                                <br>
                                                 PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script>
-                                                {{ end }}</span></p>
+                                                {{ end }}
+                                            </p>
+                                        </div>
                                         
                                         <span class="rangeprice" hidden>{{ .Params.Price }}</span>
                                         <div class="ec-link-btn">
