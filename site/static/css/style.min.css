@@ -905,3 +905,7 @@ width: 100%;
 {
   border-color: #c1c1c1;
 }
+
+.ec-product-lsc .ec-product-body .ec-el-price .ec-d-price{
+   left: 150px !important;
+}
