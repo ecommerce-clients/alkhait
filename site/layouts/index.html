@@ -98,6 +98,7 @@ var pagenames = "Home";
                                             {{ end }}
                                             <p style="text-decoration:line-through" id="oldpriceipad">
                                                 {{ if .Params.PriceBefore }}
+                                                <br>
                                                 PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script>
                                                 {{ end }}
                                             </p>
@@ -562,6 +563,7 @@ var pagenames = "Home";
                                 {{ end }}
                                 <p style="text-decoration:line-through" id="oldpriceipad">
                                     {{ if .Params.PriceBefore }}
+                                    <br>
                                     PKR <script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script>
                                     {{ end }}
                                 </p>
