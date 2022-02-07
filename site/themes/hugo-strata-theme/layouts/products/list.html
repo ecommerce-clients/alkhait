@@ -1,7 +1,7 @@
 {{ define "main" }}
 <script>
 var pagenames = "Home";
-  
+var pagenproduct = "product";
     function myFunctionmedia(xmedia) {
   if (xmedia.matches) { // If media query matches
     $('.ec-sb-block-content').css("display", "none");
@@ -24,215 +24,249 @@ $( document ).ready(function() {
 <link href="/css/style.min.css" rel="stylesheet" />
 
 
+<div class="container-fluid">
 
-    <!-- Ec Shop page -->
-    <section class="ec-page-content section-space-p">
-      <div class="container">
-          <div class="row">
-            <div class="ec-shop-rightside col-lg-9 col-md-12 order-lg-last order-md-first  order-md-2 order-2 margin-b-30">
-                  <!-- Shop Top Start -->
-                  <div class="ec-pro-list-top d-flex">
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-12 ec-grid-list">
-                        <div class="ec-gl-btn">
-                            <form class="ec-btn-group-form" action="#">
-                                <input class="form-control myInput-hide myInput form-control" id="myInput" placeholder="Enter Your Product Name..." type="text" style="display: none;">
+
+    <div class="row pgt-25 mgr-1 mgl-1">
+        <div class="col-3 pgt-40 text-center pm-10">
+            <a href="javascript:;" class="f-000 td-none mgr-2 pull-left" onclick="showul('filter-id-search')">
+                <span> <i class="fa fa-sliders fs-20"
+                        aria-hidden="true"> Filter</i></span>
+            </a>
+        </div>
+        <div class="col-6 pgt-40 text-center pm-10">
+
+            <a href="javascript:;" class="f-878787 td-none mgr-2
+                border-4" onclick="col_view_2()" id="btn-2-col"><i
+                    class="fa fa-columns fs-30" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:;" class="f-000 td-none mgr-2 border-4"
+                onclick="col_view_4()" id="btn-4-col"><i class="fa
+                    fa-table fs-30" aria-hidden="true"></i>
+
+            </a>
+        </div>
+        <div class="col-3 pgt-40 text-center pm-10">
+            <div class="mb-3">
+                <select name="ec-select" class="form-control" style="padding-right:0px" id="pricerageallow" onchange="sort()">
+                    <option disabled selected>Select price range</option>
+                    <option value="byPrice">Select low to high</option>
+                    <option value="byDistance">Select high to low</option>
+                  </select>
+              
+            </div>
+        </div>
+    </div>
+    <div class="row pgt-50 mgt-50 mgb-25 pm-10 border-4 mgr-1 mgl-1" style="display: none;" id="filter-id-search">
+        <div class="col-6 fs-16 td-show">By Title</div>
+        <div class="col-6 fs-16 td-show">By Price</div>
+       
+
+        <div class="col-12 col-md-6 col-lg-6">
+            <div class="mb-3 mgt-20">
+                <input class="form-control myInput-hide myInput form-control" id="myInput" placeholder="Search for product title" type="text">
                                
-                            </form>
-                        </div>
+                
+            </div>
+            
+        </div>
+        <div class="col-12 col-md-6 col-lg-6">
+            <div class="mb-3 mgt-20">
 
-                      </div>
-                      <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-12 ec-sort-select mobile-view-grid-hide">
-                      
-                        <div class="ec-gl-btn">
-                            
-                            <button class="btn btn-grid-50 grid active"><img src="https://v1.eralive.net/assets/images/icons/grid.svg"
-                                    class="svg_img gl_svg" id="grid" alt="grid" /></button>
-                            <button class="btn btn-list-50 "><img src="https://v1.eralive.net/assets/images/icons/list.svg"
-                                    class="svg_img gl_svg" id="list" alt="list" /></button>
-                        </div>
-                         
-                      </div> -->
-                  </div>
-                  <!-- Shop Top End -->
-                  {{ if site.Data.homepage.products.enable }}
-                  <!-- Shop content Start -->
-                  <div class="shop-pro-content">
-                      <div class="shop-pro-inner">
-                          <div class="row" id="search">
-                            {{ range (where site.RegularPages "Type" "products") }}
-                            <div class="col-lg-3 col-md-3 col-sm-3 pricesrangeclass" data-category="{{ .Params.Category }}" data-price="{{ .Params.Price }}">
-                                <!-- START single card -->
-                                <div class="ec-product-lsc">
-                                    <div class="ec-product-image">
-                                        <a href="{{ .Permalink }}">
-                                            {{ range first 1 .Params.Images }}
-                                            <img  src="{{ .image | absURL }}" id="he-123" class="img-center img-fluid mx-auto" alt="">
-                                            {{ end }}
-                                        </a>
-                                        <script>
-                                            var date = new Date({{ .Params.date }})
-                                            if(moment().diff(date,'days') < 4){
-                                                document.write('<span class="ec-product-ribbon">new</span>')
-                                            }
-                                        </script>
-                                    </div>
-                                    <div class="ec-product-body">
-                                        <p class="ec-description">Category <span><script>document.write(decodeURIComponent('{{ .Params.Category }}').replaceAll('+',' '))</script></span></p>
-                                        <h3 class="ec-title"><a href="{{ .Permalink }}"><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></a></h3>
-                                        <div class="ec-el-price">
-                                            
-                                            <p class="ec-o-price">PKR <span id="{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span></p>
-                                            
-                                            <p style="text-decoration:line-through">
-                                                {{ if .Params.PriceBefore }}
-                                                PKR <span id="{{ .Params.ProductID }}{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></span>
-                                                
-                                                {{ end }}
-                                            </p>
-                                        </div>
-                                        <span class="rangeprice" hidden>{{ .Params.Price }}</span>
-                                        {{ if .Params.Variants }}
-                                        <br>
-
-                                        <div class="ec-pro-option">
-                                           
-                                            <div class="ec-pro-size">
-                                                <span class="ec-pro-opt-label">Size</span>
-                                                <ul class="ec-opt-size" data-productidsold="{{ .Params.ProductID }}">
-                                                    {{ range .Params.Variants }}
-                                                    <li onmouseover="changePrice(this,'{{ .variant.RetailPrice}}','{{ .variant.priceBefore}}')" data-Sizevariant="{{ .variant.Size}}" data-ProductVariantID="{{ .variant.ProductVariantID}}" data-retailprice="{{ .variant.RetailPrice}}"><a href="#" class="ec-opt-sz">{{ .variant.Size }}</a></li>
-                                                    {{ end }}
-                                                </ul>
+                                         <div class="row">
+                                             <div class="col-8">
+                                                <div id="ec-sliderPrice" class="filter__slider-price" data-min="0"
+                                                data-step="10" onclick="checkbox()" data-max="1" onmouseleave="checkbox()" style="margin-bottom: 10px;width: 96%;"></div>
+                                             </div>
+                                             <div class="col-4"></div>
+                                            <div class="col-4">
+                                                <label class="filter__label"><input type="text"
+                                                    class="filter__input form-control" id="sprice" onchange="checkbox()"></label>
                                             </div>
-                                        </div>
-                                        <br>
-                                        {{else}}
-                                        <br>
-                                        <br>
-                                        <br>
-                                        {{ end }}
-                                        <div class="ec-link-btn">
-                                            {{ if .Params.Variants }}
-                                            <a class=" ec-add-to-cart" href="#a" title="Add To Cart" onclick="tempFunction(this,{{ .Title }},{{ .Params.Description }}
-                                            ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1,'{{ .Params.ProductID }}');" title="PKR {{ .Params.Price }} "><i class="fa fa-cart-plus" aria-hidden="true"></i> <span id="cartipda">cart</span></a>
-                                            {{else}}
-                                            <a class=" ec-add-to-cart" href="#a" title="Add To Cart" onclick="Check({{ .Params.ProductID }},{{ .Title }},{{ .Params.Description }},{{ .Params.Price }}
-                                            ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1,'{{ .Params.ProductID }}',''),''" title="PKR {{ .Params.Price }} "><i class="fa fa-cart-plus" aria-hidden="true"></i> <span id="cartipda">cart</span></a>
-                               
-                                            {{ end }}
-                                            <div class="ec-link-icon">
-                                                <a href="{{ .Permalink }}"><img src="https://v1.eralive.net/assets/images/icons/quickview.svg"
-                                                    class="svg_img header_svg pro_svg" alt="wishlist" /></a>
-                                                <a id="whatsapp{{ .Params.ProductID }}" title="Whatsapp" onclick="whatsapp('{{ .Params.ProductID }}','{{ .Title }}')" target="_blank" data-tip="Compare"><i class="fa fa-whatsapp" aria-hidden="true" style="font-size: 20px;"></i></a>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- START single card -->
-                            </div>
-                              
-                              {{ end }}
-                          
-                          </div>
-                      </div>
-                      <!-- Ec Pagination Start -->
-                      <div class="ec-pro-pagination">
-                          <!-- <span>Showing 1-12 of 21 item(s)</span> -->
-                          <ul class="ec-pro-pagination-inner" id="pagin">
+                                            <div class="col-4">
+                                                <span class="ec-price-divider"></span>
+                                                <label class="filter__label">PKR<input type="text"
+                                                        class="filter__input form-control" id="hprice" onchange="checkbox()"></label>
+                                                </div>
 
-                             <!-- <li><a class="next" href="#">Next <i class="ecicon eci-angle-right"></i></a></li> -->
-                           </ul>
-                      </div>
-                      <!-- Ec Pagination End -->
-                  </div>
-                  <!--Shop content End -->
-              </div>
-               <!-- Sidebar Area Start -->
-               <div class="ec-shop-leftside col-lg-3 col-md-12 order-lg-first order-md-last order-md-1 order-1">
-                <div id="">
-                    <div class="ec-sidebar-heading">
-                        <h1>Filter Products By</h1>
-                    </div>
-                    <div class="ec-sidebar-wrap">
-                        <!-- Sidebar Price Block -->
-                        
-                        <div class="ec-sidebar-block">
-                            <div class="ec-sb-title">
-                                <h3 class="ec-sidebar-title">Sort by</h3>
-                            </div>
-                            <div class="ec-sb-block-content es-price-slider">
-                                <div class="ec-price-filter">
-                                  
-                                        <select name="ec-select" class="form-control" style="padding-right:0px" id="pricerageallow" onchange="sort()">
-                                          <option disabled selected>Select price range</option>
-                                          <option value="byPrice">Select low to high</option>
-                                          <option value="byDistance">Select high to low</option>
-                                        </select>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="ec-sidebar-block">
-                            <div class="ec-sb-title">
-                                <h3 class="ec-sidebar-title">Price</h3>
-                            </div>
-                            <div class="ec-sb-block-content es-price-slider">
-                                <div class="ec-price-filter">
-                                    <div id="ec-sliderPrice" class="filter__slider-price" data-min="0"
-                                         data-step="10" onclick="checkbox()" data-max="1" onmouseleave="checkbox()"></div>
-                                        
-                                        <div class="ec-price-input">
-                                        <label class="filter__label"><input type="text"
-                                                class="filter__input" id="sprice" onchange="checkbox()"></label>
-                                        <span class="ec-price-divider"></span>
-                                        <label class="filter__label"><input type="text"
-                                                class="filter__input" id="hprice" onchange="checkbox()"></label>
+                                       
                                     </div>
+                                      
                                 </div>
-                            </div>
-                        </div>
-                        <br>
-                        <!-- Sidebar Category Block -->
-                        <div class="ec-sidebar-block">
-                            <div class="ec-sb-title">
-                                <h3 class="ec-sidebar-title">Category</h3>
-                            </div>
-                            <div class="ec-sb-block-content es-price-slider">
-                                <div class="ec-price-filter">
-                                <ul id="catulli">
-                                   
-                                  
-                                    
+           
+            <button class="btn btn-secondary btn-lg active b-000
+                fs-14"style="width: 30%; height: 50px;"  onclick="checkbox()">
+                FILTER
+            </button>
+        </div>
+        
+    </div>
 
-                                </ul>
-                                </div>
-                            </div>
-                        </div>
-                     
-                       
-                        
-                    </div>
+
+    
+    <div class="row mgb-25 mgr-1 mgl-1 pm-15 border-bottom" id="search">
+        {{ if site.Data.homepage.products.enable }}
+        {{ range (where site.RegularPages "Type" "products") }}
+        <div class="col-lg-3 col-md-3 col-6 view-col-change pricesrangeclass" data-category="{{ .Params.Category }}" data-price="{{ .Params.Price }}">
+            <a href="{{ .Permalink }}">
+           <div class="card width-10-rem cardhover" style="border:
+                unset;">
+                {{ range first 1 .Params.Images }}
+                <img
+                    src="{{ .image | absURL }}"
+                    class="card-img-top">
+                    {{ end }}
+                <p class="card-text"><h6><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h6><span
+                        class="price dib
+                        mb__5"><span class="cb fwn">from</span>
+                        Rs. <span id="{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
+                    </span></p>
+
+                    <span class="rangeprice" hidden>{{ .Params.Price }}</span>
+                <div class="btn_add align-self-center cardbtn
+                    col-mobile">
+                    <a href="{{ .Permalink }}">
+                    <button class="btn btn-primary btn-lg active b-000
+                        fs-12 qview-btn"
+                        style="background-color: black;width:
+                        120px;height: 40px;"><span class="qview-hide">
+                            Quick View</span><i class="fa fa-eye
+                            qview-show" aria-hidden="true"></i>
+                    </button></a><br><br>
+                    <button class="btn btn-primary btn-lg active b-000
+                        fs-12 qshop-btn" data-bs-toggle="modal"
+                        data-bs-target="#newaddtocart{{ .Params.ProductID }}"
+                        style="background-color: black;width:
+                        120px;height: 40px;"><span class="qshop-hide">Quick
+                            Shop</span> <i class="fa fa-shopping-cart
+                            qshop-show" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="btn_add-mobile align-self-center right-10
+                    col-mobile-show">
+                    <a href="{{ .Permalink }}">
+                    <button class="btn-rounded-top-30 btn btn-primary
+                        btn-lg active b-000 fs-12"><i class="fa fa-eye"
+                            aria-hidden="true"></i>
+                    </button></a>
+                    <br>
+                    <button class="btn-rounded-bottom-30 btn
+                    btn-primary btn-lg active b-000 fs-12" data-bs-toggle="modal"
+                        data-bs-target="#newaddtocart{{ .Params.ProductID }}"><i
+                            class="fa fa-shopping-cart"
+                            aria-hidden="true"></i>
+
+                    </button>
                 </div>
             </div>
+        </a>
+        </div>
+       {{ end }}
+       {{ end }}
+    </div>
+    <div class="row mgb-100">
+        <div class="col-12 text-center" id="pagin">
+            <ul class="ec-pro-pagination-inner">
+
+                <!-- <li><a class="next" href="#">Next <i class="ecicon eci-angle-right"></i></a></li> -->
+              </ul>
+            <a href="#" class="f-ff4e00 td-none mgr-2">1</a>
+            <a href="#" class="f-000 td-none mgr-2">2</a>
+            <a href="#" class="f-000 td-none mgr-2">Next</a>
+        </div>
+    </div>
+   
+
+</div>
+
+ 
+
+{{ range (where site.RegularPages "Type" "products") }}
+      
+<div class="modal fade" id="newaddtocart{{ .Params.ProductID }}" tabindex="-1" role="dialog"
+aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered widht-25" role="document">
+  <div class="modal-content">
+
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-4">
+            {{ range first 1 .Params.Images }}
+          <img style="width: 100%;"
+            src="{{ .image | absURL }}"
+            class="img-fluid" alt="">
+            {{ end }}
+        </div>
+        <div class="col-8">
+          <div class="row">
+            <div class="col-10">
+              <h6 class="pgt-10">
+                <span style="margin-bottom:40px;"><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></span>
+                <br>
+                {{ if .Params.PriceBefore }}
+                <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span>
+                {{ end }}
+                <br>
+                <span class="f-ff4e00">Rs. <Span class="price{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></Span></span>
+              </h6>
+            </div>
+            <div class="col-2 fs-20" style="cursor: pointer;"
+              onclick="$('#newaddtocart{{ .Params.ProductID }}').modal('hide');">X</div>
           </div>
+
+
+
+        </div>
+        <div class="col-12">
+            {{ if .Params.Variants }}
+            <br>
+            <h6 class="text-center">Size: </h6>
+            
+            <span class="d-flex align-items-center justify-content-center">
+               
+              <span class="element-active-1" data-productidsold="{{ .Params.ProductID }}">
+            {{ range .Params.Variants }}
+            <span class="mouse-pointer" onclick="changePrice(this,'{{ .variant.RetailPrice}}','{{ .variant.priceBefore}}')">
+            <span class="dot text-center align-self-center f-fff mouse-pointer" data-Sizevariant="{{ .variant.Size}}" data-ProductVariantID="{{ .variant.ProductVariantID}}" data-retailprice="{{ .variant.RetailPrice}}">{{ .variant.Size }}</span>
+            </span>  
+            {{ end }}
+              </span>
+            <br> <br> <br>
+          </span>
+            {{ end }}
+          <div class="d-flex align-items-center justify-content-center">
+           
+
+
+          </div>
+          {{ if .Params.Variants }}
+          <button type="button" class="btn btn-secondary mgt-15"
+style="width: 100%;" title="Add To Cart" onclick="tempFunction(this,{{ .Title }},{{ .Params.Description }}
+,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1,'{{ .Params.ProductID }}');showul('mobile-cart');$('#mobile-search-modal').modal('show');$('#newaddtocart{{ .Params.ProductID }}').modal('hide');" title="PKR {{ .Params.Price }} ">ADD TO CART</button>
+        
+          {{else}}
+
+<button type="button" class="btn btn-secondary mgt-15"
+style="width: 100%;" title="Add To Cart" onclick="Check({{ .Params.ProductID }},{{ .Title }},{{ .Params.Description }},{{ .Params.Price }}
+,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1,'{{ .Params.ProductID }}','');showul('mobile-cart');$('#mobile-search-modal').modal('show');$('#newaddtocart{{ .Params.ProductID }}').modal('hide');" title="PKR {{ .Params.Price }} ">ADD TO CART</button>
+          {{ end }}
+          
+          
+          <div class="d-flex align-items-center justify-content-center">
+            <a href="{{ .Permalink }}" class="f-000 mgt-15">View full details <i
+                class="fa fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
       </div>
-  </section>
-  <!-- End Shop page -->
+    </div>
 
-
-
-
-<!-- products -->
-
-
-
-
+  </div>
+</div>
+</div>
 {{ end }}
-<!-- /products -->
-
-
 <script src="https://v1.eralive.net/assets/js/plugins/nouislider.js"></script>
 <br>
 {{ end }}
+
+

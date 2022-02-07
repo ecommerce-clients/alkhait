@@ -1,8 +1,6 @@
 
 @media (min-width: 992px){
-   .col-lg-3{
-      margin-top: 16px!important;
-    }
+
 }
   @media only screen and (max-width: 991px)
   {
@@ -39,6 +37,14 @@
   }
   @media only screen and (max-width: 575px)
   {
+    .mgl-50
+    {
+        margin-left: unset !important;
+    }
+    .mgl-60
+{
+    margin-left: unset !important;
+}
     #oldpriceipad{
         display: none !important;
       }
@@ -92,9 +98,7 @@
 .header-logo img{
     width: unset !important;
 }
-.modal-content{
-    padding: 20px!important;
-}
+
 .btn-close{
     width: 10px!important;
 }
@@ -275,8 +279,8 @@ a{
     fill: var(--body)!important;
 }
 .btn-primary{
-    color: var(--body)!important;
-    background-color: unset!important;
+    /* color: var(--body)!important;
+    background-color: unset!important; */
     border: 1px solid var(--body)!important;
 }
 .btn-primary:hover
@@ -912,4 +916,54 @@ width: 100%;
    left: 0px !important;
    top: 0px !important;
    
+}
+
+
+.mgl-50
+{
+    margin-left: 20%;
+}
+
+
+.mgl-60
+{
+    margin-left: 23%;
+}
+
+.mgb-30-s{
+margin-bottom: 70px;
+}
+
+.bg-third{
+    background-image: url(https://cdn.shopify.com/s/files/1/0586/8873/3344/files/900_2_720x.jpg?v=1631664387);
+    background-size: cover;
+}
+
+
+.rectangle-span:active{
+    color: white;
+    background-color:rgba(33,43,54,.9)
+}
+
+.active{
+    color: white;
+    background-color:rgba(33,43,54,.9)
+}
+
+
+.btn-primary{
+    color: var(--body)!important;
+    background-color: unset!important;
+    border: 1px solid var(--body)!important;
+}
+
+.btn-primary{
+    color: var(--font)!important;
+    background-color: var(--background)!important;
+    border-color: var(--background)!important;
+}
+
+
+.flickity-viewport{
+  height:560px !important;
 }

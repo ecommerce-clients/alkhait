@@ -3,8 +3,9 @@
     var pagenames = "account";
     var accountname = "loginallow";
 </script>
+<!-- <link href="/css/style.min.css" rel="stylesheet" /> -->
 <!-- Start Login -->
-<section class="ec-page-content section-space-p">
+<section class="ec-page-content section-space-p mgt-70 mgl-60 mgb-30-s">
     <div class="container">
         <div class="row">
             
@@ -15,8 +16,8 @@
                             <div class="col-12 col-md-4"
                                 style="background-color: var(--background);">
                                 <div id="col-top-30" class="ec-register-wrap ec-register-btn justify-center">
-                                    <label class="btn" style="cursor: unset; color: var(--font);">Continue With</label>
-
+                                    <center>  <label class="btn" style="cursor: unset; color: var(--font);">Continue With</label>
+                                    </center>
                                     <div class="row" id="p-rl">
                                         <div class="col-4 text-center"><button class="btn btn-primary" style="border-radius: 50%;border-color: var(--font) !important;" type="button" onclick="fbLogin()"><i class="fa fa-facebook-official" style="color: var(--font);" aria-hidden="true"></i></button></div>
                                         <div class="col-4 text-center"><button class="btn btn-primary" style="border-radius: 50%;border-color: var(--font) !important;" type="button" onclick="GoogleLogin()"><i class="fa fa-google" aria-hidden="true" style="color: var(--font);"></i></button></div>
@@ -29,9 +30,12 @@
                             <div class="col-12 col-md-8 pt-10">
                                 <div class="row">
                                     <div class="mx-auto col-lg-9 col-md-11 col-11">
+                                        <br>
+                                        <br>
                                         <center>
                                             <h5>Login Your Account <br></h5>
                                         </center>
+                                        <br><br>
                                         <span class="ec-register-wrap ec-register-half">
                                             <!-- <label>Email*</label> -->
                                             <div class="input-group">
@@ -60,11 +64,23 @@
                                             </div>
                                         </span>
                                         <span class="ec-register-wrap ec-register-half" id="bottom-desktop-30">
+                                        <div class="row mgt-30">
+                                            <div class="col-lg-6 col-md-6 col-12">
+                                                <button class="btn btn-secondary btn-lg active b-000-i
+                                                fs-14 btns-90 align-self-center" id="btn-center-desktop" type="button" onclick="validate()">Login</button>
+                                                
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-12 text-center mgb-25 align-self-center">
+                                                <a href="/forgot" class="">Forgot Password</a>
+                                            </div>
+                                        </div>
+                                        
                                             
-                                            <a href="/forgot">Forgot Password</a>
-                                            <button class="btn btn-outline-primary" id="btn-center-desktop" type="button" onclick="validate()">Login</button>
-                                           
+                                            
+                                            
+                                            
                                             </span>
+                                            
                                     </div>
                                 </div>
                             </div>
@@ -76,6 +92,7 @@
         </div>
     </div>
 </section>
+
 <!-- End Login -->
 <script src="https://controllers.eralive.net/v1/Controllers/loginController.js"></script>
 {{ end }}

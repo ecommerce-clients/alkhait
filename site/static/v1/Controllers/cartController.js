@@ -8,7 +8,7 @@ if(pagenames == "Cartpage")
 function cardpage()
 {
     try {
-        $("#tbodyload tr").remove();
+        $("#tbodyload div").remove();
         
         items = localStorage.getItem("itemsArray");
         json = JSON.parse(items);
@@ -19,30 +19,61 @@ function cardpage()
         for (i = 0; i < result.length; i++) {
             // console.log(json[i]);
             count++;
-            student +='<tr>'
-            student +='<td data-label="Product" class="ec-cart-pro-name"><a href="'+window.location.origin+'/products/'+result[i].old_id+'" target="_blank"><img class="ec-cart-pro-img mr-4" src="' + result[i].img + '" alt="' +result[i].name + '" />' +result[i].name + '</a>';
-            if(result[i].size !='')
-            student +='<br>Size: ('+result[i].size+')';
-            student +='</td>'
-            student +='<td data-label="Price" class="ec-cart-pro-price"><span class="amount">PKR: '+new Intl.NumberFormat().format(parseFloat(result[i].price))+'</span></td>'
-            student +='<td data-label="Quantity" class="ec-cart-pro-qty" style="text-align: center;">'
-            student +='<div class="cart-qty-plus-minus"> <input class="cart-plus-minus" style="width: 100%;" type="number" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" oninput="this.value = Math.abs(this.value)" min="1"  maxlength="3" onkeyup="' + "cartpricechnage(this,'" + result[i].id + "'," + i + "," + result[i].price + ",'cart')" + '"' + 'onchange="' + "cartpricechnage(this,'" + result[i].id + "'," + i + "," + result[i].price + ",'cart')" + '" value="' + result[i].quantity + '" /></div>'
-            student +='</td>'
-            // student +='<td data-label="Total" class="ec-cart-pro-subtotal">$56.00</td>'
-      
-            student +='<td data-label="Remove" class="ec-cart-pro-remove">'
-    
-            student +='<a href="#" onclick="add_delete(' +
-            "'" + result[i].id + "'"
-            + ',this)"><i class="ecicon eci-trash-o"></i></a>'
-            student +='</td>'
-            student +='</tr>'
+            student +=`
+            <div class="col-lg-4 col-md-4 col-12 pm-10">
+            <div class="row">
+                <div class="col-4 pull-right"><img
+                        src="${result[i].img}"
+                        class="img-fluid" alt=""></div>
+                <div class="col-8 pgt-25-mobile">
+                <a href="${window.location.origin+'/products/'+result[i].old_id}" class="f-000 td-none"> <h6 class="mouse-pointer">${result[i].name}</h6>
+                <span>Size:`;
+                if(result[i].size !='')
+                student += result[i].size
+                student +=` </span><br><br>
+                </a>
+                    
+                    
+                    <i class="fa fa-trash-o fs-25 mouse-pointer"
+                        aria-hidden="true" onclick="add_delete('${result[i].id}',this)"></i>
+                    <div class="row col-mobile-show">
+                        <div class="col-12">
+                            <p class="pgt-25">&nbsp;&nbsp;<span
+                                    class="f-ff4e00 fs-16">Rs.${new Intl.NumberFormat().format(parseFloat(result[i].price))}</span></p>
+                        </div>
+                        <div class="col-12">
+                            <input type="number"
+                                class="form-control"
+                                style="height: 50px; width: 30%;" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" oninput="this.value = Math.abs(this.value)" min="1"  maxlength="3" onkeyup="' + "cartpricechnage(this,'${result[i].id}',${i},${result[i].price},'cart')" onchange="cartpricechnage(this,'${result[i].id}',${i},${result[i].price},'cart')" value="${result[i].quantity}">
+                        </div>
+                      
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="col-2 col-mobile">
+            <p class="pgt-25">&nbsp;&nbsp;<span
+                    class="f-ff4e00 fs-16">Rs.${new Intl.NumberFormat().format(parseFloat(result[i].price))}</span></p>
+        </div>
+        <div class="col-3 d-flex justify-content-center col-mobile
+            callfun-mobile"
+            style="padding-left:
+            82px;">
+            <input type="number" class="form-control
+                mgt-20" style="height: 50px; width: 30%;" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" oninput="this.value = Math.abs(this.value)" min="1"  maxlength="3" onkeyup="' + "cartpricechnage(this,'${result[i].id}',${i},${result[i].price},'cart')" onchange="cartpricechnage(this,'${result[i].id}',${i},${result[i].price},'cart')" value="${result[i].quantity}">
+        </div>
+       
+            `;
+            
 
 
             var price = parseFloat(result[i].price * result[i].quantity)
             toprice = parseFloat(toprice + price);
 
-            $("#tbodyload tr").remove();
+            $("#tbodyload div").remove();
             $('#tbodyload').append(student);
 
         };

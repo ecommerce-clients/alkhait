@@ -2,8 +2,9 @@
 <script>
     var pagenames = "account";
 </script>
+<link href="/css/style.min.css" rel="stylesheet" />
     <!-- Start Register -->
-    <section class="ec-page-content section-space-p">
+    <section class="ec-page-content section-space-p mgt-70 mgl-60 mgb-30-s">
         <div class="container">
             <div class="row">
                 
@@ -13,8 +14,9 @@
                             <div class="row" style="box-shadow:1px 1px 15px 0.01px">
                                 <div class="col-12 col-md-4" style="background-color: var(--background);">
                                     <div id="col-top-50" class="ec-register-wrap ec-register-btn justify-center">
-                                    
+                                        <center>
                                         <label class="btn" style="cursor: unset; color: var(--font);">Continue With</label>
+                                    </center>
                                         <div class="row" id="p-rl">
                                             <div class="col-4 text-center"><button class="btn btn-primary" style="border-radius: 50%;border-color: var(--font) !important;" type="button" onclick="fbLogin()"><i class="fa fa-facebook-official" style="color: var(--font);" aria-hidden="true"></i></button></div>
                                             <div class="col-4 text-center"><button class="btn btn-primary" style="border-radius: 50%;border-color: var(--font) !important;" type="button" onclick="GoogleLogin()"><i class="fa fa-google" aria-hidden="true" style="color: var(--font);"></i></button></div>
@@ -26,7 +28,7 @@
                                     <div class="row">
                                         <div class="mx-auto col-lg-9 col-md-11 col-11">
                                             <center>
-                                            <h5 class="">Register Your Account <br></h5></center>
+                                            <h5 class="mgt-30 mgb-25">Register Your Account <br></h5></center>
                                             <span class="ec-register-wrap ec-register-half">
                                                 <div class="input-group">
                                                     <span class="input-group-text" style="background-color: transparent;border: none;border-bottom:1px solid" id="fullnames"><i class="fa fa-user-o" aria-hidden="true"></i></span>
@@ -66,7 +68,8 @@
                                                 </div>
                                                 </span>
                                                 <span class="ec-register-wrap ec-register-half">
-                                                    <button class="btn btn-outline-primary" id="btn-center-desktop" type="button" onclick="validate()">Register</button>
+                                                    <button class="btn btn-secondary btn-lg active b-000-i
+                                                    fs-14 btns-90" id="btn-center-desktop" type="button" onclick="validate()">Register</button>
                                                     </span>
                                         </div>
                                     </div>
@@ -79,6 +82,7 @@
             </div>
         </div>
     </section>
+    
     <!-- End Register -->
     <script src="https://controllers.eralive.net/v1/Controllers/registerController.js"></script>
 {{ end }}

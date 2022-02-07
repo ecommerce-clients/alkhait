@@ -14,12 +14,12 @@ if(pagenames == "checkout")
     
         }
         else{
-            window.location.href = window.location.origin;
+            // window.location.href = window.location.origin;
         }
     }
     else{
       
-        window.location.href = window.location.origin;
+        // window.location.href = window.location.origin;
     
     }
 var getipaddress;
@@ -50,7 +50,7 @@ if (localStorage.getItem("gotrue.user") != null) {
 
 }
 else {
-    window.location.href = window.location.origin + "/";
+    // window.location.href = window.location.origin + "/";
 
 }
 
@@ -83,50 +83,68 @@ function load() {
         toprice = 0;
         var products = '';
         for (i = 0; i < json.length; i++) {
+            
             if(json[i].id.includes('example'))
             {
                 dataexmple.push(json[i])
             }
-            
+            var price = parseFloat(json[i].price * json[i].quantity);
             // console.log(json[i]);
             count++;
-            products += '<div class="col-sm-12 mb-6">';
-            products += '<div class="ec-product-inner">';
-            products += '<div class="ec-pro-image-outer">';
-            products += '<div class="ec-pro-image">';
-            products += '<div class="image">';
-            products += '<img class="main-image" src="' + json[i].img + '" alt="' + json[i].name + '" />';
-            products += '</div>';
-            products += '</div>';
-            products += '</div>';
-
-            products += '<div class="ec-pro-content">';
-            products += '<h5 class="ec-pro-title"><a href="'+window.location.origin+'/products/'+json[i].old_id+'" target="_blank">' + json[i].name + '</a></h5>';
-            products += '<span class="ec-price">';
-            products += '<span class="new-price">'
-            if(json[i].size !='')
-            products += 'Size: ('+json[i].size+')<br>';
-            products += 'PKR: ' + new Intl.NumberFormat().format(parseFloat(json[i].price)) + '</span>';
+            products += `
+            <div class="col-2">
+            <span>
+                <img src="${json[i].img}" class="img-fluid" alt="">
+                <span class="border-round text-center">1</span></span>
+        </div>
+        <div class="col-5 pgt-6 ">
+            <p ><strong>${json[i].name}</strong>
+                <span>`;
+                if(json[i].size !='')
+                products += json[i].size;
+                products += `</span></p>
             
-            products += '</span>';
+        </div>
+        <div class="col-4 pgt-6 ">
+            <p class="pull-right">PKR ${price}</p>
+        </div>
+            `;
+            // products += '<div class="ec-product-inner">';
+            // products += '<div class="ec-pro-image-outer">';
+            // products += '<div class="ec-pro-image">';
+            // products += '<div class="image">';
+            // products += '<img class="main-image" src="' + json[i].img + '" alt="' + json[i].name + '" />';
+            // products += '</div>';
+            // products += '</div>';
+            // products += '</div>';
+
+            // products += '<div class="ec-pro-content">';
+            // products += '<h5 class="ec-pro-title"><a href="'+window.location.origin+'/products/'+json[i].old_id+'" target="_blank">' + json[i].name + '</a></h5>';
+            // products += '<span class="ec-price">';
+            // products += '<span class="new-price">'
+            // if(json[i].size !='')
+            // products += 'Size: ('+json[i].size+')<br>';
+            // products += 'PKR: ' + new Intl.NumberFormat().format(parseFloat(json[i].price)) + '</span>';
+            
+            // products += '</span>';
          
-            products += '<div class="qty-plus-minus"><input type="number" class="qty-input" style="width: 80px;height:30px;border: 1px solid #eeeeee;" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" oninput="this.value = Math.abs(this.value)" min="1"  maxlength="3" onkeyup="' + "cartpricechnage(this,'" + json[i].id + "'," + i + "," + json[i].price + ",'checkout')" + '"' + 'onchange="' + "cartpricechnage(this,'" + json[i].id + "'," + i + "," + json[i].price + ",'checkout')" + '" value="' + json[i].quantity + '">';
-            products +='<a href="#" onclick="add_delete('+"'" + json[i].id + "'"+ ',this)">&nbsp;&nbsp;<i class="ecicon eci-trash-o" style="font-size: 20px;"></i></a></div>'
+            // products += '<div class="qty-plus-minus"><input type="number" class="qty-input" style="width: 80px;height:30px;border: 1px solid #eeeeee;" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" oninput="this.value = Math.abs(this.value)" min="1"  maxlength="3" onkeyup="' + "cartpricechnage(this,'" + json[i].id + "'," + i + "," + json[i].price + ",'checkout')" + '"' + 'onchange="' + "cartpricechnage(this,'" + json[i].id + "'," + i + "," + json[i].price + ",'checkout')" + '" value="' + json[i].quantity + '">';
+            // products +='<a href="#" onclick="add_delete('+"'" + json[i].id + "'"+ ',this)">&nbsp;&nbsp;<i class="ecicon eci-trash-o" style="font-size: 20px;"></i></a></div>'
 
-            products += '</div>';
-            // products += ''
-            products += '</div>';
+            // products += '</div>';
+            // // products += ''
+            // products += '</div>';
             
-            products += '</div>';
+            // products += '</div>';
             // products += '<button class="btn btn-outline-danger btn-icon" style="padding: 10px 15px;" onclick="add_delete(' +"'" + json[i].id + "'"+ ',this)"><i class="fa fa-trash" aria-hidden="true"></i></button>';
             
-            var price = parseFloat(json[i].price * json[i].quantity)
+            
             toprice = parseFloat(toprice + price);
         };
         $('#tablaa').html(products);
         $("#count").text(count + ' items');
-        $("#subtotle").text(new Intl.NumberFormat().format(toprice));
-        $("#sutotle").text(new Intl.NumberFormat().format(toprice));
+        $(".subtotle").text(new Intl.NumberFormat().format(toprice));
+        $(".sutotle").text(new Intl.NumberFormat().format(toprice));
         sutotle = toprice;
         subtot = toprice;
         onchacity();
@@ -150,8 +168,8 @@ function load() {
     }
     else {
         $("#count").text(0 + ' items');
-        $("#subtotle").text(0);
-        $("#sutotle").text(0);
+        $(".subtotle").text(0);
+        $(".sutotle").text(0);
         sutotle = 0;
         subtot = 0;
         $("#tablaa").remove();
@@ -388,7 +406,7 @@ function adddata() {
         'payment_method': 'cash',
         'transaction_id': '1001',
         'date_paid': yyyy + '-' + mm + '-' + dd,
-        'status': 'pending',
+        'status': '1',
 
         Billing: {
             'name': name,
@@ -506,17 +524,17 @@ function callcity(allowkey, domainname) {
     });
 }
 function onchacity() {
-    $('#sutotle').text(new Intl.NumberFormat().format(parseFloat(sutotle) - parseFloat($('#deliveypriceset').val())))
+    $('.sutotle').text(new Intl.NumberFormat().format(parseFloat(sutotle) - parseFloat($('#deliveypriceset').val())))
 
     if ($('#shippingtrue').is(":checked")) {
         if ($('#s_citys :selected').data("miniorder") != null) {
             if (parseFloat($('#s_citys :selected').data("miniorder")) <= parseFloat(subtot)) {
-                $('#delivery_price').text(new Intl.NumberFormat().format(0));
+                $('.delivery_price').text(new Intl.NumberFormat().format(0));
                 $('#deliveypriceset').val(0);
                 $('#cityidset').val($('#s_citys :selected').data("cityid"));
             }
             else {
-                $('#delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#s_citys :selected').data("price"))));
+                $('.delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#s_citys :selected').data("price"))));
                 $('#deliveypriceset').val(parseFloat($('#s_citys :selected').data("price")));
                 $('#cityidset').val($('#s_citys :selected').data("cityid"));
                 var options = {
@@ -536,10 +554,10 @@ function onchacity() {
             }
         }
         else {
-            $('#delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#s_citys :selected').data("price"))));
+            $('.delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#s_citys :selected').data("price"))));
             $('#deliveypriceset').val(parseFloat($('#s_citys :selected').data("price")));
             $('#cityidset').val($('#s_citys :selected').data("cityid"));
-            // $('#sutotle').text(parseInt($('#sutotle').text())+parseInt($('#deliveypriceset').val()))
+            // $('.sutotle').text(parseInt($('.sutotle').text())+parseInt($('#deliveypriceset').val()))
         }
 
 
@@ -550,12 +568,12 @@ function onchacity() {
     else {
         if ($('#citys :selected').data("miniorder") != null) {
             if (parseFloat($('#citys :selected').data("miniorder")) <= parseFloat(subtot)) {
-                $('#delivery_price').text(new Intl.NumberFormat().format(0));
+                $('.delivery_price').text(new Intl.NumberFormat().format(0));
                 $('#deliveypriceset').val(0);
                 $('#cityidset').val($('#citys :selected').data("cityid"));
             }
             else {
-                $('#delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#citys :selected').data("price"))));
+                $('.delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#citys :selected').data("price"))));
                 $('#deliveypriceset').val(parseFloat($('#citys :selected').data("price")));
                 $('#cityidset').val($('#citys :selected').data("cityid"));
                 var options = {
@@ -575,13 +593,13 @@ function onchacity() {
             }
         }
         else {
-            $('#delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#citys :selected').data("price"))));
+            $('.delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#citys :selected').data("price"))));
             $('#deliveypriceset').val(parseFloat($('#citys :selected').data("price")));
             $('#cityidset').val($('#citys :selected').data("cityid"));
         }
     }
 
-    $('#sutotle').text(new Intl.NumberFormat().format(parseFloat(sutotle) + parseFloat($('#deliveypriceset').val())))
+    $('.sutotle').text(new Intl.NumberFormat().format(parseFloat(sutotle) + parseFloat($('#deliveypriceset').val())))
 
     // delivery_price
 }
@@ -592,50 +610,50 @@ function onchacity() {
 
 
 function valueChanged() {
-    $('#sutotle').text(new Intl.NumberFormat().format(parseFloat(sutotle) - parseFloat($('#deliveypriceset').val())))
+    $('.sutotle').text(new Intl.NumberFormat().format(parseFloat(sutotle) - parseFloat($('#deliveypriceset').val())))
     if ($('#shippingtrue').is(":checked")) {
         $("#shippinghidediv").show();
         if ($('#s_citys :selected').data("miniorder") != null) {
             if (parseFloat($('#s_citys :selected').data("miniorder")) <= parseFloat(subtot)) {
-                $('#delivery_price').text(new Intl.NumberFormat().format(0));
+                $('.delivery_price').text(new Intl.NumberFormat().format(0));
                 $('#deliveypriceset').val(0);
                 $('#cityidset').val($('#s_citys :selected').data("cityid"));
             }
             else {
-                $('#delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#s_citys :selected').data("price"))));
+                $('.delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#s_citys :selected').data("price"))));
                 $('#deliveypriceset').val(parseFloat($('#s_citys :selected').data("price")));
                 $('#cityidset').val($('#s_citys :selected').data("cityid"));
             }
         }
         else {
-            $('#delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#s_citys :selected').data("price"))));
+            $('.delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#s_citys :selected').data("price"))));
             $('#deliveypriceset').val(parseFloat($('#s_citys :selected').data("price")));
             $('#cityidset').val($('#s_citys :selected').data("cityid"));
-            // $('#sutotle').text(parseInt($('#sutotle').text())+parseInt($('#deliveypriceset').val()))
+            // $('.sutotle').text(parseInt($('.sutotle').text())+parseInt($('#deliveypriceset').val()))
         }
     }
     else {
         $("#shippinghidediv").hide();
         if ($('#citys :selected').data("miniorder") != null) {
             if (parseFloat($('#citys :selected').data("miniorder")) <= parseFloat(subtot)) {
-                $('#delivery_price').text(new Intl.NumberFormat().format(0));
+                $('.delivery_price').text(new Intl.NumberFormat().format(0));
                 $('#deliveypriceset').val(0);
                 $('#cityidset').val($('#citys :selected').data("cityid"));
             }
             else {
-                $('#delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#citys :selected').data("price"))));
+                $('.delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#citys :selected').data("price"))));
                 $('#deliveypriceset').val(parseFloat($('#citys :selected').data("price")));
                 $('#cityidset').val($('#citys :selected').data("cityid"));
 
             }
         }
         else {
-            $('#delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#citys :selected').data("price"))));
+            $('.delivery_price').text(new Intl.NumberFormat().format(parseFloat($('#citys :selected').data("price"))));
             $('#deliveypriceset').val(parseFloat($('#citys :selected').data("price")));
             $('#cityidset').val($('#citys :selected').data("cityid"));
         }
     }
-    $('#sutotle').text(new Intl.NumberFormat().format(parseFloat(sutotle) + parseFloat($('#deliveypriceset').val())))
+    $('.sutotle').text(new Intl.NumberFormat().format(parseFloat(sutotle) + parseFloat($('#deliveypriceset').val())))
 
 }
 

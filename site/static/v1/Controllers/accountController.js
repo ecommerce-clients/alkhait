@@ -1,5 +1,10 @@
 try {
-  
+  if (localStorage.getItem("gotrue.user") != null) {
+    $(".fa-user").attr("onclick", "$('#Logoutallow').modal('show');");
+    
+  }else{
+    $(".fa-user").attr("onclick", "$('#staticBackdrop').modal('show');");
+  }
   var mode;
 
 // Your web app's Firebase configuration
@@ -65,7 +70,7 @@ if(pagenames == "account")
       var pass = null;
       
 
-      if(accountname == "loginallow" )
+      if(typeof accountname == 'undefined' ? null : accountname  == "loginallow" )
       {
         loginaccount(id,fname,email, pass, mode)
       }

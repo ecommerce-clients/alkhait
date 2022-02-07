@@ -209,22 +209,6 @@ function redirtedallows() {
 
 
 function add_delete(id, o) {
-    try {
-        if (pagenames == "checkout") {
-            var p = o.parentElement.parentElement;
-            p.remove();
-        }
-        else
-        {
-            var p = o.parentElement.parentElement;
-            p.remove();
-        }
-    } catch (error) {
-        var p = o.parentElement.parentElement;
-            p.remove();
-    }
-   
-
     var json = JSON.parse(localStorage["itemsArray"]);
 
     for (i = 0; i < json.length; i++) {
@@ -245,15 +229,7 @@ function add_delete(id, o) {
         }
 
     }
-    try {
-        if (pagenames == "checkout") {
-            load()
-        }
-       
-
-    } catch (error) {
-        
-    }
+    
     var options = {
         autoClose: true,
         progressBar: true,
@@ -268,6 +244,7 @@ function add_delete(id, o) {
     toast.configure(options);
 
     toast.error("item(s) have been deleted from your cart");
+    
 
 }
 

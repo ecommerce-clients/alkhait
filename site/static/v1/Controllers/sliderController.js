@@ -14,49 +14,32 @@ function sliderheroactive() {
                 if(response.length == 0)
                 {
                     
-                    $("#sliders_items_imgs .ec-slide-item .swiper-slide").remove();
+                    $("#sliders_items_imgs .carousel-item").remove();
                 }
                 else{
-                    $("#sliders_items_imgs .ec-slide-item .swiper-slide").remove();
+                    $("#sliders_items_imgs .carousel-item").remove();
                     
                 }
                 $.each(response, function (index, element) {
 
                     if (index == 0) {
                         
-                        imgas += '<div class="ec-slide-item swiper-slide d-flex">' +
-                            '<img src="' + element.src + '">' +
+                        imgas += '<div class="carousel-item active">' +
+                            '<img src="' + element.src + '" class="d-block" style="width:100%">' +
                             '</div>';
                         
                     }
                     else {
                         
-                        imgas += '<div class="ec-slide-item swiper-slide d-flex">' +
-                        '<img src="' + element.src + '">' +
+                        imgas += '<div class="carousel-item">' +
+                        '<img src="' + element.src + '" class="d-block" style="width:100%">' +
                         '</div>';
                     }
 
                 });
                 $('#sliders_items_imgs').html(imgas);
                                                                  /*----------------------------- Main Slider ---------------------- */
-    var EcMainSlider = new Swiper('.ec-slider.swiper-container', {
-        loop: true,
-        speed: 2000,
-        effect: "slide",
-        autoplay: {
-            delay: 7000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
 
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        }
-    });
             }
 
 

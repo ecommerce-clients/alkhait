@@ -53,8 +53,8 @@ function socialtagsandcontant() {
             // Social media allow start
             try {
                 if (fb != null && fb != '' && fb.trim() != '') {
-                    $('#facebook').attr("href", fb);
-                    $("#itemfb").removeClass("d-none");
+                    $('.facebook').attr("href", fb);
+                    $(".itemfb").removeClass("d-none");
                 }
             } catch (error) {
 
@@ -63,8 +63,8 @@ function socialtagsandcontant() {
             try {
                 if (tw != null && tw != '' && tw.trim() != '') {
                
-                    $('#twitter').attr("href", tw);
-                    $("#itemtw").removeClass("d-none");
+                    $('.twitter').attr("href", tw);
+                    $(".itemtw").removeClass("d-none");
                 }
             } catch (error) {
 
@@ -85,8 +85,8 @@ function socialtagsandcontant() {
 
             try {
                 if (insta != null && insta != '' && insta.trim() != '') {
-                    $('#instagram').attr("href", insta);
-                    $("#iteminta").removeClass("d-none");
+                    $('.instagram').attr("href", insta);
+                    $(".iteminta").removeClass("d-none");
                 }
             } catch (error) {
 
@@ -107,8 +107,34 @@ function socialtagsandcontant() {
 
             // contact allow start
             try {
+                if (social_mobile != null && social_mobile != '' && social_mobile.trim() != '') {
+              
+                    $('.mobilecaon').attr("href", 'tel:'+social_mobile);
+                    $('.mobile-text').text(social_mobile)
+                    $(".itemmobile").removeClass("d-none");
+                }
+            } catch (error) {
+
+            }
+            try {
+                if (social_email != null && social_email != '' && social_email.trim() != '') {
+              
+                    $('.mailtoc').attr("href", 'mailto:'+social_email);
+                    $('.email-text').text(social_email)
+                    $(".mailtohide").removeClass("d-none");
+                    
+                }
+            } catch (error) {
+
+            }
+            try {
                     if (social_mobile != null && social_mobile != '' && social_mobile.trim() != '') {
-                    $(".parmobile").html('<a class="text-color" href="tel:' + social_mobile + '"><i class="fa fa-phone mr-2"></i>' + social_mobile + '</a>');
+                    $(".parmobile").html(`
+                    <a class="text-color td-none" href="tel:${social_mobile}">
+          <i class="fa fa-phone f-878787 pl-10 pr-5" aria-hidden="true"></i><span
+          class="pr-15 f-878787">${social_mobile}</span>
+        </a>
+                    `);
                     $(".parmobile").removeClass("d-none");
                 }
             } catch (error) {
@@ -116,7 +142,12 @@ function socialtagsandcontant() {
             }
             try {
                     if (social_email != null && social_email != '' && social_email.trim() != '') {
-                    $(".paremail").html('<a class="text-color" href="mailto:' + social_email + '"><i class="fa fa-envelope-o mr-2" style="font-size:12px;"></i>' + social_email + '</a>');
+                    $(".paremail").html(`
+                    <a class="text-color td-none" href="mailto:${social_email}">
+          <i class="fa fa-phone f-878787 pl-10 pr-5" aria-hidden="true"></i><span
+          class="pr-15 f-878787">${social_email}</span>
+        </a>
+                    `);
                     $(".paremail").removeClass("d-none");
                 }
             } catch (error) {
@@ -133,7 +164,7 @@ function socialtagsandcontant() {
             }
             try {
                 if (about_info != null && about_info != '' && about_info.trim() != '') {
-                    $("#aboutdetails").text(decodeURIComponent(about_info).replaceAll('+',' '));
+                    $(".aboutdetails").text(decodeURIComponent(about_info).replaceAll('+',' '));
                    
                 }
             } catch (error) {
@@ -163,6 +194,9 @@ function socialtagsandcontant() {
     // Social file end
 }
 
+$(document).ready(function () {
+    socialtagsandcontant();
+});
 }
 } catch (error) {
     console.log(error)

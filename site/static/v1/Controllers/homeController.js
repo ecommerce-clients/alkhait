@@ -235,16 +235,16 @@ try {
 
         function pagination() {
             pageSize = 12;
-            $("#pagin li").remove();
+            $("#pagin a").remove();
             $(".pricesrangeclass:visible").addClass('categoryserch')
             $(".pricesrangeclass").hide();
             var pageCount = $(".categoryserch").length / pageSize;
 
             for (var i = 0; i < pageCount; i++) {
 
-                $("#pagin").append('<li><a href="#' + (i + 1) + '">' + (i + 1) + '</a></li>');
+                $("#pagin").append('<a href="#' + (i + 1) + '" class="f-000 td-none mgr-2">' + (i + 1) + '</a>');
             }
-            $("#pagin li a").first().addClass("active")
+            $("#pagin a").first().addClass("f-ff4e00")
             if($(".categoryserch").length)
             {
                 showPage = function (page) {
@@ -260,13 +260,12 @@ try {
                     });
                 }
             }
-           
-
+            if (typeof pagenproduct == 'undefined' ? null : pagenproduct  == "product" )
             showPage(1);
 
-            $("#pagin li a").click(function () {
-                $("#pagin li a").removeClass("active");
-                $(this).addClass("active");
+            $("#pagin a").click(function () {
+                $("#pagin a").removeClass("f-ff4e00");
+                $(this).addClass("f-ff4e00");
                 showPage(parseInt($(this).text()))
             });
         }

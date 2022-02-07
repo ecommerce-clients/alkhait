@@ -9,189 +9,181 @@
 </script>
 <div id="ec-overlay"><span class="loader_img"></span></div>
   
-  <!-- Header start  -->
-  <header class="ec-header">
-    <!--Ec Header Top Start -->
-    <!--Ec Header Top Start -->
-    <div class="header-top d-lg-none">
-      <div class="container">
-          <div class="row" id="responsicecustom">
-            <div class="col-6">
-                <div class="header-logo">
-                    <a href="{{ site.BaseURL }}"><img src="{{ site.Params.logo | absURL }}" alt="Site Logo" /><img
-                            class="dark-logo" src="{{ site.Params.logo | absURL }}" alt="Site Logo"
-                            style="display: none;" /></a>
-                </div>
-            </div>
-              <div class="col-6 d-lg-none ">
-                  <div class="ec-header-bottons">
-                      <!-- Header User Start -->
 
-                      <div class="ec-header-user dropdown">
-                        <button class="dropdown-toggle logouttrue" data-bs-toggle="dropdown"><img
-                                src="https://v1.eralive.net/assets/images/icons/user.svg" class="svg_img header_svg" alt="" /></button>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a class="dropdown-item noneregister" href="/register">Register</a></li>
-                            <li><a class="dropdown-item nonelogin" href="/login">Login</a></li>
-                            
-                        </ul>
-                    </div>
-                      
-                      <!-- Header User End -->
-             
-                      <!-- Header Cart Start -->
-                      <a href="#ec-side-cart" id="responsivelogo" class="ec-header-btn ec-side-toggle">
-                          <div class="header-icon"><img src="https://v1.eralive.net/assets/images/icons/cart.svg" class="svg_img header_svg" alt=""></div>
-                          <span class="ec-header-count cart-count-lable p_count">0</span>
-                      </a>
-                      <!-- Header Cart End -->
-                      <!-- Header menu Start -->
-<!-- Header Cart Start -->
-<a href="#ec-mobile-menu" style="left: unset;" class="ec-header-btn ec-side-toggle">
-    <div class="header-icon"><img src="https://v1.eralive.net/assets/images/icons/menu.svg" class="svg_img header_svg" alt=""></div>
-   
-</a>
-<!-- Header Cart End -->
-
-
-
-
-                
-                      <!-- Header menu End -->
-                  </div>
-              </div>
-              <!-- Header Top responsive Action -->
-          </div>
+<div class="mobile-search b-ffffff float-right" id="mobile-search">
+    <div class="row">
+      <div class="col-12 mobile-side-col-10">
+        <h6 class="f-222 pl-20" style="border-bottom: 1px solid
+          rgba(129,129,129,.2);padding-bottom: 25px;padding-top: 25px;">SEARCH
+          OUR SITE <i class="fa fa-times pull-right fs-20 pr-15"
+            aria-hidden="true"
+            onclick="showul('mobile-search');$('#mobile-search-modal').modal('hide');"></i></h6>
+        <div class="text-search-engin d-flex align-items-center
+          justify-content-center" style="border-bottom: 1px solid
+          rgba(129,129,129,.2);padding-top: 25px;padding-bottom: 25px;">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
       </div>
+
+    </div>
   </div>
-  <!-- Ec Header Top  End -->
-    <!-- Ec Header Top  End -->
-    <!-- Ec Header Bottom  Start -->
-    <div class="ec-header-bottom d-none d-lg-block">
-        <div class="container position-relative">
-            <div class="row">
-                <div class="ec-flex">
-                    <!-- Ec Header Logo Start -->
-                    <div class="align-self-center">
-                        <div class="header-logo">
-                            <a href="{{ site.BaseURL }}"><img src="{{ site.Params.logo | absURL }}" style="height:34px;" height="34" alt="{{ site.Title }}"/></a>
-                        </div>
-                    </div>
-                    <!-- Ec Header Logo End -->
+  <div class="mobile-cart b-ffffff float-right scrollbar" id="mobile-cart">
+    <h6 class="f-222 pl-20"style="border-bottom: 1px solid
+      rgba(129,129,129,.2);padding-bottom: 25px;padding-top: 25px;">SHOPPING
+      CART <i class="fa fa-times pull-right fs-20 pr-15" aria-hidden="true"
+        onclick="showul('mobile-cart');$('#mobile-search-modal').modal('hide');"></i></h6>
+    <div class="row pgt-15 pl-15 force-overflow" id="product_Addid">
+        
+    
 
-                    <!-- Ec Header Search Start -->
-                    <div class="align-self-center">
-                        <div class="header-search">
-                            
-                        </div>
-                    </div>
-                    <!-- Ec Header Search End -->
+      <div class="col-12 fixed-div fixed-w">
 
-                    <!-- Ec Header Button Start -->
-                    <div class="align-self-center">
-                        <div class="ec-header-bottons">
+      
+        <div class="row">
+          <div class="col-6"><p class="fs-20"><b>Subtotal:</b></p></div>
+          <div class="col-6"><p class="fs-20">Rs.<span class="pricedonefotter"></span></p></div>
+       <div class="col-12">
+         <p class="f-878787">Taxes and shipping calculated at checkout</p>
+       </div>
+       <div class="col-12">
+         <a href="/cart">
+        <button class="btn btn-secondary btn-lg active
+        fs-14 btns-90 b-f7f7f7 f-000-i">
+        View cart
+    </button>
+  </a>
+       </div>
+       <div class="col-12 mgt-15">
+        <a
+                        href="javascript:void(0);"
+                        onclick="checkoutbtc();">
+        <button class="btn btn-secondary btn-lg active b-000-i
+        fs-14 btns-90">
+        Check Out
+    </button>
+    </a>
 
-                            <!-- Header User Start -->
-                           
-                            <div class="ec-header-user dropdown">
-                                <button class="dropdown-toggle logouttrue" data-bs-toggle="dropdown"><img
-                                        src="https://v1.eralive.net/assets/images/icons/user.svg" class="svg_img header_svg" alt="" /></button>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item noneregister" href="/register">Register</a></li>
-                                    <li><a class="dropdown-item nonelogin" href="/login">Login</a></li>
-                                    <!-- <li><a class="dropdown-item nonelogout" onclick="LogoutUser()">Logout</a></li> -->
-                                </ul>
-                            </div>
-                            <!-- Header User End -->
-                          
-                            <!-- Header Cart Start -->
-                            <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                <div class="header-icon"><img src="https://v1.eralive.net/assets/images/icons/cart.svg"
-                                        class="svg_img header_svg" alt="" /></div>
-                                <span class="ec-header-count cart-count-lable p_count">0</span>
-                            </a>
-                            <!-- Header Cart End -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       </div>
+      </div>
     </div>
-    <!-- Ec Header Button End -->
-    <!-- Header responsive Bottom  Start -->
-    <!-- <div class="ec-header-bottom d-lg-none">
-        <div class="container position-relative">
-            <div class="row "> -->
-
-                <!-- Ec Header Logo Start -->
-                
-                <!-- Ec Header Logo End -->
-                <!-- Ec Header Search Start -->
-                <!-- <div class="col">
-                    <div class="header-search">
-                        <form class="ec-btn-group-form" action="#">
-                            <input class="form-control myInput-hide myInput" placeholder="Enter Your Product Name..." type="text" style="display: none;">
-                            <button class="submit myInput-hide" type="submit" style="display: none;"><img src="https://v1.eralive.net/assets/images/icons/search.svg"
-                                    class="svg_img header_svg" alt="icon" /></button>
-                        </form>
-                    </div>
-                </div> -->
-                <!-- Ec Header Search End -->
-            <!-- </div>
-        </div>
-    </div> -->
-    <!-- Header responsive Bottom  End -->
-    <!-- EC Main Menu Start -->
-    <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
-        <div class="container position-relative">
-            <div class="row">
-                <div class="col-md-12 align-self-center">
-                    <div class="ec-main-menu">
-                        <ul>
-                            <li><a href="{{ site.BaseURL }}">{{ with site.Params.Home }} {{ . }} {{ end }}</a></li>
-                            {{ range site.Menus.main }}
-                            <li id="none{{ .Name }}" class="none{{ .Name }}"><a href="{{ .URL | absURL }}">{{ .Name }}</a></li>
-                            {{ end }}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-    <!-- Ec Main Menu End -->
-    <!-- ekka Mobile Menu Start -->
-    <div id="ec-mobile-menu" class="ec-side-cart ec-mobile-menu">
-        <div class="ec-menu-title">
-            <span class="menu_title">My Menu</span>
-            <button class="ec-close">×</button>
-        </div>
-        <div class="ec-menu-inner">
-            <div class="ec-menu-content">
-                <ul>
-                    <li><a href="{{ site.BaseURL }}">{{ with site.Params.Home }} {{ . }} {{ end }}</a></li>
-                    {{ range site.Menus.main }}
-                            <li id="none{{ .Name }}" class="none{{ .Name }}"><a href="{{ .URL | absURL }}">{{ .Name }}</a></li>
-                            {{ end }}
-                </ul>
-            </div>
-           
-        </div>
+  </div>
+
+  <!-- The Modal -->
+  <div class="modal" id="mobile-search-modal" onclick="showul(showulid);">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      </div>
     </div>
-    <!-- ekka mobile Menu End -->
-</header>
-<!-- Header End  -->
+  </div>
+  <div class="mobile-sidebar b-ffffff" id="mobile-sidebar" style="z-index: 1220;">
+    <div class="row">
+      <div class="col-10 mobile-side-col-10">
+        <h6 class="text-center f-000 b-rgba0 align-self-center"
+          style="border-bottom: 1px solid; padding-bottom: 15px;padding-top:
+          15px;">Menu</h6>
+        <ul class="list-unstyled mb-0">
+          <li class="mb-2 pm-10 pgt-10 b-b-rgba129 pl-20"><a href="/products?category=Boys"
+              class="text-muted fs-16 f-878787" style="text-decoration:
+              unset;">Boys
+              <!-- <span
+                class="b-01bad4 border-oval-mobile pl-7 pr-7">NEW</span> -->
+              </a></li>
+          <li class="mb-2 pm-10 pgt-10 b-b-rgba129 pl-20"><a href="/products?category=Mens"
+              class="text-muted fs-16 f-878787" style="text-decoration:
+              unset;">Mens</a></li>
+    
 
 
+        </ul>
+      </div>
+      <div class="col-2 fs-30 mobile-side-col-2 text-center"
+        onclick="showul('mobile-sidebar');$('#mobile-search-modal').modal('hide');">
+        <p>X</p>
+      </div>
+    </div>
+  </div>
 
 
-<style>
-        .titlealign {
-        vertical-align: middle;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-</style>
+  <div class="container-fluid text-white b-f6f6f8 pgt-10 pm-10">
+    <div class="row">
+      <div class="col col-mobile">
+        <span class="parmobile d-none">
+         
+        </span>
+       
+        <span class="paremail d-none">
+         
+        </span>
+       
+      </div>
+      <div class="col f-878787 text-center">
+        MID-SUMMER SALE DISCOUNT OFF <span class="f-red">50%</span>! <a
+          href="#" class="f-878787 td-none">SHOP NOW</a>
+      </div>
+      <div class="col col-mobile">
 
-<body class="d-flex flex-column vh-100">
+      </div>
+    </div>
+  </div>
+  <div style="position: sticky;top: 0;z-index: 1000;">
+  <div class="container-fluid text-white b-ffffff pgt-10 pm-10 border-t1">
+    <div class="row pm-10 pgt-10">
+      <div class="col f-878787 fs-14 align-self-center psssl-10">
+        <span class="pl-10 col-mobile"> Free Delivery All Over Pakistan</span>
+        <i class="fa fa-bars col-mobile-show fs-20" aria-hidden="true"
+          onclick="showulid='mobile-sidebar';showul('mobile-sidebar');$('#mobile-search-modal').modal('show');"></i>
+
+      </div>
+      <div class="col f-878787 text-center">
+        <div><a class="dib" href="/">
+            <img
+              src="{{ site.Params.logo | absURL }}"
+              srcset="{{ site.Params.logo | absURL }}" alt="">
+          </a>
+        </div>
+      </div>
+      <div class="col f-878787 align-self-center" style="text-align: right;">
+        <span><a href="/tracker"> <i class="fa fa-truck fs-20 pr-5 mouse-pointer" aria-hidden="true"></i>
+        </a></span>
+        <span class="col-mobile">
+          <i class="fa fa-user fs-20 pr-5 mouse-pointer" onclick="$('#staticBackdrop').modal('show');" aria-hidden="true"></i>
+
+      </span>
+
+        <span data-bs-toggle="modal" data-bs-target="#mobile-search-modal"
+          onclick="showul('mobile-cart');"><i class="fa fa-shopping-cart fs-20 mouse-pointer
+            pr-5" aria-hidden="true"></i><span
+            class="border-round text-center p_count mouse-pointer" id="">0</span></span>
+
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid text-white b-ffffff col-mobile">
+    <div class="row pgt-25">
+      <div class="col-12 text-center">
+        <a href="/products?category=Boys" class="f-878787 td-none fs-14 mgt-3">Boys
+           <!-- <span
+            class="b-01bad4 border-oval pl-7 pr-7">NEW</span> -->
+          </a>
+        <a href="/products?category=Mens" class="f-878787 td-none fs-14 mgt-3">Mens</a>
+        <!-- <a href="/products" class="f-878787 td-none fs-14 mgt-3">Waist Coat</a>
+        <a href="/products" class="f-878787 td-none fs-14 mgt-3">Prince Coat</a>
+        <a href="/products" class="f-878787 td-none fs-14 mgt-3">Sale <span
+            class="b-ff0000 border-oval-red pl-7 pr-7">HOT</span></a> -->
+      </div>
+    </div>
+
+
+    <div class="row pgt-25">
+      <div class="col-12 text-center  pgt-15 fs-12">
+        <!-- <p class="fs-12">TODAY DEAL SALE OFF 70%. END IN 05 days 06:21:44.
+          HURRY
+          UP!!!</p> -->
+      </div>
+    </div>
+  </div>
+</div>
+<body class="fs-12">
 {{ "<!-- /navigation -->" | safeHTML }}

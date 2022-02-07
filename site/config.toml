@@ -11,66 +11,18 @@ disqusShortname = ""
 [params.plugins]
 
   # CSS Plugins
-  [[params.plugins.css]]
-  link = "https://v1.eralive.net/assets/css/vendor/ecicons.min.css"
+
   [[params.plugins.css]]
   link = "css/variables.css"
 
-  [[params.plugins.css]]
-  link = "https://v1.eralive.net/assets/css/plugins/animate.css"
-  [[params.plugins.css]]
-  link = "https://v1.eralive.net/assets/css/plugins/swiper-bundle.min.css"
     [[params.plugins.css]]
-  link = "https://v1.eralive.net/assets/css/plugins/jquery-ui.min.css"
-    [[params.plugins.css]]
-  link = "https://v1.eralive.net/assets/css/plugins/countdownTimer.css"
-  [[params.plugins.css]]
-  link = "https://v1.eralive.net/assets/css/plugins/slick.min.css"
-    [[params.plugins.css]]
-  link = "https://v1.eralive.net/assets/css/plugins/bootstrap.css"
+  link = "https://v1.eralive.net/kurtamart/asset/css/bootstrap.min.css"
 
-      [[params.plugins.css]]
-  link = "https://v1.eralive.net/assets/css/style.css"
-
-  [[params.plugins.css]]
-  link = "https://v1.eralive.net/assets/css/responsive.css"
-    [[params.plugins.css]]
-  link = "https://v1.eralive.net/assets/css/backgrounds/bg-4.css"
-  
+   [[params.plugins.css]]
+  link = "https://v1.eralive.net/kurtamart/asset/font-awesome-4.7.0/css/font-awesome.min.css"
 
   # JS Plugins
 
-  [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/vendor/popper.min.js"
-  [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/vendor/bootstrap.min.js"
-  [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/vendor/jquery-migrate-3.3.0.min.js"
-  [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/vendor/modernizr-3.11.2.min.js"
-
-
-    [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/plugins/swiper-bundle.min.js"
-  [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/plugins/countdownTimer.min.js"
-  [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/plugins/scrollup.js"
-  [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/plugins/jquery.zoom.min.js"
-  [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/plugins/slick.min.js"
-  
-      [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/plugins/infiniteslidev2.js"
-  [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/vendor/jquery.magnific-popup.min.js"
-  [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/plugins/jquery.sticky-sidebar.js"
-  [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/vendor/index.js"
-  [[params.plugins.js]]
-  link = "https://v1.eralive.net/assets/js/main.js"
 
 
 

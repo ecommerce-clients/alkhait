@@ -1,1 +1,1 @@
-var SubDomain = 'alkhait'; var SiteID = '44680B13-EEE2-407F-9369-ADEED214A634'; var host = 'https://api.eratest.site';
+var SubDomain = 'alkhait'; var SiteID = 'CE9716EE-4BFF-407D-84A6-A4E5232219B1'; var host = 'https://api.eraconnect.net';
