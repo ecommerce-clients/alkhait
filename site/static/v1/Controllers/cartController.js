@@ -27,9 +27,9 @@ function cardpage()
                         class="img-fluid" alt=""></div>
                 <div class="col-8 pgt-25-mobile">
                 <a href="${window.location.origin+'/products/'+result[i].old_id}" class="f-000 td-none"> <h6 class="mouse-pointer">${result[i].name}</h6>
-                <span>Size:`;
+                <span>`;
                 if(result[i].size !='')
-                student += result[i].size
+                student += "Size: "+result[i].size
                 student +=` </span><br><br>
                 </a>
                     

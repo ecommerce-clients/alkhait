@@ -128,6 +128,17 @@ function socialtagsandcontant() {
 
             }
             try {
+                if (social_location != null && social_location != '' && social_location.trim() != '') {
+              
+                  
+                    $('.location-text').text(social_location)
+                    $(".locatohide").removeClass("d-none");
+                    
+                }
+            } catch (error) {
+
+            }
+            try {
                     if (social_mobile != null && social_mobile != '' && social_mobile.trim() != '') {
                     $(".parmobile").html(`
                     <a class="text-color td-none" href="tel:${social_mobile}">
@@ -144,7 +155,7 @@ function socialtagsandcontant() {
                     if (social_email != null && social_email != '' && social_email.trim() != '') {
                     $(".paremail").html(`
                     <a class="text-color td-none" href="mailto:${social_email}">
-          <i class="fa fa-phone f-878787 pl-10 pr-5" aria-hidden="true"></i><span
+          <i class="fa fa-envelope-o f-878787 pl-10 pr-5" aria-hidden="true"></i><span
           class="pr-15 f-878787">${social_email}</span>
         </a>
                     `);

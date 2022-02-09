@@ -33,9 +33,9 @@ function cardload()
        <a href="${window.location.origin+'/products/'+result[i].old_id}" class="td-none f-000"> 
        <h6>${result[i].name}</h6>
        
-       <span>Size:`;
+       <span>`;
        if(result[i].size !='')
-       student += result[i].size
+       student += "Size: "+result[i].size
        student +=` </span>
        </a>
         <h6><span

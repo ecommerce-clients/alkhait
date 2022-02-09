@@ -95,7 +95,7 @@ function load() {
             <div class="col-2">
             <span>
                 <img src="${json[i].img}" class="img-fluid" alt="">
-                <span class="border-round text-center">1</span></span>
+                <span class="border-round text-center">${json[i].quantity}</span></span>
         </div>
         <div class="col-5 pgt-6 ">
             <p ><strong>${json[i].name}</strong>

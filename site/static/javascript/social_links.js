@@ -1,12 +1,12 @@
 var fb = 'https://www.facebook.com/Alkhait-107432967502796'; 
  var tw = ''; 
  var yt = ''; 
- var insta = 'https://www.instagram.com'; 
+ var insta = ''; 
  var pt = ''; 
  var social_mobile = '923422771629' 
  var social_location = ''; 
  var social_email = 'wajeeh_ul_hassan@live.com'; 
- var about_info = 'About+the+Brand...'; 
+ var about_info = 'About+The+Brand...'; 
  var company_name= 'Al-Khait'; 
  var tagmaneger = ''; 
  var Receipt_Header = ''; 

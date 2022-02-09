@@ -4,7 +4,7 @@ function changePrice(o,price,priceBefore)
        $('.price'+oldid).html(new Intl.NumberFormat().format(parseFloat(price)));
        if(priceBefore !='')       
        $('.beprice'+oldid).html(new Intl.NumberFormat().format(parseFloat(priceBefore)));
-   
+       $('.btn-'+oldid).removeClass('disabled');
     }
 
    function tempFunction(btnAddToCart,title,Description,image,qty,poldid)
@@ -55,6 +55,7 @@ function changePrice(o,price,priceBefore)
        productids=p_id;
        setsizeprice=price;
        setsize = Size;
+       $('.btn-'+oldid).removeClass('disabled');
    }
 
    function checkpriceset(newid,title,Description,retailprice,image,qty,poldid,setsize)

@@ -964,6 +964,32 @@ margin-bottom: 70px;
 }
 
 
-.flickity-viewport{
-  height:560px !important;
-}
+.hovereffect {
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+  }
+  
+  .hovereffect {
+    display: block;
+    position: relative;
+    -webkit-transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in;
+  }
+  
+  .hovereffect:hover {
+  
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  
+
+  .noUi-connect{
+      background: #000 !important;
+  }
+
+
+  .noUi-handle{
+    background: #000 !important; 
+  }

@@ -6,7 +6,6 @@ var pagenproduct = "product";
   if (xmedia.matches) { // If media query matches
     $('.ec-sb-block-content').css("display", "none");
   } else {
-    
    $('.ec-sb-block-content').css("display", "block");
   }
 }
@@ -109,7 +108,7 @@ $( document ).ready(function() {
         {{ if site.Data.homepage.products.enable }}
         {{ range (where site.RegularPages "Type" "products") }}
         <div class="col-lg-3 col-md-3 col-6 view-col-change pricesrangeclass" data-category="{{ .Params.Category }}" data-price="{{ .Params.Price }}">
-            <a href="{{ .Permalink }}">
+            <a href="{{ .Permalink }}" class="td-none">
            <div class="card width-10-rem cardhover" style="border:
                 unset;">
                 {{ range first 1 .Params.Images }}
@@ -117,11 +116,18 @@ $( document ).ready(function() {
                     src="{{ .image | absURL }}"
                     class="card-img-top">
                     {{ end }}
-                <p class="card-text"><h6><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h6><span
-                        class="price dib
-                        mb__5"><span class="cb fwn">from</span>
-                        Rs. <span id="{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
-                    </span></p>
+                    <h6 class="card-text"><h6><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h6><span
+                    class="price dib mb__5">
+                    Rs.<span id="{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
+                  </span>
+                  <span class="cb fwn">
+                    {{ if .Params.PriceBefore }}
+                    <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span>
+                   <br>
+                    {{ end }}
+                   
+                    </span>
+                  </h6>
 
                     <span class="rangeprice" hidden>{{ .Params.Price }}</span>
                 <div class="btn_add align-self-center cardbtn
@@ -241,7 +247,7 @@ aria-labelledby="modelTitleId" aria-hidden="true">
 
           </div>
           {{ if .Params.Variants }}
-          <button type="button" class="btn btn-secondary mgt-15"
+          <button type="button" class="btn btn-secondary mgt-15 btn-{{ .Params.ProductID }} disabled"
 style="width: 100%;" title="Add To Cart" onclick="tempFunction(this,{{ .Title }},{{ .Params.Description }}
 ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1,'{{ .Params.ProductID }}');showul('mobile-cart');$('#mobile-search-modal').modal('show');$('#newaddtocart{{ .Params.ProductID }}').modal('hide');" title="PKR {{ .Params.Price }} ">ADD TO CART</button>
         
