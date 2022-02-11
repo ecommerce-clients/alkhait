@@ -25,6 +25,11 @@ function getusersids() {
     
 }
 $(document).ready(function () {
+    try {
+        checkbox();
+    } catch (error) {
+        
+    }
     
     try {
         getusersids()

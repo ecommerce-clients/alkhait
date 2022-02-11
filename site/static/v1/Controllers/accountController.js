@@ -1,9 +1,9 @@
 try {
   if (localStorage.getItem("gotrue.user") != null) {
-    $(".fa-user").attr("onclick", "$('#Logoutallow').modal('show');");
+    $(".user-icon").attr("onclick", "$('#Logoutallow').modal('show');");
     
   }else{
-    $(".fa-user").attr("onclick", "$('#staticBackdrop').modal('show');");
+    $(".user-icon").attr("onclick", "$('#staticBackdrop').modal('show');");
   }
   var mode;
 

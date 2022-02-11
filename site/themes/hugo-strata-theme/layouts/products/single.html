@@ -130,7 +130,7 @@ active b-000 fs-12" style="background-color: black;width:
             
                <div class="mgt-20 col-lg-3 col-md-3 col-12 col-mobile-show">
                 {{ if .Params.Variants }}
-                <button class="btn btn-secondary btn-lg
+                <button class="btn btn-{{ .Params.ProductID }} disabled btn-secondary btn-lg
                 active b-000 fs-12" style="background-color: black;width:
                 100%;height: 50px;" onclick="checkpriceset(productids,{{ .Title }},{{ .Params.Description }},setsizeprice
           ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1,'{{ .Params.ProductID }}',setsize);checkoutbtc();">Buy it now</button>
@@ -160,7 +160,7 @@ active b-000 fs-12" style="background-color: black;width:
               aria-hidden="true"> Size Chart</i>
            
           </div>
-          <div class="col-lg-2 col-md-2 col-4 mgt-30"><a href="#" class="f-000 fs-14 td-none"><b>Size
+          <div class="col-lg-2 col-md-2 col-4 mgt-30"><a href="javascript:;" onclick="$('#staticBackdropsize').modal('show');" class="f-000 fs-14 td-none"><b>Size
             Guide</b></a></div>
       <div class="col-lg-3 col-md-3 col-5 mgt-30 pull-left"><a href="#" class="f-000 fs-14 td-none"><b>Ask
             a Question</b></a></div>
@@ -195,10 +195,18 @@ active b-000 fs-12" style="background-color: black;width:
             class="card-img-top" alt="">
             {{ end }}
         </a>
-          <p class="card-text"><h6><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h6><span
-              class="price dib mb__5"><span class="cb fwn">from</span>
-              Rs.<span class="{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
-            </span></p>
+        <h6 class="card-text"><h6><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h6><span
+        class="price dib mb__5">
+        Rs.<span id="{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
+      </span>
+      <span class="cb fwn">
+        {{ if .Params.PriceBefore }}
+        <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span>
+       <br>
+        {{ end }}
+       
+        </span>
+      </h6>
           <div class="btn_add align-self-center cardbtn col-mobile">
             <a href="{{ .Permalink }}">
             <button class="btn btn-primary btn-lg active b-000 fs-12
@@ -326,6 +334,25 @@ style="width: 100%;"  title="Add To Cart" onclick="Check({{ .Params.ProductID }}
 </div>
 {{ end }}
 {{ end }}
+
+
+<div class="modal fade" id="staticBackdropsize" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
+  <div class="modal-dialog" style="max-width: 700px;">
+    <div class="modal-content modal-lg">
+      <div class="modal-header" style="justify-content: right !important;">
+        <!-- <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5> -->
+        <a class="close fs-25 td-none" href="javascript:;" onclick="$('#staticBackdropsize').modal('hide');" aria-label="Close" style="">
+          <span aria-hidden="true">×</span>
+        </a>
+      </div>
+      <div class="modal-body">
+        <img src="/images/size.jpeg" alt="" class="img-fluid">
+      </div>
+       
+    </div>
+  </div>
+</div>
+
 <script src="/v1/Controllers/sizeController.js"></script>
 
 {{ end }}

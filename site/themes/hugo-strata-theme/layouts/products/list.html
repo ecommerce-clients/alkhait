@@ -27,36 +27,37 @@ $( document ).ready(function() {
 <div class="container-fluid">
 
 
-    <div class="row pgt-25 mgr-1 mgl-1">
-        <div class="col-3 pgt-40 text-center pm-10">
-            <a href="javascript:;" class="f-000 td-none mgr-2 pull-left" onclick="showul('filter-id-search')">
-                <span> <i class="fa fa-sliders fs-20"
-                        aria-hidden="true"> Filter</i></span>
-            </a>
-        </div>
-        <div class="col-6 pgt-40 text-center pm-10">
+  <div class="row pgt-25 mgr-1 mgl-1">
+    <div class="col-3 col-md-3 col-lg-3 pgt-40 text-center pm-10">
+        <a href="javascript:;" class="f-000 td-none mgr-2 pull-left" onclick="showul('filter-id-search')">
+            <span> <i class="fa fa-sliders fs-20"
+                    aria-hidden="true"> Filter</i></span>
+        </a>
+    </div>
+    <div class="col-5 col-md-6 col-lg-6 pgt-40 text-center pm-10">
+      <span class="col-mobile">
+        <a href="javascript:;" class="f-878787 td-none mgr-2
+            border-4" onclick="col_view_2()" id="btn-2-col"><i
+                class="fa fa-columns fs-30" aria-hidden="true"></i>
+        </a>
+        <a href="javascript:;" class="f-000 td-none mgr-2 border-4"
+            onclick="col_view_4()" id="btn-4-col"><i class="fa
+                fa-table fs-30" aria-hidden="true"></i>
 
-            <a href="javascript:;" class="f-878787 td-none mgr-2
-                border-4" onclick="col_view_2()" id="btn-2-col"><i
-                    class="fa fa-columns fs-30" aria-hidden="true"></i>
-            </a>
-            <a href="javascript:;" class="f-000 td-none mgr-2 border-4"
-                onclick="col_view_4()" id="btn-4-col"><i class="fa
-                    fa-table fs-30" aria-hidden="true"></i>
-
-            </a>
-        </div>
-        <div class="col-3 pgt-40 text-center pm-10">
-            <div class="mb-3">
-                <select name="ec-select" class="form-control" style="padding-right:0px" id="pricerageallow" onchange="sort()">
-                    <option disabled selected>Select price range</option>
-                    <option value="byPrice">Select low to high</option>
-                    <option value="byDistance">Select high to low</option>
-                  </select>
-              
-            </div>
+        </a>
+        </span>
+    </div>
+    <div class="col-4 col-md-3 col-lg-3 pgt-40 text-center pm-10">
+        <div class="mb-3">
+            <select name="ec-select" class="form-control" style="padding-right:0px" id="pricerageallow" onchange="sort()">
+                <option disabled selected>Sort by</option>
+                <option value="byPrice">Select low to high</option>
+                <option value="byDistance">Select high to low</option>
+              </select>
+          
         </div>
     </div>
+</div>
     <div class="row pgt-50 mgt-50 mgb-25 pm-10 border-4 mgr-1 mgl-1" style="display: none;" id="filter-id-search">
         <div class="col-6 fs-16 td-show">By Title</div>
         <div class="col-6 fs-16 td-show">By Price</div>
@@ -107,7 +108,7 @@ $( document ).ready(function() {
     <div class="row mgb-25 mgr-1 mgl-1 pm-15 border-bottom" id="search">
         {{ if site.Data.homepage.products.enable }}
         {{ range (where site.RegularPages "Type" "products") }}
-        <div class="col-lg-3 col-md-3 col-6 view-col-change pricesrangeclass" data-category="{{ .Params.Category }}" data-price="{{ .Params.Price }}">
+        <div class="col-lg-3 col-md-3 col-6 view-col-change pricesrangeclass categoryserch" data-category="{{ .Params.Category }}" data-price="{{ .Params.Price }}">
             <a href="{{ .Permalink }}" class="td-none">
            <div class="card width-10-rem cardhover" style="border:
                 unset;">
