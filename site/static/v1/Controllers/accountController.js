@@ -21,10 +21,7 @@ try {
     firebase.initializeApp(firebaseConfig);
 
 
-  if (localStorage.getItem("gotrue.user") != null) {
-    window.location.href = window.location.origin + "/";
-
-}
+  
   $('.noneDashboard').addClass('d-none')
 
 
