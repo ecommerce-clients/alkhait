@@ -121,6 +121,58 @@
     </div>
   </div>
 
+  <div class="mobile-left-modal b-ffffff float-right " id="filter_ids">
+    <h6 class="f-222 pl-20"style="border-bottom: 1px solid
+      rgba(129,129,129,.2);padding-bottom: 25px;padding-top: 25px;">Filter <i class="fa fa-times pull-right fs-20 pr-15" aria-hidden="true"
+        onclick="showul('filter_ids');$('#mobile-search-modal').modal('hide');"></i></h6>
+    <div class="row pgt-15 pl-15 force-overflow">
+      <div class="col-11">
+        <div class="row">
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="" class="form-label">Product Search</label>
+              <input class="form-control myInput-hide myInput form-control" id="myInput" placeholder="Search for product title" type="text">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="" class="form-label">Price By</label>
+              <div id="ec-sliderPrice" class="filter__slider-price" data-min="0"
+              data-step="10" onclick="checkbox()" data-max="1" onmouseleave="checkbox()" style="margin-bottom: 10px;width: 96%;"></div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="mb-3">
+              <div class="row">
+              
+               <div class="col-6">
+                   <label class="filter__label"><input type="text"
+                       class="filter__input form-control" id="sprice" onchange="checkbox()"></label>
+               </div>
+               <div class="col-6">
+                   <span class="ec-price-divider"></span>
+                   <label class="filter__label">PKR<input type="text"
+                           class="filter__input form-control" id="hprice" onchange="checkbox()"></label>
+                   </div>
+
+          
+       </div>
+       <br>
+       <button class="btn btn-secondary btn-lg active b-000
+       fs-14"style="width: 30%; height: 50px;"  onclick="checkbox()">
+       FILTER
+   </button>
+              </div>
+              </div>
+        </div>
+      </div>
+    
+
+
+    </div>
+  </div>
+
+
   <!-- The Modal -->
   <div class="modal" id="mobile-search-modal" onclick="showul(showulid);">
     <div class="modal-dialog">
