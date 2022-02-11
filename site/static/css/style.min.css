@@ -1003,3 +1003,14 @@ margin-bottom: 70px;
     width: 360px;
     height: 100%;
     }
+
+
+    .mobile-left-modal{
+        display: none;
+        left: 0;
+        z-index: 1200;
+        background-color: white;
+        position: fixed;
+        width: 360px;
+        height: 100%;
+        }
