@@ -3,7 +3,7 @@ try {
     $(".user-icon").attr("onclick", "$('#Logoutallow').modal('show');");
     
   }else{
-    $(".user-icon").attr("onclick", "$('#staticBackdrop').modal('show');");
+    $(".user-icon").attr("onclick", "showul('login-modal');$('#mobile-search-modal').modal('show');");
   }
   var mode;
 
@@ -20,8 +20,7 @@ try {
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
-if(pagenames == "account")
-{
+
   if (localStorage.getItem("gotrue.user") != null) {
     window.location.href = window.location.origin + "/";
 
@@ -137,7 +136,7 @@ if(pagenames == "account")
   
   
 
-}
+
 
 function LogoutUser() {
   console.log('Logout Btn Call')
