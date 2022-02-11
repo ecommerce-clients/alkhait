@@ -78,20 +78,20 @@
       rgba(129,129,129,.2);padding-bottom: 25px;padding-top: 25px;">Login <i class="fa fa-times pull-right fs-20 pr-15" aria-hidden="true"
         onclick="showul('login-modal');$('#mobile-search-modal').modal('hide');"></i></h6>
     <div class="row pgt-15 pl-15 force-overflow">
-      <div class="col-11">
+      <div class="col-12">
         <div class="row">
           <div class="col-12">
             <div class="mb-3">
               <label for="" class="form-label">Email <span style="color: red;">*</span></label>
               <input  type="email" name="email" id="l_email"
-              placeholder="Enter your email" required class="form-control" aria-describedby="helpId">
+              placeholder="Enter your email" required class="form-control width-95" aria-describedby="helpId">
               <small id="le_email" class="text-muted" style="color: red !important;"></small>
             </div>
           </div>
           <div class="col-12">
             <div class="mb-3">
               <label for="" class="form-label">Password <span style="color: red;">*</span></label>
-              <input type="password" name="password" id="l_password" class="form-control" placeholder="Enter your password" aria-describedby="helpId">
+              <input type="password" name="password" id="l_password" class="form-control width-95" placeholder="Enter your password" aria-describedby="helpId">
               <small id="le_password" class="text-muted" style="color: red !important;"></small>
               <small id="le_invaild_account" class="text-muted" style="color: red !important;"></small>
             </div>
@@ -100,7 +100,7 @@
             <div class="mb-3">
               
               <button class="btn btn-secondary active
-              fs-14 btns-90 b-f7f7f7 f-000-i"  style="width: 100%;" type="button" onclick="validatelogn();">
+              fs-14 btns-90 b-f7f7f7 f-000-i width-95"  style="width: 100%;" type="button" onclick="validatelogn();">
               Sign In
           </button>
             </div>
@@ -120,12 +120,12 @@
           </div>
           <div class="col-12">
             <div class="mb-10">
-             <p>New customer? <a href="javascript:;" onclick="showul('login-modal');showul('register-modal');" class="td-none"> Create your account</a></p>
+             <p>New customer? <a href="javascript:;" onclick="showul('login-modal');showul('register-modal');" class="td-none td-underline-hover"> Create your account</a></p>
             </div>
           </div>
           <div class="col-12">
             <div class="mb-10">
-             <p>Lost password? <a href="javascript:;" class="td-none" onclick="showul('login-modal');showul('rest-pass-modal');"> Recover password</a></p>
+             <p>Lost password? <a href="javascript:;" class="td-none td-underline-hover" onclick="showul('login-modal');showul('rest-pass-modal');"> Recover password</a></p>
             </div>
           </div>
         </div>
@@ -142,19 +142,19 @@
       rgba(129,129,129,.2);padding-bottom: 25px;padding-top: 25px;">Register <i class="fa fa-times pull-right fs-20 pr-15" aria-hidden="true"
         onclick="showul('register-modal');$('#mobile-search-modal').modal('hide');"></i></h6>
     <div class="row pgt-15 pl-15 force-overflow">
-      <div class="col-11 ">
+      <div class="col-12">
         <div class="row ">
           <div class="col-12">
             <div class="mb-3">
               <label for="" class="form-label">Fullname <span style="color: red;">*</span></label>
-              <input  type="text" name="fullname" id="r_fullname" placeholder="Enter your full name" required class="form-control" aria-describedby="helpId">
+              <input  type="text" name="fullname" id="r_fullname" placeholder="Enter your full name" required class="form-control width-95" aria-describedby="helpId">
               <small id="e_fullname" class="text-muted" style="color: red !important;"></small>
             </div>
           </div>
           <div class="col-12">
             <div class="mb-3">
               <label for="" class="form-label">Email <span style="color: red;">*</span></label>
-              <input  type="email" type="email"name="email" id="r_email" placeholder="Enter your email" required onkeyup="emailvalidcheck()" class="form-control" aria-describedby="helpId">
+              <input  type="email" type="email"name="email" id="r_email" placeholder="Enter your email" required onkeyup="emailvalidcheck()" class="form-control width-95" aria-describedby="helpId">
               <small id="e_email" class="text-muted" style="color: red !important;"></small>
             </div>
           </div>
@@ -162,7 +162,7 @@
             <div class="mb-3">
               <label for="" class="form-label">Phone <span style="color: red;">*</span></label>
               <input  type="text"  name="phone" max="14" id="r_phone" maxlength="14" onkeyup="phonevalidcheck()" placeholder="Enter your phone number" aria-describedby="phoneallow"
-              required class="form-control">
+              required class="form-control width-95">
               <small id="e_phone" class="text-muted" style="color: red !important;"></small>
             </div>
           </div>
@@ -170,7 +170,7 @@
             <div class="mb-3">
               <label for="" class="form-label">Password <span style="color: red;">*</span></label>
               <input type="password" name="password" id="r_password" placeholder="Enter your password" aria-describedby="passwordsallow"
-              required class="form-control">
+              required class="form-control width-95">
               <small id="e_password" class="text-muted" style="color: red !important;"></small>
               <small id="re_invaild_account" class="text-muted" style="color: red !important;"></small>
             </div>
@@ -179,7 +179,7 @@
             <div class="mb-3">
               
               <button class="btn btn-secondary active
-              fs-14 btns-90 b-f7f7f7 f-000-i"  style="width: 100%;" type="button" onclick="validateregister();">
+              fs-14 btns-90 b-f7f7f7 f-000-i width-95"  style="width: 100%;" type="button" onclick="validateregister();">
               Register
           </button>
             </div>
@@ -199,12 +199,12 @@
           </div>
           <div class="col-12">
             <div class="mb-10">
-             <p>Already have an account? <a href="javascript:;" onclick="showul('register-modal');showul('login-modal');" class="td-none"> Login here</a></p>
+             <p>Already have an account? <a href="javascript:;" onclick="showul('register-modal');showul('login-modal');" class="td-none td-underline-hover"> Login here</a></p>
             </div>
           </div>
           <div class="col-12">
             <div class="mb-10">
-             <p>Lost password? <a href="javascript:;" onclick="showul('register-modal');showul('rest-pass-modal');" class="td-none"> Recover password</a></p>
+             <p>Lost password? <a href="javascript:;" onclick="showul('register-modal');showul('rest-pass-modal');" class="td-none td-underline-hover"> Recover password</a></p>
             </div>
           </div>
         </div>
@@ -219,12 +219,12 @@
       rgba(129,129,129,.2);padding-bottom: 25px;padding-top: 25px;">Recover password <i class="fa fa-times pull-right fs-20 pr-15" aria-hidden="true"
         onclick="showul('rest-pass-modal');$('#mobile-search-modal').modal('hide');"></i></h6>
     <div class="row pgt-15 pl-15 force-overflow">
-      <div class="col-11">
+      <div class="col-12">
         <div class="row">
           <div class="col-12">
             <div class="mb-3">
               <label for="" class="form-label">Email <span style="color: red;">*</span></label>
-              <input  type="email" name="email" id="f_email" placeholder="Enter your email" required class="form-control" aria-describedby="helpId">
+              <input  type="email" name="email" id="f_email" placeholder="Enter your email" required class="form-control width-95" aria-describedby="helpId">
               <small id="fe_email" class="text-muted" style="color: red !important;"></small>
               <small id="fe_invaild_account" class="text-muted" style="color: red !important;"></small>
             </div>
@@ -234,7 +234,7 @@
             <div class="mb-3">
               
               <button class="btn btn-secondary active
-              fs-14 btns-90 b-f7f7f7 f-000-i"  style="width: 100%;" type="button" onclick="validateforget()">
+              fs-14 btns-90 b-f7f7f7 f-000-i width-95"  style="width: 100%;" type="button" onclick="validateforget()">
               Reset Password
           </button>
             </div>
@@ -254,12 +254,12 @@
           </div>
           <div class="col-12">
             <div class="mb-10">
-              <p>Already have an account? <a href="javascript:;" onclick="showul('rest-pass-modal');showul('login-modal');" class="td-none"> Login here</a></p>
+              <p>Already have an account? <a href="javascript:;" onclick="showul('rest-pass-modal');showul('login-modal');" class="td-none td-underline-hover"> Login here</a></p>
             </div>
           </div>
           <div class="col-12">
             <div class="mb-10">
-              <p>New customer? <a href="javascript:;" onclick="showul('rest-pass-modal');showul('register-modal');" class="td-none"> Create your account</a></p>
+              <p>New customer? <a href="javascript:;" onclick="showul('rest-pass-modal');showul('register-modal');" class="td-none td-underline-hover"> Create your account</a></p>
 
             </div>
           </div>

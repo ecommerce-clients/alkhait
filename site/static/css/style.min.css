@@ -1014,3 +1014,11 @@ margin-bottom: 70px;
         width: 360px;
         height: 100%;
         }
+
+.width-95{
+    width: 95% !important;
+}
+
+.td-underline-hover:hover{
+    text-decoration: underline;
+}
