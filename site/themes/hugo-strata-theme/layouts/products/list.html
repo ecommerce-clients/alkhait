@@ -28,13 +28,13 @@ $( document ).ready(function() {
 
 
   <div class="row pgt-25 mgr-1 mgl-1">
-    <div class="col-3 col-md-3 col-lg-3 pgt-40 text-center pm-10">
+    <div class="col-2 col-md-3 col-lg-3 pgt-40 text-center pm-10">
         <a href="javascript:;" class="f-000 td-none mgr-2 pull-left" onclick="showul('filter_ids');$('#mobile-search-modal').modal('show');">
             <span> <i class="fa fa-sliders fs-20"
                     aria-hidden="true"> Filter</i></span>
         </a>
     </div>
-    <div class="col-5 col-md-6 col-lg-6 pgt-40 text-center pm-10">
+    <div class="col-3 col-md-6 col-lg-6 pgt-40 text-center pm-10">
       <span class="col-mobile">
         <a href="javascript:;" class="f-878787 td-none mgr-2
             border-4" onclick="col_view_2()" id="btn-2-col"><i
@@ -47,7 +47,7 @@ $( document ).ready(function() {
         </a>
         </span>
     </div>
-    <div class="col-4 col-md-3 col-lg-3 pgt-40 text-center pm-10">
+    <div class="col-7 col-md-3 col-lg-3 pgt-40 text-center pm-10">
         <div class="mb-3">
             <select name="ec-select" class="form-control" style="padding-right:0px" id="pricerageallow" onchange="sort()">
                 <option disabled selected>Sort by</option>
@@ -96,7 +96,7 @@ $( document ).ready(function() {
                                 </div>
            
             <button class="btn btn-secondary btn-lg active b-000
-                fs-14"style="width: 30%; height: 50px;"  onclick="checkbox()">
+                fs-14"style="width: 30%; height: 50px;" onclick="checkbox();showul('filter_ids');$('#mobile-search-modal').modal('show');">
                 FILTER
             </button>
         </div>
@@ -108,7 +108,7 @@ $( document ).ready(function() {
     <div class="row mgb-25 mgr-1 mgl-1 pm-15 border-bottom" id="search">
         {{ if site.Data.homepage.products.enable }}
         {{ range (where site.RegularPages "Type" "products") }}
-        <div class="col-lg-3 col-md-3 col-6 view-col-change pricesrangeclass categoryserch" data-category="{{ .Params.Category }}" data-price="{{ .Params.Price }}">
+        <div class="col-lg-3 col-md-3 col-6 mb-4 view-col-change pricesrangeclass categoryserch" data-category="{{ .Params.Category }}" data-price="{{ .Params.Price }}">
             <a href="{{ .Permalink }}" class="td-none">
            <div class="card width-10-rem cardhover" style="border:
                 unset;">
@@ -234,9 +234,9 @@ aria-labelledby="modelTitleId" aria-hidden="true">
                
               <span class="element-active-1" data-productidsold="{{ .Params.ProductID }}">
             {{ range .Params.Variants }}
-            <span class="mouse-pointer" onclick="changePrice(this,'{{ .variant.RetailPrice}}','{{ .variant.priceBefore}}')">
-            <span class="dot text-center align-self-center f-fff mouse-pointer" data-Sizevariant="{{ .variant.Size}}" data-ProductVariantID="{{ .variant.ProductVariantID}}" data-retailprice="{{ .variant.RetailPrice}}">{{ .variant.Size }}</span>
-            </span>  
+            <span>
+              <span class="dot text-center align-self-center f-fff mouse-pointer" data-priceBefore="{{ .variant.priceBefore}}" data-Sizevariant="{{ .variant.Size}}" data-ProductVariantID="{{ .variant.ProductVariantID}}" data-retailprice="{{ .variant.RetailPrice}}">{{ .variant.Size }}</span>
+              </span>    
             {{ end }}
               </span>
             <br> <br> <br>

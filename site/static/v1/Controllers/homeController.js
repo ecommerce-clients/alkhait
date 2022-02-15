@@ -1,6 +1,10 @@
 try {
-
+    var url_stringserch = window.location.href; //window.location.href
+    var urlseach = new URL(url_stringserch);
+    var categoryseach = urlseach.searchParams.get("category");
     if (pagenames == "Home") {
+
+        
         function sort() {
             var id = $('#pricerageallow').val();
             var content = document.querySelector('#search');
@@ -94,8 +98,8 @@ try {
                 $("#search .pricesrangeclass").filter(function () {
                     var category = $(this).data("category");
                     var price = parseInt($(this).data("price"));
-                    if (categories.length) {
-                        $(this).toggle($(this)[0].outerText.toLowerCase().indexOf(value) > -1 && categories.indexOf(category) > -1 && price >= parseInt($('#sprice').val()) && price <= parseInt($('#hprice').val()));
+                    if (categoryseach !=null) {
+                        $(this).toggle($(this)[0].outerText.toLowerCase().indexOf(value) > -1 && categoryseach.indexOf(category) > -1 && price >= parseInt($('#sprice').val()) && price <= parseInt($('#hprice').val()));
                     }
                     else {
                         $(this).toggle($(this)[0].outerText.toLowerCase().indexOf(value) > -1 && price >= parseInt($('#sprice').val()) && price <= parseInt($('#hprice').val()));
@@ -189,19 +193,16 @@ try {
         //         $(this).toggle(price >= parseInt($('#sprice').val()) && price <= parseInt($('#hprice').val()));
         //     });
         // }
-        var url_stringserch = window.location.href; //window.location.href
-        var urlseach = new URL(url_stringserch);
-        var categoryseach = urlseach.searchParams.get("category");
+        
         function checkbox() {
-            if(categoryseach !=null)
-            {
+       
             $('#search .pricesrangeclass').removeClass('categoryserch');
             
             $("#search .pricesrangeclass").filter(function () {
                 
                 var category = $(this).data("category");
                 var price = parseInt($(this).data("price"));
-                if (categoryseach.length) {
+                if (categoryseach !=null) {
                     // categoryserch
                     
                        
@@ -217,8 +218,9 @@ try {
    
             });
             pagination()
+        
         }
-        }
+ 
 
 
 

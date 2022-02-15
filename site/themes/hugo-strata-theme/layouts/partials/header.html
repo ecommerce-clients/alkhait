@@ -35,24 +35,26 @@
         onclick="showul('mobile-cart');$('#mobile-search-modal').modal('hide');"></i></h6>
     <div class="row pgt-15 pl-15">
         
-      <div class="col-12">
-        <div style="height: 100px;">
-        <div class="row force-overflow" id="product_Addid">
+      <div class="col-12 ">
+        <div>
+        <div class="row force-overflow " id="product_Addid">
 
         </div>
       </div>
+      <div class="col-12" style="height: 500px;">
+        </div>
       </div>
 
       <div class="col-12 fixed-div fixed-w">
 
       
         <div class="row">
-          <div class="col-6"><p class="fs-20"><b>Subtotal:</b></p></div>
-          <div class="col-6"><p class="fs-20">Rs.<span class="pricedonefotter"></span></p></div>
-       <div class="col-12">
+          <div class="col-5"><p class="fs-20"><b>Subtotal:</b></p></div>
+          <div class="col-5"><p class="fs-20">Rs.<span class="pricedonefotter"></span></p></div>
+       <div class="col-11">
          <p class="f-878787">Taxes and shipping calculated at checkout</p>
        </div>
-       <div class="col-12">
+       <div class="col-11">
          <a href="/cart">
         <button class="btn btn-secondary btn-lg active
         fs-14 btns-90 b-f7f7f7 f-000-i">
@@ -60,10 +62,10 @@
     </button>
   </a>
        </div>
-       <div class="col-12 mgt-15">
+       <div class="col-11 mgt-15">
 
         <button class="btn btn-secondary btn-lg active b-000-i
-        fs-14 btns-90 btncheckdis disabled" onclick="checkoutbtc();">
+        fs-14 btns-90 btncheckdis disabled" onclick="showul('mobile-cart');checkoutbtc();">
         Check Out
     </button>
 
@@ -86,6 +88,7 @@
               <input  type="email" name="email" id="l_email"
               placeholder="Enter your email" required class="form-control width-95" aria-describedby="helpId">
               <small id="le_email" class="text-muted" style="color: red !important;"></small>
+              <small id="le_invaild_account" class="text-muted" style="color: red !important;"></small>
             </div>
           </div>
           <div class="col-12">
@@ -93,7 +96,7 @@
               <label for="" class="form-label">Password <span style="color: red;">*</span></label>
               <input type="password" name="password" id="l_password" class="form-control width-95" placeholder="Enter your password" aria-describedby="helpId">
               <small id="le_password" class="text-muted" style="color: red !important;"></small>
-              <small id="le_invaild_account" class="text-muted" style="color: red !important;"></small>
+             
             </div>
           </div>
           <div class="col-12">
@@ -156,6 +159,7 @@
               <label for="" class="form-label">Email <span style="color: red;">*</span></label>
               <input  type="email" type="email"name="email" id="r_email" placeholder="Enter your email" required onkeyup="emailvalidcheck()" class="form-control width-95" aria-describedby="helpId">
               <small id="e_email" class="text-muted" style="color: red !important;"></small>
+              <small id="re_invaild_account" class="text-muted" style="color: red !important;"></small>
             </div>
           </div>
           <div class="col-12">
@@ -172,7 +176,6 @@
               <input type="password" name="password" id="r_password" placeholder="Enter your password" aria-describedby="passwordsallow"
               required class="form-control width-95">
               <small id="e_password" class="text-muted" style="color: red !important;"></small>
-              <small id="re_invaild_account" class="text-muted" style="color: red !important;"></small>
             </div>
           </div>
           <div class="col-12">
@@ -308,7 +311,7 @@
        </div>
        <br>
        <button class="btn btn-secondary btn-lg active b-000
-       fs-14"style="width: 30%; height: 50px;"  onclick="checkbox()">
+       fs-14"style="width: 30%; height: 50px;" onclick="checkbox();showul('filter_ids');$('#mobile-search-modal').modal('hide');">
        FILTER
    </button>
               </div>

@@ -14,32 +14,40 @@ function sliderheroactive() {
                 if(response.length == 0)
                 {
                     
-                    $("#sliders_items_imgs .carousel-item").remove();
+                    $("#sliders_items_imgs img").remove();
                 }
                 else{
-                    $("#sliders_items_imgs .carousel-item").remove();
+                    $("#sliders_items_imgs img").remove();
                     
                 }
                 $.each(response, function (index, element) {
 
                     if (index == 0) {
-                        
-                        imgas += '<div class="carousel-item active">' +
-                            '<img src="' + element.src + '" class="d-block" style="width:100%">' +
-                            '</div>';
+                        imgas += `
+                        <img src="${ element.src }" class="img-fluid slider_images" style="width: 100%;" alt="">
+                        `;
+                       
                         
                     }
                     else {
                         
-                        imgas += '<div class="carousel-item">' +
-                        '<img src="' + element.src + '" class="d-block" style="width:100%">' +
-                        '</div>';
+                        imgas += `
+                        <img src="${ element.src }" class="img-fluid slider_images" style="width: 100%;" alt="">
+                        `;
                     }
 
                 });
-                $('#sliders_items_imgs').html(imgas);
-                                                                 /*----------------------------- Main Slider ---------------------- */
+   
 
+                $('#sliders_items_imgs').html(imgas);
+                 /*----------------------------- Main Slider ---------------------- */
+                 $('.sliders_items_imgs').slick({
+                    infinite: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                    });
+                    $( ".slider_images" ).parent().parent().css('margin-left','unset');
             }
 
 
@@ -54,3 +62,5 @@ function sliderheroactive() {
 } catch (error) {
     console.log(error)
 }
+
+

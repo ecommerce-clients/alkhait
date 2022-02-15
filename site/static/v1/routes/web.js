@@ -25,11 +25,21 @@ function getusersids() {
     
 }
 $(document).ready(function () {
+    
     try {
         checkbox();
     } catch (error) {
         
     }
+try {
+    window.addEventListener('load', (event) => {
+
+        $('.feadtured_delete').remove();
+           
+        });
+} catch (error) {
+    
+}
     
     try {
         getusersids()

@@ -21,7 +21,7 @@ try {
     firebase.initializeApp(firebaseConfig);
 
 
-  
+
   $('.noneDashboard').addClass('d-none')
 
 

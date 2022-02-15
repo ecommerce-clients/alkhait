@@ -1,11 +1,21 @@
 
 @media (min-width: 992px){
-
+ 
 }
   @media only screen and (max-width: 991px)
   {
+      .mobile-margin-6{
+        margin-top: 6%;
+        padding-left: 3% !important;
+      }
    
-      
+   
+    .slick-prev, .slick-next
+    {
+        
+       
+        top: 43% !important;
+    } 
     .header-logo {
         max-width: 35% !important;
     }
@@ -1021,4 +1031,28 @@ margin-bottom: 70px;
 
 .td-underline-hover:hover{
     text-decoration: underline;
+}
+.slick-slide{
+    margin-left: 20px;
+}
+
+.slick-next{
+    right: 33px !important;
+}
+
+
+.slick-prev:before, .slick-next:before{
+    font-size: 50px !important;
+    
+    color: black !important;
+}
+.slick-prev{
+    left: 0 !important;
+}
+
+.slick-prev, .slick-next
+{
+    
+    z-index: 1;
+  
 }

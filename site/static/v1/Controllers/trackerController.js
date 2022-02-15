@@ -30,6 +30,7 @@ function onloadertrack(){
         if (pagenames == "track") {
           $('#ec-overlay').show()
           $('#tabrownode tr').remove(); 
+          $('#hidetable tr').remove(); 
           $("#comamountredy").text(0);
     var ord = '';
     var pro = '';

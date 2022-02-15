@@ -97,6 +97,14 @@ function changePrice(o,price,priceBefore)
    for (var i = 0, length = a.length; i < length; i++) {
      a[i].onclick = function() {
        $(".element-active-1 span span").removeClass("active")
+       
        this.classList.add('active');
+       var price = $(this)[0].getAttribute('data-retailprice')
+        var priceBefore = $(this)[0].getAttribute('data-priceBefore')
+        var oldid= this.parentNode.parentNode.getAttribute("data-productidsold");
+       $('.price'+oldid).html(new Intl.NumberFormat().format(parseFloat(price)));
+       if(priceBefore !='')       
+       $('.beprice'+oldid).html(new Intl.NumberFormat().format(parseFloat(priceBefore)));
+       $('.btn-'+oldid).removeClass('disabled');
      };
    }

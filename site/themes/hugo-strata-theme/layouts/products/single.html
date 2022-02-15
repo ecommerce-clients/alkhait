@@ -13,17 +13,19 @@
   var setsize= null;
   {{ end }}
 </script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/v1/Controllers/productController.js"></script>
+
 <div class="container-fluid">
     
     <div class="row pgt-15">
-      <div class="col-lg-6 col-md-6 col-12" style="padding-left: 6%;">
+      <div class="col-lg-4 col-md-4 col-12" style="padding-left: 6%;">
         {{ range first 1 .Params.Images }}
       
         <img
           src="{{ .image | absURL }}"
-         class="img-fluid hovereffect" alt="{{ .Title }}" style="width: 60%;" id="setsrcid">
+         class="img-fluid " alt="{{ .Title }}" style="width: 60%;" id="setsrcid">
         {{ end }}
         
 
@@ -294,9 +296,9 @@ aria-labelledby="modelTitleId" aria-hidden="true">
               
               <span class="element-active-1" data-productidsold="{{ .Params.ProductID }}">
             {{ range .Params.Variants }}
-            <span class="mouse-pointer" onclick="changePrice(this,'{{ .variant.RetailPrice}}','{{ .variant.priceBefore}}')">
-            <span class="dot text-center align-self-center f-fff mouse-pointer" data-Sizevariant="{{ .variant.Size}}" data-ProductVariantID="{{ .variant.ProductVariantID}}" data-retailprice="{{ .variant.RetailPrice}}">{{ .variant.Size }}</span>
-        </span>  
+            <span>
+              <span class="dot text-center align-self-center f-fff mouse-pointer" data-priceBefore="{{ .variant.priceBefore}}" data-Sizevariant="{{ .variant.Size}}" data-ProductVariantID="{{ .variant.ProductVariantID}}" data-retailprice="{{ .variant.RetailPrice}}">{{ .variant.Size }}</span>
+              </span>  
             {{ end }}
               </span>
             <br> <br> <br>
@@ -352,7 +354,7 @@ style="width: 100%;"  title="Add To Cart" onclick="Check({{ .Params.ProductID }}
     </div>
   </div>
 </div>
-
+<script> $(document).ready(function(){ $('#setsrcid').imageZoom({zoom : 300}); }); </script>
 <script src="/v1/Controllers/sizeController.js"></script>
 
 {{ end }}

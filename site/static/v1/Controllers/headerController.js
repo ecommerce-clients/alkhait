@@ -54,9 +54,10 @@ function checkoutbtc() {
     else {
         // accpagescheck = "checkout";
         sessionStorage.setItem("checkout",'true');
-        window.location.href = window.location.origin + "/register";
-        // $('#exampleModalPreview').modal('hide');
-        // account()
+     
+            showul('login-modal');
+            
+          
     }
 }
 
