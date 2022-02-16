@@ -39,7 +39,7 @@ function sliderheroactive() {
                 });
    
 
-                $('#sliders_items_imgs').html(imgas);
+                $('#sliders_items_imgs').html(imgas+imgas);
                  /*----------------------------- Main Slider ---------------------- */
                  $('.sliders_items_imgs').slick({
                     infinite: false,
@@ -48,6 +48,7 @@ function sliderheroactive() {
                     slidesToScroll: 1
                     });
                     $( ".slider_images" ).parent().parent().css('margin-left','unset');
+                    $('#sliders_items_imgs .slick-arrow').attr('style', 'display: inline-block !important;margin-left: 30px !important;margin: 10px;');
             }
 
 

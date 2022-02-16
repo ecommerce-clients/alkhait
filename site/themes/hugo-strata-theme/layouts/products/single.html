@@ -29,7 +29,7 @@
         {{ end }}
         
 
-        <div class="row pgt-15">
+        <div class="row pgt-15 justify_content_center">
             {{ range .Params.Images }}
             <div class="col-3 mouse-pointer" onclick="imagesetsrc('{{ .image | absURL }}')"><img
                 src="{{ .image | absURL }}"
@@ -107,28 +107,30 @@
                 
                   
                 </div>
-          <div class="col-3 col-mobile"></div>
-          <div class="col-8 mgt-20 col-mobile">
-            {{ if .Params.Variants }}
+          <div class="col-3 col-mobile">
+              {{ if .Params.Variants }}
 
 <button class="btn btn-{{ .Params.ProductID }} disabled btn-secondary btn-lg
 active b-000 fs-12" style="background-color: black;width:
-100%;height: 50px;" onclick="checkpriceset(productids,{{ .Title }},{{ .Params.Description }},setsizeprice
+100%;height: 40px;" onclick="checkpriceset(productids,{{ .Title }},{{ .Params.Description }},setsizeprice
           ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1,'{{ .Params.ProductID }}',setsize);checkoutbtc();">Buy it now</button>
       {{else}} 
       <button class="btn btn-secondary btn-lg
       active b-000 fs-12" style="background-color: black;width:
-      54%;height: 50px;" onclick="Check(productids,{{ .Title }},{{ .Params.Description }},setsizeprice
+      100%;height: 40px;" onclick="Check(productids,{{ .Title }},{{ .Params.Description }},setsizeprice
         ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1,'{{ .Params.ProductID }}','');checkoutbtc();">Buy it now</button>
 
 
 
       {{end}}
+          </div>
+          <!-- <div class="col-8 mgt-20 col-mobile">
+          
 
 
             
               
-            </div>
+            </div> -->
             
                <div class="mgt-20 col-lg-3 col-md-3 col-12 col-mobile-show">
                 {{ if .Params.Variants }}
@@ -189,25 +191,28 @@ active b-000 fs-12" style="background-color: black;width:
                 </script>
        <div class="col-lg-3 col-md-3 col-6 padding-10">
         <div class="card width-10-rem cardhover" style="border: unset;">
+          <div class="cart_hover_prent">
             <a href="{{ .Permalink }}">
                 {{ range first 1 .Params.Images }}
                 
           <img
             src="{{ .image | absURL }}"
-            class="card-img-top" alt="">
+            class="card-img-top cart_hover_child" alt="">
             {{ end }}
         </a>
+      </div>
         <h6 class="card-text"><h6><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h6><span
         class="price dib mb__5">
-        Rs.<span id="{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
+        <span class="cb fwn">
+          {{ if .Params.PriceBefore }}
+          <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}" style="padding-right: 2%;"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span><span class="pipe_m_p"> |</span>
+         
+          {{ end }}
+         
+          </span>
+        <span class="font_weight_bold" style="padding-left: 2%;">Rs.</span><span id="{{ .Params.ProductID }}" class="font_weight_bold"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
       </span>
-      <span class="cb fwn">
-        {{ if .Params.PriceBefore }}
-        <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span>
-       <br>
-        {{ end }}
-       
-        </span>
+      <br>
       </h6>
           <div class="btn_add align-self-center cardbtn col-mobile">
             <a href="{{ .Permalink }}">

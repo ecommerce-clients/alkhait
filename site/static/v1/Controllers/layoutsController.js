@@ -74,8 +74,8 @@ function socialtagsandcontant() {
 
             try {
                     if (yt != null && yt != '' && yt.trim() != '') {
-                    $('#youtube').attr("href", yt);
-                    $("#itemyt").removeClass("d-none");
+                    $('.youtube').attr("href", yt);
+                    $(".itemyt").removeClass("d-none");
                 }
             } catch (error) {
 
@@ -97,8 +97,8 @@ function socialtagsandcontant() {
             try {
                 if (pt != null && pt != '' && pt.trim() != '') {
               
-                    $('#pinterest').attr("href", pt);
-                    $("#itempt").removeClass("d-none");
+                    $('.pinterest').attr("href", pt);
+                    $(".itempt").removeClass("d-none");
                 }
             } catch (error) {
 
@@ -142,7 +142,7 @@ function socialtagsandcontant() {
                     if (social_mobile != null && social_mobile != '' && social_mobile.trim() != '') {
                     $(".parmobile").html(`
                     <a class="text-color td-none" href="tel:${social_mobile}">
-          <i class="fa fa-phone f-878787 pl-10 pr-5" aria-hidden="true"></i><span
+          <i class="fa fa-phone f-878787 pr-5" aria-hidden="true"></i><span
           class="pr-15 f-878787">${social_mobile}</span>
         </a>
                     `);
@@ -155,7 +155,7 @@ function socialtagsandcontant() {
                     if (social_email != null && social_email != '' && social_email.trim() != '') {
                     $(".paremail").html(`
                     <a class="text-color td-none" href="mailto:${social_email}">
-          <i class="fa fa-envelope-o f-878787 pl-10 pr-5" aria-hidden="true"></i><span
+          <i class="fa fa-envelope-o f-878787 pr-5" aria-hidden="true"></i><span
           class="pr-15 f-878787">${social_email}</span>
         </a>
                     `);

@@ -217,6 +217,7 @@ try {
                 }
    
             });
+            $( "#myInput" ).keyup();
             pagination()
         
         }

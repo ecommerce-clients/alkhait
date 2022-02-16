@@ -37,11 +37,11 @@
         
       <div class="col-12 ">
         <div>
-        <div class="row force-overflow " id="product_Addid">
+        <div class="row " id="product_Addid">
 
         </div>
       </div>
-      <div class="col-12" style="height: 500px;">
+      <div class="col-12" style="height: 220px;">
         </div>
       </div>
 
@@ -57,7 +57,7 @@
        <div class="col-11">
          <a href="/cart">
         <button class="btn btn-secondary btn-lg active
-        fs-14 btns-90 b-f7f7f7 f-000-i">
+        fs-14 btns-90 b-f7f7f7 f-000-i" style="width: 92%;">
         View cart
     </button>
   </a>
@@ -65,7 +65,7 @@
        <div class="col-11 mgt-15">
 
         <button class="btn btn-secondary btn-lg active b-000-i
-        fs-14 btns-90 btncheckdis disabled" onclick="showul('mobile-cart');checkoutbtc();">
+        fs-14 btns-90 btncheckdis disabled" onclick="showul('mobile-cart');checkoutbtc();" style="width: 92%;">
         Check Out
     </button>
 
@@ -311,7 +311,7 @@
        </div>
        <br>
        <button class="btn btn-secondary btn-lg active b-000
-       fs-14"style="width: 30%; height: 50px;" onclick="checkbox();showul('filter_ids');$('#mobile-search-modal').modal('hide');">
+       fs-14"style="width: 100%; height: 50px;" onclick="checkbox();showul('filter_ids');$('#mobile-search-modal').modal('hide');">
        FILTER
    </button>
               </div>
@@ -340,13 +340,13 @@
         <ul class="list-unstyled mb-0">
           <li class="mb-2 pm-10 pgt-10 b-b-rgba129 pl-20"><a href="/products?category=Boys"
               class="text-muted fs-16 f-878787" style="text-decoration:
-              unset;">Boys
+              unset;font-weight: bold;">Boys
               <!-- <span
                 class="b-01bad4 border-oval-mobile pl-7 pr-7">NEW</span> -->
               </a></li>
           <li class="mb-2 pm-10 pgt-10 b-b-rgba129 pl-20"><a href="/products?category=Mens"
               class="text-muted fs-16 f-878787" style="text-decoration:
-              unset;">Mens</a></li>
+              unset;font-weight: bold;">Mens</a></li>
     
 
 
@@ -360,7 +360,7 @@
   </div>
 
 
-  <div class="container-fluid text-white b-f6f6f8 pgt-10 pm-10">
+  <!-- <div class="container-fluid text-white b-f6f6f8 pgt-10 pm-10">
     <div class="row">
       <div class="col col-mobile">
         <span class="parmobile d-none">
@@ -380,12 +380,12 @@
 
       </div>
     </div>
-  </div>
+  </div> -->
   <div style="position: sticky;top: 0;z-index: 1000;">
   <div class="container-fluid text-white b-ffffff pgt-5 pm-5 border-t1">
     <div class="row pm-10 pgt-10">
       <div class="col f-878787 fs-14 align-self-center psssl-10">
-        <span class="pl-10 col-mobile"> Free Delivery All Over Pakistan</span>
+        <span class="pl-10 col-mobile"> <span class="text-blink">Free</span> Delivery Across All Over Pakistan</span>
         <i class="fa fa-bars col-mobile-show fs-20" aria-hidden="true"
           onclick="showulid='mobile-sidebar';showul('mobile-sidebar');$('#mobile-search-modal').modal('show');"></i>
 
@@ -393,8 +393,8 @@
       <div class="col f-878787 text-center">
         <div><a class="dib" href="/">
             <img
-              src="{{ site.Params.logo | absURL }}"
-              srcset="{{ site.Params.logo | absURL }}" alt="">
+              src="{{ site.Params.logo | absURL }} "
+              srcset="{{ site.Params.logo | absURL }}" alt="" style="height: 45px;">
           </a>
         </div>
       </div>
@@ -417,11 +417,11 @@
   <div class="container-fluid text-white b-ffffff col-mobile">
     <div class="row pgt-15">
       <div class="col-12 text-center">
-        <a href="/products?category=Boys" class="f-878787 td-none fs-14 mgt-3">Boys
+        <a href="/products?category=Boys" class="f-878787 td-none fs-14 mgt-new-1" style="font-weight: bold;">Boys
            <!-- <span
             class="b-01bad4 border-oval pl-7 pr-7">NEW</span> -->
           </a>
-        <a href="/products?category=Mens" class="f-878787 td-none fs-14 mgt-3">Mens</a>
+        <a href="/products?category=Mens" class="f-878787 td-none fs-14 mgt-new-1" style="font-weight: bold;">Mens</a>
         <!-- <a href="/products" class="f-878787 td-none fs-14 mgt-3">Waist Coat</a>
         <a href="/products" class="f-878787 td-none fs-14 mgt-3">Prince Coat</a>
         <a href="/products" class="f-878787 td-none fs-14 mgt-3">Sale <span

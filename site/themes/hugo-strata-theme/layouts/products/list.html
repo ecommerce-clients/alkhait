@@ -28,13 +28,13 @@ $( document ).ready(function() {
 
 
   <div class="row pgt-25 mgr-1 mgl-1">
-    <div class="col-2 col-md-3 col-lg-3 pgt-40 text-center pm-10">
+    <div class="col-3 col-md-3 col-lg-3 pgt-40 text-center pm-10 pd-mobile-13">
         <a href="javascript:;" class="f-000 td-none mgr-2 pull-left" onclick="showul('filter_ids');$('#mobile-search-modal').modal('show');">
             <span> <i class="fa fa-sliders fs-20"
                     aria-hidden="true"> Filter</i></span>
         </a>
     </div>
-    <div class="col-3 col-md-6 col-lg-6 pgt-40 text-center pm-10">
+    <div class="col-2 col-md-6 col-lg-6 pgt-40 text-center pm-10">
       <span class="col-mobile">
         <a href="javascript:;" class="f-878787 td-none mgr-2
             border-4" onclick="col_view_2()" id="btn-2-col"><i
@@ -65,7 +65,7 @@ $( document ).ready(function() {
 
         <div class="col-12 col-md-6 col-lg-6">
             <div class="mb-3 mgt-20">
-                <input class="form-control myInput-hide myInput form-control" id="myInput" placeholder="Search for product title" type="text">
+                <!-- <input class="form-control myInput-hide myInput form-control" id="myInput" placeholder="Search for product title" type="text"> -->
                                
                 
             </div>
@@ -112,22 +112,25 @@ $( document ).ready(function() {
             <a href="{{ .Permalink }}" class="td-none">
            <div class="card width-10-rem cardhover" style="border:
                 unset;">
+                <div class="cart_hover_prent ">
                 {{ range first 1 .Params.Images }}
                 <img
                     src="{{ .image | absURL }}"
-                    class="card-img-top">
+                    class="card-img-top cart_hover_child">
                     {{ end }}
+                  </div>
                     <h6 class="card-text"><h6><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h6><span
                     class="price dib mb__5">
-                    Rs.<span id="{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
+                    <span class="cb fwn">
+                      {{ if .Params.PriceBefore }}
+                      <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}" style="padding-right: 2%;"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span><span class="pipe_m_p"> |</span>
+                     
+                      {{ end }}
+                     
+                      </span>
+                    <span class="font_weight_bold" style="padding-left: 2%;">Rs.</span><span id="{{ .Params.ProductID }}" class="font_weight_bold"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
                   </span>
-                  <span class="cb fwn">
-                    {{ if .Params.PriceBefore }}
-                    <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span>
-                   <br>
-                    {{ end }}
-                   
-                    </span>
+                  <br>
                   </h6>
 
                     <span class="rangeprice" hidden>{{ .Params.Price }}</span>

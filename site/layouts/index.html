@@ -20,7 +20,7 @@ var pagenames = "Home";
 <div class="container-fluid">
     <div class="row pgt-25 pm-10">
       <div class="col-12 pgt-40 text-center pm-10">
-        <h2>What are you looking for?</h2>
+        <h2>What Are You Looking For?</h2>
         <p class="fs-14">Mindfully crafted, our pieces sit on the crosswalk of style and comfort</p>
       </div>
     </div>
@@ -54,7 +54,7 @@ var pagenames = "Home";
     </div>
     <div class="row pgt-25 pm-10">
       <div class="col-12 pgt-40 text-center pm-10">
-        <h2>Season end sale</h2>
+        <h2>Season End Sale</h2>
         <p class="fs-14">Flash sale more special deal off to 50% and free shipping</p>
       </div>
     </div>
@@ -62,25 +62,30 @@ var pagenames = "Home";
         {{ range first 4 (where site.RegularPages "Description" "Boys") }}
       <div class="col-lg-3 col-md-3 col-6 padding-10">
         <div class="card width-10-rem cardhover" style="border: unset;">
+          <div class="cart_hover_prent">
+
+          
             <a href="{{ .Permalink }}">
                 {{ range first 1 .Params.Images }}
                 
           <img
             src="{{ .image | absURL }}"
-            class="card-img-top" alt="">
+            class="card-img-top cart_hover_child" alt="">
             {{ end }}
         </a>
+      </div>
         <h6 class="card-text"><h6><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h6><span
         class="price dib mb__5">
-        Rs.<span id="{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
+        <span class="cb fwn">
+          {{ if .Params.PriceBefore }}
+          <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}" style="padding-right: 2%;"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span><span class="pipe_m_p"> |</span>
+         
+          {{ end }}
+         
+          </span>
+        <span class="font_weight_bold" style="padding-left: 2%;">Rs.</span><span id="{{ .Params.ProductID }}" class="font_weight_bold"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
       </span>
-      <span class="cb fwn">
-        {{ if .Params.PriceBefore }}
-        <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span>
-       <br>
-        {{ end }}
-       
-        </span>
+      <br>
       </h6>
           <div class="btn_add align-self-center cardbtn col-mobile">
             <a href="{{ .Permalink }}">
@@ -100,11 +105,12 @@ var pagenames = "Home";
             </button>
           </div>
           <div class="btn_add-mobile align-self-center right-10
-            col-mobile-show" data-bs-toggle="modal"
-            data-bs-target="#newaddtocart{{ .Params.ProductID }}">
+            col-mobile-show">
+            <a href="{{ .Permalink }}">
             <button class="btn-rounded-top-30 btn btn-primary btn-lg active
               b-000 fs-12"><i class="fa fa-eye" aria-hidden="true"></i>
             </button>
+            </a>
             <br>
             <button class="btn-rounded-bottom-30 btn btn-primary btn-lg
               active b-000 fs-12"><i class="fa fa-shopping-cart"
@@ -140,7 +146,7 @@ var pagenames = "Home";
 
     <div class="row pgt-25 pm-10">
       <div class="col-12 pgt-40 text-center pm-10">
-        <h2>What’s hot</h2>
+        <h2>What’s Hot?</h2>
         <p class="fs-14">Most trending items for all days view</p>
       </div>
     </div>
@@ -151,25 +157,28 @@ var pagenames = "Home";
         {{if (eq .Params.featured $feature)}}
         <div class="col-lg-3 col-md-3 col-6 padding-10">
           <div class="card width-10-rem cardhover" style="border: unset;">
+            <div class="cart_hover_prent ">
               <a href="{{ .Permalink }}">
                   {{ range first 1 .Params.Images }}
                   
             <img
               src="{{ .image | absURL }}"
-              class="card-img-top" alt="">
+              class="card-img-top cart_hover_child" alt="">
               {{ end }}
           </a>
+          </div>
           <h6 class="card-text"><h6><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h6><span
           class="price dib mb__5">
-          Rs.<span id="{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
+          <span class="cb fwn">
+            {{ if .Params.PriceBefore }}
+            <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}" style="padding-right: 2%;"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span><span class="pipe_m_p"> |</span>
+           
+            {{ end }}
+           
+            </span>
+          <span class="font_weight_bold" style="padding-left: 2%;">Rs.</span><span id="{{ .Params.ProductID }}" class="font_weight_bold"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
         </span>
-        <span class="cb fwn">
-          {{ if .Params.PriceBefore }}
-          <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span>
-         <br>
-          {{ end }}
-         
-          </span>
+        <br>
         </h6>
             <div class="btn_add align-self-center cardbtn col-mobile">
               <a href="{{ .Permalink }}">
@@ -189,11 +198,12 @@ var pagenames = "Home";
               </button>
             </div>
             <div class="btn_add-mobile align-self-center right-10
-              col-mobile-show" data-bs-toggle="modal"
-              data-bs-target="#newaddtocart{{ .Params.ProductID }}">
+              col-mobile-show">
+              <a href="{{ .Permalink }}">
               <button class="btn-rounded-top-30 btn btn-primary btn-lg active
                 b-000 fs-12"><i class="fa fa-eye" aria-hidden="true"></i>
               </button>
+            </a>
               <br>
               <button class="btn-rounded-bottom-30 btn btn-primary btn-lg
                 active b-000 fs-12"><i class="fa fa-shopping-cart"
@@ -208,7 +218,7 @@ var pagenames = "Home";
     </div>
     <div class="row pgt-25 pm-10">
       <div class="col-12 pgt-40 text-center pm-10">
-        <h2>Kurta pyjama</h2>
+        <h2>Kurta Pyjama</h2>
         <p class="fs-14">New arrivals</p>
       </div>
     </div>
@@ -217,25 +227,28 @@ var pagenames = "Home";
         {{ range (where site.RegularPages "Type" "products") }}
         <div class="col-lg-3 col-md-3 col-6 padding-10">
           <div class="card width-10-rem cardhover" style="border: unset;">
+            <div class="cart_hover_prent ">
               <a href="{{ .Permalink }}">
                   {{ range first 1 .Params.Images }}
                   
             <img
               src="{{ .image | absURL }}"
-              class="card-img-top" alt="">
+              class="card-img-top cart_hover_child" alt="">
               {{ end }}
           </a>
+        </div>
             <h6 class="card-text"><h6><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h6><span
                 class="price dib mb__5">
-                Rs.<span id="{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
+                <span class="cb fwn">
+                  {{ if .Params.PriceBefore }}
+                  <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}" style="padding-right: 2%;"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span><span class="pipe_m_p"> |</span>
+                 
+                  {{ end }}
+                 
+                  </span>
+                <span class="font_weight_bold" style="padding-left: 2%;">Rs.</span><span id="{{ .Params.ProductID }}" class="font_weight_bold"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
               </span>
-              <span class="cb fwn">
-                {{ if .Params.PriceBefore }}
-                <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span>
-               <br>
-                {{ end }}
-               
-                </span>
+              <br>
             </h6>
             <div class="btn_add align-self-center cardbtn col-mobile">
               <a href="{{ .Permalink }}">
@@ -468,13 +481,20 @@ var pagenames = "Home";
                   <div class="row">
                     <div class="col-10">
                       <h6 class="pgt-10">
-                        <span style="margin-bottom:40px;"><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></span>
-                        <br>
-                        {{ if .Params.PriceBefore }}
-                        <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></span></span>
-                        {{ end }}
-                        <br>
-                        <span class="f-ff4e00">Rs. <Span class="price{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></Span></span>
+                        <span style="margin-bottom:40px; "><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></span>
+                        <div style="margin-top: -10px;">
+                        <span class="cb fwn">
+                          <br>
+                          {{ if .Params.PriceBefore }}
+                          <span style="text-decoration:line-through;font-size: 12px;font-weight: 200;">Rs. <Span class="beprice{{ .Params.ProductID }}" style="padding-right: 2%;"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span><span class="pipe_m_p_cart"> |</span>
+                         
+                          {{ end }}
+                         
+                          </span>
+                        <span class="font_weight_bold" style="padding-left: 2%;">Rs.</span><span id="{{ .Params.ProductID }}" class="font_weight_bold"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
+                      </span>
+                    </div>
+                      <br>
                       </h6>
                     </div>
                     <div class="col-2 fs-20" style="cursor: pointer;"
