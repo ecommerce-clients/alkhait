@@ -223,7 +223,7 @@ function enforce_maxlength(event) {
   document.body.addEventListener('input', enforce_maxlength);
 
 
-  function whatsapp(id,name)
+function whatsapp(id,name)
 {
   $('#whatsapp'+id).attr('href','https://api.whatsapp.com/send/?phone='+social_mobile+'&text='+window.location.origin+'/products/'+id+'%0D%0AProduct Name: *'+name+'*%0D%0ACould you please tell me the availibilty of this product?');
 }

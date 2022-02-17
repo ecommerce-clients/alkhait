@@ -166,7 +166,7 @@ active b-000 fs-12" style="background-color: black;width:
           </div>
           <div class="col-lg-2 col-md-2 col-4 mgt-30"><a href="javascript:;" onclick="$('#staticBackdropsize').modal('show');" class="f-000 fs-14 td-none"><b>Size
             Guide</b></a></div>
-      <div class="col-lg-3 col-md-3 col-5 mgt-30 pull-left"><a href="#" class="f-000 fs-14 td-none"><b>Ask
+      <div class="col-lg-3 col-md-3 col-5 mgt-30 pull-left"><a href="#" id="whatsapp{{ .Params.ProductID }}" onclick="whatsapp('{{ .Params.ProductID }}',decodeURIComponent('{{ .Title }}').replaceAll('+',' '))" class="f-000 fs-14 td-none"><b>Ask
             a Question</b></a></div>
             
         </div>
