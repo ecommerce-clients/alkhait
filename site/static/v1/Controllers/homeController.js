@@ -106,6 +106,14 @@ try {
                     }
                    
                 });
+                if($('.pricesrangeclass').is(':visible')){
+                    $('#category_msg').addClass('d-none')
+                }
+                else{
+                    $('#category_msg').removeClass('d-none')
+                    $('#category_msg_text').html('No records found!')
+                   
+                }
                 pagination()
             });
 
@@ -225,6 +233,7 @@ try {
             }
             else{
                 $('#category_msg').removeClass('d-none')
+                $('#category_msg_text').html('No records found!')
                
             }
             $( "#myInput" ).keyup();
@@ -232,6 +241,16 @@ try {
         
         }
  
+        function categorycheck(){
+            if($('.pricesrangeclass').is(':visible')){
+                $('#category_msg').addClass('d-none')
+            }
+            else{
+                $('#category_msg').removeClass('d-none')
+                $('#category_msg_text').html('There are no products in this category yet!')
+               
+            }
+        }
 
 
 

@@ -261,7 +261,7 @@ function validate() {
             if (email) {
                 errorschecks = "success";
             }else{
-                document.getElementById("erroremail").innerHTML = "Invaild email";
+                document.getElementById("erroremail").innerHTML = "Invalid email";
                 errorschecks = "error";
             }
         }
@@ -679,7 +679,7 @@ function emailvalidcheck() {
         document.getElementById("erroremail").innerHTML = "";
     }
     else {
-        document.getElementById("erroremail").innerHTML = "Invaild email";
+        document.getElementById("erroremail").innerHTML = "Invalid email";
         errorschecks = "error";
     }
 }

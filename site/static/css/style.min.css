@@ -17,6 +17,10 @@
    .pd-mobile-13{
     padding-top: 13%;
    }
+
+   .pgt_mobile_view_pedding{
+    padding-top: unset !important;
+   }
    
     .slick-prev, .slick-next
     {

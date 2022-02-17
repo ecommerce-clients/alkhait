@@ -26,32 +26,33 @@ function cardpage()
             student +=`
             <div class="col-lg-4 col-md-4 col-12 pm-10">
             <div class="row">
-                <div class="col-4 pull-right"><img
+                <div class="col-lg-4 col-md-4 col-5 pull-right"><img
                         src="${result[i].img}"
                         class="img-fluid" alt=""></div>
-                <div class="col-8 pgt-25-mobile">
+                <div class="col-lg-8 col-md-8 col-7 pgt-25-mobile">
                 <a href="${window.location.origin+'/products/'+result[i].old_id}" class="f-000 td-none"> <h6 class="mouse-pointer">${result[i].name}</h6>
                 <span>`;
                 if(result[i].size !='')
                 student += "Size: "+result[i].size
                 student +=` </span><br><br>
                 </a>
+
+                <div class="row col-mobile-show" style="margin-top: -10px;">
+                <div class="col-12">
+                    <p ><span
+                            class="f-ff4e00 fs-16">Rs.${new Intl.NumberFormat().format(parseFloat(result[i].price))}</span></p>
+                </div>
+                <div class="col-12" style="margin-top: -10px;">
+                    <input type="number"
+                        class="form-control"
+                        style="height: 35px; width: 30%;" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" oninput="this.value = Math.abs(this.value)" min="1"  maxlength="3" onkeyup="' + "cartpricechnage(this,'${result[i].id}',${i},${result[i].price},'cart')" onchange="cartpricechnage(this,'${result[i].id}',${i},${result[i].price},'cart')" value="${result[i].quantity}">
+                </div>
+              
+            </div>
                     
-                    
-                    <i class="fa fa-trash-o fs-25 mouse-pointer"
+                    <i class="fa fa-trash-o fs-25 mouse-pointer" style="margin-top: 10px;"
                         aria-hidden="true" onclick="add_delete('${result[i].id}',this)"></i>
-                    <div class="row col-mobile-show">
-                        <div class="col-12">
-                            <p class="pgt-25">&nbsp;&nbsp;<span
-                                    class="f-ff4e00 fs-16">Rs.${new Intl.NumberFormat().format(parseFloat(result[i].price))}</span></p>
-                        </div>
-                        <div class="col-12">
-                            <input type="number"
-                                class="form-control"
-                                style="height: 50px; width: 30%;" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" oninput="this.value = Math.abs(this.value)" min="1"  maxlength="3" onkeyup="' + "cartpricechnage(this,'${result[i].id}',${i},${result[i].price},'cart')" onchange="cartpricechnage(this,'${result[i].id}',${i},${result[i].price},'cart')" value="${result[i].quantity}">
-                        </div>
-                      
-                    </div>
+           
                 </div>
 
             </div>
