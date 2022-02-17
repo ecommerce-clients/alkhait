@@ -1052,7 +1052,7 @@ margin-bottom: 70px;
 .slick-prev:before, .slick-next:before{
     font-size: 30px !important;
     
-    color: black !important;
+    color: white !important;
 }
 .slick-prev{
     left: 0 !important;
