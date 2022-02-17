@@ -8,7 +8,7 @@ if(pagenames == "Cartpage")
 function cardpage()
 {
     try {
-        $("#tbodyload div").remove();
+       
         
         items = localStorage.getItem("itemsArray");
         json = JSON.parse(items);
@@ -16,6 +16,10 @@ function cardpage()
         var count = 0;
         toprice = 0;
         var student = '';
+        if(result.length){
+            $("#tbodyload div").remove();
+        }
+      
         for (i = 0; i < result.length; i++) {
             // console.log(json[i]);
             count++;
@@ -56,12 +60,11 @@ function cardpage()
         </div>
         <div class="col-2 col-mobile">
             <p class="pgt-25">&nbsp;&nbsp;<span
-                    class="f-ff4e00 fs-16">Rs.${new Intl.NumberFormat().format(parseFloat(result[i].price))}</span></p>
+                    class="f-ff4e00 fs-16" style="padding-left: 15px;">Rs.${new Intl.NumberFormat().format(parseFloat(result[i].price))}</span></p>
         </div>
         <div class="col-3 d-flex justify-content-center col-mobile
             callfun-mobile"
-            style="padding-left:
-            82px;">
+            style="padding-left: 56px;">
             <input type="number" class="form-control
                 mgt-20" style="height: 50px; width: 30%;" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" oninput="this.value = Math.abs(this.value)" min="1"  maxlength="3" onkeyup="' + "cartpricechnage(this,'${result[i].id}',${i},${result[i].price},'cart')" onchange="cartpricechnage(this,'${result[i].id}',${i},${result[i].price},'cart')" value="${result[i].quantity}">
         </div>

@@ -24,12 +24,12 @@ function cardload()
             count++;
             
             student += `
-            <div class="col-5 mobile-side-col-10">
+            <div class="col-5 mobile-side-col-10 mt_14">
         <img style="width: 100%;"
           src="${result[i].img}"
           class="img-fluid" alt="">
       </div>
-      <div class="col-7 mobile-side-col-10 pm-15">
+      <div class="col-7 mobile-side-col-10 pm-15 mt_14">
        <a href="${window.location.origin+'/products/'+result[i].old_id}" class="td-none f-000"> 
        <h6>${result[i].name}</h6>
        
@@ -44,7 +44,7 @@ function cardload()
           50%;" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" oninput="this.value = Math.abs(this.value)" min="1"  maxlength="3" onkeyup="cartpricechnage(this,'${result[i].id}',${i},${result[i].price})" onchange="cartpricechnage(this,'${result[i].id}',${i},${result[i].price})" value="${result[i].quantity}">
         <i class="fa fa-trash-o fs-20 pgt-10" aria-hidden="true" onclick="add_delete('${result[i].id}',this)"></i>
 
-      </div>
+      </div> <br>
            `;
           
            $("#product_Addid .mobile-side-col-10").remove();

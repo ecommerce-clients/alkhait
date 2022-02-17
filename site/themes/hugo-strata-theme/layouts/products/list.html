@@ -103,7 +103,12 @@ $( document ).ready(function() {
         
     </div>
 
-
+    <div class="row mgb-25 mgr-1 mgl-1 pm-15 d-none" id="category_msg">
+     
+      <div class="col-12 text-center">
+        <p style="margin-top: -15px;padding-bottom: 140px;padding-top: 170px; font-size: 18px;">There are no products in this category yet!</p>
+     </div>
+  </div>
     
     <div class="row mgb-25 mgr-1 mgl-1 pm-15 border-bottom" id="search">
         {{ if site.Data.homepage.products.enable }}
@@ -119,7 +124,8 @@ $( document ).ready(function() {
                     class="card-img-top cart_hover_child">
                     {{ end }}
                   </div>
-                    <h6 class="card-text"><h6><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h6><span
+                    <h6 class="card-text"><h6>
+                      <script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h6><span
                     class="price dib mb__5">
                     <span class="cb fwn">
                       {{ if .Params.PriceBefore }}
@@ -175,7 +181,7 @@ $( document ).ready(function() {
        {{ end }}
        {{ end }}
     </div>
-    <div class="row mgb-100">
+    <div class="row mgb-50">
         <div class="col-12 text-center" id="pagin">
             <ul class="ec-pro-pagination-inner">
 
@@ -213,12 +219,19 @@ aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="col-10">
               <h6 class="pgt-10">
                 <span style="margin-bottom:40px;"><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></span>
+                <div style="margin-top: -10px;">
+                  <span class="cb fwn">
+                    <br>
+                    {{ if .Params.PriceBefore }}
+                    <span style="text-decoration:line-through;font-size: 12px;font-weight: 200;">Rs. <Span class="beprice{{ .Params.ProductID }}" style="padding-right: 2%;"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span><span class="pipe_m_p_cart"> |</span>
+                   
+                    {{ end }}
+                   
+                    </span>
+                  <span class="font_weight_bold" style="padding-left: 2%;">Rs.</span><span id="{{ .Params.ProductID }}" class="font_weight_bold"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
+                </span>
+              </div>
                 <br>
-                {{ if .Params.PriceBefore }}
-                <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span>
-                {{ end }}
-                <br>
-                <span class="f-ff4e00">Rs. <Span class="price{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></Span></span>
               </h6>
             </div>
             <div class="col-2 fs-20" style="cursor: pointer;"

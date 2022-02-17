@@ -1151,3 +1151,16 @@ margin-bottom: 70px;
 .ml-20{
 margin-left: 20px;
 }
+
+.mt_14
+{
+    margin-top: 14px;
+}
+
+
+.border_rounded_header{
+border-bottom: 1px solid;
+padding-top: 20px;
+padding-bottom: 20px;
+margin-bottom: 50px;
+}

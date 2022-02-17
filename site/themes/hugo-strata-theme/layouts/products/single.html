@@ -276,13 +276,18 @@ aria-labelledby="modelTitleId" aria-hidden="true">
           <div class="row">
             <div class="col-10">
               <h6 class="pgt-10">
-                <span style="margin-bottom:40px;"><script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></span>
-                <br>
-                {{ if .Params.PriceBefore }}
-                <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span>
-                {{ end }}
-                <br>
-                <span class="f-ff4e00">Rs. <Span class="price{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></Span></span>
+                <script>document.write(decodeURIComponent('{{ .Title }}').replaceAll('+',' '))</script></h6><span
+                class="price dib mb__5">
+                <span class="cb fwn">
+                  {{ if .Params.PriceBefore }}
+                  <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}" style="padding-right: 3%;"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span><span class="pipe_m_p"> |</span>
+                 
+                  {{ end }}
+                 
+                  </span>
+                <span class="font_weight_bold" style="padding-left: 2%;">Rs.</span><span id="{{ .Params.ProductID }}" class="font_weight_bold"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span>
+              </span>
+              <br>
               </h6>
             </div>
             <div class="col-2 fs-20" style="cursor: pointer;"

@@ -201,7 +201,10 @@ try {
             $("#search .pricesrangeclass").filter(function () {
                 
                 var category = $(this).data("category");
+                
                 var price = parseInt($(this).data("price"));
+
+              
                 if (categoryseach !=null) {
                     // categoryserch
                     
@@ -217,6 +220,13 @@ try {
                 }
    
             });
+            if($('.pricesrangeclass').is(':visible')){
+                $('#category_msg').addClass('d-none')
+            }
+            else{
+                $('#category_msg').removeClass('d-none')
+               
+            }
             $( "#myInput" ).keyup();
             pagination()
         

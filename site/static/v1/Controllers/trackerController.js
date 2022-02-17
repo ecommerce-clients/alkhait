@@ -127,7 +127,9 @@ function onloadertrack(){
     
         toast.error("No order(s) found, please try again");
         var emt = '<tr>';
-        emt += '<td colspan="5" class="text-center"><img src="https://controllers.eralive.net/images/tracknotfound.jpg" style="height: 250px;padding-top: 70px;"/><p style="margin-top: -15px;padding-bottom: 110px;">You can track your orders here!</p></td>';
+        emt += `<td colspan="5" class="text-center">
+        <p style="margin-top: -15px;padding-bottom: 140px;padding-top: 170px; font-size: 18px;">Oopss! no records found </p>
+        </td>`;
         emt += '</tr>'
         $('#tabrownode').html(emt);
 
