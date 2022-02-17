@@ -136,7 +136,7 @@ active b-000 fs-12" style="background-color: black;width:
                 {{ if .Params.Variants }}
                 <button class="btn btn-{{ .Params.ProductID }} disabled btn-secondary btn-lg
                 active b-000 fs-12" style="background-color: black;width:
-                100%;height: 50px;" onclick="checkpriceset(productids,{{ .Title }},{{ .Params.Description }},setsizeprice
+                100%;height: 40px;" onclick="checkpriceset(productids,{{ .Title }},{{ .Params.Description }},setsizeprice
           ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1,'{{ .Params.ProductID }}',setsize);checkoutbtc();">Buy it now</button>
 
 
@@ -144,7 +144,7 @@ active b-000 fs-12" style="background-color: black;width:
 
       <button class="btn btn-secondary btn-lg
       active b-000 fs-12" style="background-color: black;width:
-      100%;height: 50px;" onclick="Check(productids,{{ .Title }},{{ .Params.Description }},setsizeprice
+      100%;height: 40px;" onclick="Check(productids,{{ .Title }},{{ .Params.Description }},setsizeprice
         ,{{ range first 1 .Params.Images }}{{ .image | absURL }}{{ end }},1,'{{ .Params.ProductID }}','');checkoutbtc();">Buy it now</button>
 
 
@@ -280,7 +280,7 @@ aria-labelledby="modelTitleId" aria-hidden="true">
                 class="price dib mb__5">
                 <span class="cb fwn">
                   {{ if .Params.PriceBefore }}
-                  <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}" style="padding-right: 3%;"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span><span class="pipe_m_p" style="margin-top: -1.3px;"> |</span>
+                  <span style="text-decoration:line-through">Rs. <Span class="beprice{{ .Params.ProductID }}" style="padding-right: 3%;"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.PriceBefore }}')))</script></Span></span><span class="pipe_m_p"> |</span>
                  
                   {{ end }}
                  
