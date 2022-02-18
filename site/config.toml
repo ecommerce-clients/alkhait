@@ -71,7 +71,7 @@ disqusShortname = ""
 
 #################### default parameters ################################
 [params]
-logo = "images/logo.png"
+logo = "images/alkhait.png"
 invoice = "images/invoice.png"
 home = "Home"
 # Meta data
