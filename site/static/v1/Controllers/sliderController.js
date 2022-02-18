@@ -39,7 +39,7 @@ function sliderheroactive() {
                 });
    
 
-                $('#sliders_items_imgs').html(imgas);
+                $('#sliders_items_imgs').html(imgas+imgas);
                  /*----------------------------- Main Slider ---------------------- */
                  $('.sliders_items_imgs').slick({
                     infinite: false,

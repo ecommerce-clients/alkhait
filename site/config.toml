@@ -16,10 +16,9 @@ disqusShortname = ""
   link = "css/variables.css"
 
     [[params.plugins.css]]
-  link = "https://v1.eralive.net/kurtamart/asset/css/bootstrap.min.css"
+  link = "https://v1.eralive.net/asset/asset/css/bootstrap.css"
 
-   [[params.plugins.css]]
-  link = "https://v1.eralive.net/kurtamart/asset/font-awesome-4.7.0/css/font-awesome.min.css"
+  
 
   # JS Plugins
 

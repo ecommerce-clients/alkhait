@@ -163,7 +163,7 @@
                     toast.configure(options);
 
                     toast.error(response);
-                    document.getElementById("re_invaild_account").innerHTML = response;
+                    // document.getElementById("re_invaild_account").innerHTML = response;
                 }
                 $('#ec-overlay').hide()
             },

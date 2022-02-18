@@ -5,7 +5,8 @@ function verfyaccountdone(){
     }else{
         var url = new URL(window.location.href);
         var tokenid = url.searchParams.get("id");
-        if(tokenid !=null)
+        var restemail = urlrest.searchParams.get("email");
+        if(restemail ==null && tokenid !=null)
         {
             $.ajax({
     

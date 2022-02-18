@@ -26,7 +26,11 @@ function getusersids() {
 }
 $(document).ready(function () {
     
-
+    try {
+        restmodalapi();
+    } catch (error) {
+        
+    }
     try {
         checkbox();
     } catch (error) {

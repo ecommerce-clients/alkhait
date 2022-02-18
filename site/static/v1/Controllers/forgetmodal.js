@@ -52,7 +52,7 @@ function forget(l_email){
                 toast.configure(options);
 
                 toast.success(response);
-                document.getElementById("fe_invaild_account").innerHTML = response;
+                // document.getElementById("fe_invaild_account").innerHTML = response;
             }
             else {
                 var options = {
@@ -69,7 +69,7 @@ function forget(l_email){
                 toast.configure(options);
 
                 toast.error(response);
-                document.getElementById("fe_invaild_account").innerHTML = response;
+                // document.getElementById("fe_invaild_account").innerHTML = response;
             }
             $('#ec-overlay').hide()
         },

@@ -238,6 +238,71 @@
               
               <button class="btn btn-secondary active
               fs-14 btns-90 b-f7f7f7 f-000-i width-95"  style="width: 100%;" type="button" onclick="validateforget()">
+              Send Mail
+          </button>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="Text-center mb-4 mt-2">
+              <center>
+                <label class="btn" style="cursor: unset; color: var(--font);">Continue With</label><br><br>
+                <div class="row">
+                  <div class="col-4 text-center"><button class="btn btn-primary" style="border-radius: 50%;border-color: var(--font) !important;" type="button" onclick="fbLogin()"><i class="fa fa-facebook-official" style="color: var(--font);" aria-hidden="true"></i></button></div>
+                  <div class="col-4 text-center"><button class="btn btn-primary" style="border-radius: 50%;border-color: var(--font) !important;" type="button" onclick="GoogleLogin()"><i class="fa fa-google" aria-hidden="true" style="color: var(--font);"></i></button></div>
+                  <div class="col-4 text-center"><button class="btn btn-primary" style="border-radius: 50%;border-color: var(--font) !important;" type="button" onclick="guLogin()"><i class="fa fa-user-circle-o" aria-hidden="true" style="color: var(--font);"></i></button></div>
+              </div>
+              </center>
+             
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="mb-10">
+              <p>Already have an account? <a href="javascript:;" onclick="showul('rest-pass-modal');showul('login-modal');" class="td-none td-underline-hover"> Login here</a></p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="mb-10">
+              <p>New customer? <a href="javascript:;" onclick="showul('rest-pass-modal');showul('register-modal');" class="td-none td-underline-hover"> Create your account</a></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+
+    </div>
+  </div>
+  <div class="mobile-right-modal b-ffffff " id="rest-email-modal">
+    <h6 class="f-222 pl-20"style="border-bottom: 1px solid
+      rgba(129,129,129,.2);padding-bottom: 25px;padding-top: 25px;">Recover password <i class="fa fa-times pull-right fs-20 pr-15" aria-hidden="true"
+        onclick="showul('rest-email-modal');$('#mobile-search-modal').modal('hide');"></i></h6>
+    <div class="row pgt-15 pl-15 force-overflow">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="" class="form-label">Email <span style="color: red;">*</span></label>
+              <input  type="email" name="email" id="reset_email"
+              placeholder="Enter your email" disabled required class="form-control width-95" aria-describedby="helpId">
+              <small id="resete_email" class="text-muted" style="color: red !important;"></small>
+              <small id="resete_invaild_account" class="text-muted" style="color: red !important;"></small>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="" class="form-label">Password <span style="color: red;">*</span></label>
+              <input type="password" name="password" id="reset_password" class="form-control width-95" placeholder="Enter your password" aria-describedby="helpId">
+              <small id="resete_password" class="text-muted" style="color: red !important;"></small>
+             
+            </div>
+          </div>
+        
+          <div class="col-12">
+            <div class="mb-3">
+              
+              <button class="btn btn-secondary active
+              fs-14 btns-90 b-f7f7f7 f-000-i width-95"  style="width: 100%;" type="button" onclick="restvalidate()">
               Reset Password
           </button>
             </div>
@@ -344,9 +409,9 @@
               <!-- <span
                 class="b-01bad4 border-oval-mobile pl-7 pr-7">NEW</span> -->
               </a></li>
-          <li class="mb-2 pm-10 pgt-10 b-b-rgba129 pl-20"><a href="/products?category=Mens"
+          <li class="mb-2 pm-10 pgt-10 b-b-rgba129 pl-20"><a href="/products?category=Men"
               class="text-muted fs-16 f-878787" style="text-decoration:
-              unset;font-weight: bold;">Mens</a></li>
+              unset;font-weight: bold;">Men</a></li>
     
 
 
@@ -385,7 +450,7 @@
   <div class="container-fluid text-white b-ffffff pgt-5 pm-5 border-t1">
     <div class="row pm-10 pgt-10">
       <div class="col f-878787 fs-14 align-self-center psssl-10">
-        <span class="pl-10 col-mobile"> <span class="text-blink">Free</span> Delivery Across All Over Pakistan</span>
+        <span class="pl-10 col-mobile"> <span class="text-blink">Free</span> Delivery All Over Pakistan</span>
         <i class="fa fa-bars col-mobile-show fs-20" aria-hidden="true"
           onclick="showulid='mobile-sidebar';showul('mobile-sidebar');$('#mobile-search-modal').modal('show');"></i>
 
@@ -421,7 +486,7 @@
            <!-- <span
             class="b-01bad4 border-oval pl-7 pr-7">NEW</span> -->
           </a>
-        <a href="/products?category=Mens" class="f-878787 td-none fs-14 mgt-new-1" style="font-weight: bold;">Mens</a>
+        <a href="/products?category=Men" class="f-878787 td-none fs-14 mgt-new-1" style="font-weight: bold;">Men</a>
         <!-- <a href="/products" class="f-878787 td-none fs-14 mgt-3">Waist Coat</a>
         <a href="/products" class="f-878787 td-none fs-14 mgt-3">Prince Coat</a>
         <a href="/products" class="f-878787 td-none fs-14 mgt-3">Sale <span

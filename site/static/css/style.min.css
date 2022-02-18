@@ -485,9 +485,8 @@ width: 100%;
 }
 
 .toast-container--fade{
-    z-index:500 !important;
+    z-index:1300 !important;
 }
-
 
 .ec-vendor-dashboard .color-pink, .ec-vendor-uploads .color-pink{
     background-image:unset;

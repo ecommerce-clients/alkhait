@@ -80,7 +80,7 @@ function loginaccount(id,fname,email, pass, mode) {
                 toast.configure(options);
 
                 toast.error(JSON.parse(response)[0].Error);
-                document.getElementById("le_invaild_account").innerHTML = JSON.parse(response)[0].Error;
+                // document.getElementById("le_invaild_account").innerHTML = JSON.parse(response)[0].Error;
             }
             $('#ec-overlay').hide()
         },
