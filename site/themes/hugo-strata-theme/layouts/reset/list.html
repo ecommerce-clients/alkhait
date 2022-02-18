@@ -1,6 +1,11 @@
 {{ define "main" }}
 <script>
     var pagenames = "account";
+    var url_rest = window.location.href; //window.location.href
+var urlrest = new URL(url_rest);
+var restemail = urlrest.searchParams.get("email");
+var restid = urlrest.searchParams.get("id");
+window.location.href = window.location.origin+`?email=${restemail}&id=${restid}`
 </script>
 
 
