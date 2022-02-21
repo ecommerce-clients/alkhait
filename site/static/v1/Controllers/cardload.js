@@ -43,8 +43,8 @@ function cardload()
         <input type="number" name="" id="" class="form-control" style="width:
           50%;" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" oninput="this.value = Math.abs(this.value)" min="1"  maxlength="3" onkeyup="cartpricechnage(this,'${result[i].id}',${i},${result[i].price})" onchange="cartpricechnage(this,'${result[i].id}',${i},${result[i].price})" value="${result[i].quantity}">
         <i class="fa fa-trash-o fs-20 pgt-10" aria-hidden="true" onclick="add_delete('${result[i].id}',this)"></i>
-
-      </div> <br>
+        <br>
+      </div> 
            `;
           
            $("#product_Addid .mobile-side-col-10").remove();
