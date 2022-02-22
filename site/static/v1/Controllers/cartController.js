@@ -8,7 +8,7 @@ if(pagenames == "Cartpage")
 function cardpage()
 {
     try {
-       
+        $("#tbodyload div").remove();
         
         items = localStorage.getItem("itemsArray");
         json = JSON.parse(items);

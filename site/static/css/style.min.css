@@ -4,6 +4,12 @@
 }
   @media only screen and (max-width: 991px)
   {
+      .mt_300p{
+        margin-top: 230% !important;
+    }
+    .btn_add_monile{
+        top: 0%!important;
+    }
     .pipe_m_p{
         margin-left: -1%;
         margin-top: -3%;
@@ -1135,7 +1141,14 @@ margin-bottom: 70px;
     overflow: hidden;
 }
 
-
+.cardhover .cart_hover_child:hover{
+    transition: all 3s;
+    -ms-transform: scale(1.2);
+       -moz-transform: scale(1.2);
+       -webkit-transform: scale(1.2);
+       -o-transform: scale(1.2);
+       transform: scale(1.2);
+   }
 
 .cart_hover_child:hover{
     transition: all 3s;
@@ -1166,4 +1179,9 @@ border-bottom: 1px solid;
 padding-top: 20px;
 padding-bottom: 20px;
 margin-bottom: 50px;
+}
+
+
+.mt_300p{
+    margin-top: 300%;
 }
