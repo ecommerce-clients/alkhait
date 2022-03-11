@@ -44,7 +44,7 @@ function changePrice(o,price,priceBefore)
 
 
 
-   function s_changePrice(o,p_id,price,priceBefore,Size)
+   function s_changePrice(o,p_id,price,priceBefore,Size,qtysallow)
    {
        var oldid= o.parentNode.getAttribute("data-productidsold");
        $('.'+oldid).html(new Intl.NumberFormat().format(parseFloat(price)));
@@ -53,8 +53,16 @@ function changePrice(o,price,priceBefore)
        $('#'+oldid+oldid).html(new Intl.NumberFormat().format(parseFloat(priceBefore)));
    
        productids=p_id;
+       
        setsizeprice=price;
        setsize = Size;
+       if(qtysallow !=''){
+        $('#stock_num').html(new Intl.NumberFormat().format(parseFloat(qtysallow)));
+        $('#stock_show').show();
+       }
+       
+      //  
+       
        $('.btn-'+oldid).removeClass('disabled');
    }
 

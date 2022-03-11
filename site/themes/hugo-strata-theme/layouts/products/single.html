@@ -52,16 +52,26 @@
             class="f-red">Rs.<span class="{{ .Params.ProductID }}"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.Price }}')))</script></span></span></h4>
         <br>
         <script>document.write(decodeURIComponent('{{ .Params.longdescription }}').replaceAll('+',' '))</script>
+       <span id="stock_show">
+        <h5 class="pgt-10">Stock:</h5>
+        <div class="row pm-15">
+            
+            <div class="col-lg-1 col-md-1 col-2"><div class="text-center pgt-5" style="    height: 30px;
+              width: 50px;background-color: #f5f5f5 !important;color: black !important;"><span data-price="" id="stock_num"><script>document.write(new Intl.NumberFormat().format(parseFloat('{{ .Params.inventory }}')))</script></span></div></div>
+                     
+          </div>
+        </span>
         {{ if .Params.Variants }}
         <h5 class="pgt-10">SIZE:</h5>
         <div class="row pm-15 element-active" data-productidsold="{{ .Params.ProductID }}">
             {{ range .Params.Variants }}
-            <div class="col-lg-1 col-md-1 col-2" onclick="s_changePrice(this,'{{ .variant.ProductVariantID}}','{{ .variant.RetailPrice}}','{{ .variant.priceBefore}}','{{ .variant.Size }}')"><div class="rectangle-span text-center pgt-5 mouse-pointer"><span data-price="">{{ .variant.Size }}</span></div></div>
+            <div class="col-lg-1 col-md-1 col-2" onclick="s_changePrice(this,'{{ .variant.ProductVariantID}}','{{ .variant.RetailPrice}}','{{ .variant.priceBefore}}','{{ .variant.Size }}','{{ .variant.inventory }}')"><div class="rectangle-span text-center pgt-5 mouse-pointer"><span data-price="">{{ .variant.Size }}</span></div></div>
            
             {{ end }}
           
           </div>
         {{end}} 
+
         <div class="row mgt-15 pull-left">
           <!-- <div class="col-3 "><input type="number" name="" id=""
               class="form-control" style="width: 100%;"></div> -->
@@ -314,6 +324,7 @@ aria-labelledby="modelTitleId" aria-hidden="true">
             <br> <br> <br>
           </span>
             {{ end }}
+            
           <div class="d-flex align-items-center justify-content-center">
            
 
