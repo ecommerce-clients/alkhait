@@ -162,7 +162,7 @@
                     var toast = new Toasty(options);
                     toast.configure(options);
 
-                    toast.error(response);
+                    toast.error("Could not sign you in! Please try again...");
                     // document.getElementById("re_invaild_account").innerHTML = response;
                 }
                 $('#ec-overlay').hide()
