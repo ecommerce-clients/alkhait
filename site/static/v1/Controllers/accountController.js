@@ -9,13 +9,12 @@ try {
 
 // Your web app's Firebase configuration
     var firebaseConfig = {
-      apiKey: "AIzaSyDkjke06pLb_N3hRITZi3I9WpmCoOIzIbA",
-      authDomain: "login.eralive.net",
-      projectId: "login-3c236",
-      storageBucket: "login-3c236.appspot.com",
-      messagingSenderId: "335202469896",
-      appId: "1:335202469896:web:787dada04fb295675aa9bd",
-      measurementId: "G-W93PH9CPK9"
+  apiKey: "AIzaSyAxdMRbp7vzLQCL9596Vlugb42LpBAnhSk",
+  authDomain: "login.eralive.net",
+  projectId: "eralive-b4e71",
+  storageBucket: "eralive-b4e71.appspot.com",
+  messagingSenderId: "358101573616",
+  appId: "1:358101573616:web:1609e97f3f8cf0c8ef0735"
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
@@ -26,8 +25,10 @@ try {
 
 
   let Googleprovider = new firebase.auth.GoogleAuthProvider()
+  Googleprovider.addScope('email');
   let fbprovider = new firebase.auth.FacebookAuthProvider()
-
+  fbprovider.addScope('email');
+  
   function GoogleLogin() {
     console.log('Login Btn Call')
     firebase.auth().signInWithPopup(Googleprovider).then(res => {
