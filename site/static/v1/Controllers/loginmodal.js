@@ -79,7 +79,7 @@ function loginaccount(id,fname,email, pass, mode) {
                 var toast = new Toasty(options);
                 toast.configure(options);
 
-                toast.error(JSON.parse(response)[0].Error);
+                toast.error(JSON.parse("Could not sign you in! Please try again...");
                 // document.getElementById("le_invaild_account").innerHTML = JSON.parse(response)[0].Error;
             }
             $('#ec-overlay').hide()
